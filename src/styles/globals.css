@@ -26,7 +26,23 @@
 
 /* Variables */
 :root {
-  --blue: #57BBD7;
+  --background: #252829;
+  --white: white;
+  --blue: #57bbd7;
+  --green: #77bc82;
+  --grey: #b8b9bb;
+  --beige: #fff3f3;
+  --black-lighter: #373737;
+
+  --headline: 6rem;
+  --h2: 2.5rem;
+  --h3: 1.2rem;
+  --body: 1rem;
+  --small: 0.8rem;
+
+  --padding: 72px;
+
+  color-scheme: dark;
 }
 
 body {
@@ -34,17 +50,41 @@ body {
   font-weight: 400;
   margin: 0;
   padding: 0;
+  background-color: var(--background);
+  color: var(--white);
 }
 
+/* Text styles */
 h1 {
-  font-family: 'Inter', serif;
-  font-size: 2.5rem;
+  font-family: 'Edensor-Free', serif;
+  font-size: var(--headline);
+  margin: 0;
 }
 
+.body-bold {
+  font-weight: 600;
+  font-size: var(--body);
+}
+
+h2 {
+  font-family: 'Edensor-Free', serif;
+  font-size: var(--h2);
+}
+
+h3, .display3 {
+  font-size: var(--h3);
+  font-weight: 600;
+}
+
+p {
+  font-size: var(--body);
+}
+
+/* Button */
 .btn {
   color: var(--blue);
   font-weight: 600;
-  font-size: 1rem;
+  font-size: var(--body);
   display: inline-flex;
   padding: 12px 38px;
   border: solid 2px var(--blue);
@@ -55,7 +95,165 @@ h1 {
   transition: 0.3s;
 }
 
-.btn:hover {
+.btn:hover, .nav-active.btn {
   background-color: var(--blue);
   color: white;
+}
+
+/* Header */
+header {
+  display: flex;
+  width: 100%;
+  /* background-color: red; */
+  justify-content: space-between;
+  align-items: center;
+  padding: 16px var(--padding);
+  position: fixed;
+  top: 0;
+  z-index: 999;
+}
+
+nav ul {
+  display: flex;
+  align-items: center;
+  gap: 72px;
+}
+
+nav li {
+  list-style: none;
+}
+
+nav a {
+  text-decoration: none;
+  color: white;
+}
+
+.link {
+  position: relative;
+  transition: 0.2s;
+}
+
+.link::after {
+  position: absolute;
+  left: 0;
+  bottom: -4px;
+  content: '';
+  width: 0%;
+  height: 2px;
+  background-color: var(--blue);
+  transition: 0.2s;
+}
+
+.link:hover::after {
+  width: 100%;
+}
+
+.link:hover {
+  color: var(--blue);
+}
+
+.nav-active.link {
+  color: var(--blue);
+}
+
+/* Main */
+.hero {
+  position: relative;
+  background-image: url('../images/nuit-etoile.jpg');
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  height: 100vh;
+  /* filter: brightness(0.5); */
+
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.hero h1 {
+  font-size: var(--headline);
+  max-width: 800px;
+  text-align: center;
+  margin-bottom: 48px;
+}
+
+.hero-top {
+  display: flex;
+  align-items: center;
+  gap: 32px;
+}
+
+.hero-top .spacer{
+  width: 40px;
+  height: 2px;
+  display: block;
+  background-color: white;
+}
+
+.home_infos {
+  
+}
+
+/* Footer */
+footer {
+  background-color: var(--black-lighter);
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  padding: 20px var(--padding);
+}
+
+footer a {
+  text-decoration: none;
+  color: white;
+}
+
+footer h3 {
+  border-bottom: solid 2px white;
+  padding-bottom: 0.5vh;
+  width: fit-content;
+  margin-bottom: 1vh;
+}
+
+footer .footer_top {
+  display: flex;
+  flex-direction: row;
+  align-items: baseline;
+  justify-content: space-between;
+}
+
+footer .footer_top .footer_part2 {
+  display: flex;
+  flex-direction: column;
+}
+
+footer .footer_top .footer_part2 ul {
+  list-style: none;
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 2vh;
+}
+
+footer .footer_top .footer_part3 {
+  display: flex;
+  flex-direction: column;
+}
+
+footer .footer_top .footer_part3 .reseaux ul {
+  display: flex;
+  flex-direction: row;
+  gap: 20px;
+  padding: 0;
+  list-style: none;
+}
+
+footer .footer_bottom {
+  display: flex;
+  flex-direction: row;
+  gap: 5vw;
+  margin-top: 3vh;
+  justify-content: center;
 }

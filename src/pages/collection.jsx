@@ -1,11 +1,25 @@
+import { useState, useEffect } from 'react'
 import Head from 'next/head'
 import Link from 'next/link'
 import Image from 'next/image'
 import styles from '@/styles/Home.module.css'
-import NavBar from './components/navbar'
-import Footer from './components/footer'
 
 export default function Home() {
+
+  const [peintres, setPeintres] = useState([])
+
+  const fetchPeintres = async () => {
+    fetch('https://benadjal.butmmi.o2switch.site/api_resa_expo/peintres').then((response) => {
+      return response.json()
+    }).then((data) => {
+      setPeintres(data)
+    })
+  }
+
+  useEffect(() => {
+    fetchPeintres()
+  }, [])
+
   return (
     <>
       <Head>
@@ -14,11 +28,19 @@ export default function Home() {
         <meta name="viewport" content="width=device-width, initial-scale=1" />
         <link rel="icon" href="/favicon.ico" />
       </Head>
-      <NavBar />
-      <main>
-        <h1>Collection</h1>
-      </main>
-      <Footer />
+      <h2>LE CHOIX DES ARTISTES</h2>
+      {
+        peintres.map((peintre) => {
+          return (
+            <>
+            <div key={peintre.id_peintre}>
+              <h3>{peintre.nom_peintre}</h3>
+              <p>{peintre.description_peintre}</p>
+            </div>
+            </>
+          )
+        })
+      }
     </>
   )
 }

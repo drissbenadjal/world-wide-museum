@@ -2,8 +2,6 @@ import Head from 'next/head'
 import Link from 'next/link'
 import Image from 'next/image'
 import styles from '@/styles/Home.module.css'
-import NavBar from './components/navbar'
-import Footer from './components/footer'
 
 export default function Home() {
   return (
@@ -14,11 +12,9 @@ export default function Home() {
         <meta name="viewport" content="width=device-width, initial-scale=1" />
         <link rel="icon" href="/favicon.ico" />
       </Head>
-      <NavBar />
       <main>
         <h1>billeterie</h1>
       </main>
-      <Footer />
     </>
   )
 }
