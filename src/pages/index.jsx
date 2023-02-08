@@ -15,6 +15,9 @@ import Button from './components/button'
 import nuitEtoile from '../images/nuit-etoile.jpg'
 import pontNeuf from '../images/pont-neuf.jpg'
 import soleilLevant from '../images/soleil-levant.jpg'
+import navHero from '../images/hero/nav__hero.png'
+import radialHero from '../images/hero/radial__hero.png'
+
 
 export default function Home() {
 
@@ -49,7 +52,10 @@ export default function Home() {
             <span className='display3'>Compatible casque VR</span>
           </div>
           <h1>Entrez au coeur de limpressionnisme</h1>
-          <Button name="Rejoindre lexpérience" linkbtn="./billeterie"></Button>
+          <Button name="Rejoindre lexpérience" linkbtn="/billeterie"></Button>
+          <Image className="hero__bg" draggable="false" src={nuitEtoile} alt="" width="auto" height="auto" />
+          <Image className="nav__hero" draggable="false" src={navHero} alt="" width="auto" height="auto" />
+          <Image className="radial__hero" draggable="false" src={radialHero} alt="" width="auto" height="auto" />
         </section>
         <section className='home_infos'>
           <div className="home_infos_left">
