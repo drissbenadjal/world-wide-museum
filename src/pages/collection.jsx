@@ -55,7 +55,6 @@ export default function Home() {
                   <div className="collection_artists_presentation" key={peintre.id_peintre}>
                     <Image draggable="false" src={soleilLevant} alt="" width="auto" height="auto" />
                     <h3>{peintre.nom_peintre}</h3>
-                    <p>{peintre.description_peintre}</p>
                   </div>
                 </>
               )
@@ -64,18 +63,20 @@ export default function Home() {
         </div>
       </section>
 
-      <section className="collection_paintngs">
+      <section className="collection_paintings">
         <h2>LE CHOIX DES OEUVRES</h2>
-        <div className="collection_paintngs_list">
+        <div className="collection_paintings_list">
           {
             peintures.map((peinture) => {
               return (
                 <>
-                  <div className="collection_paintngs_presentation" key={peinture.id_tableau}>
+                  <div className="collection_paintings_presentation" key={peinture.id_tableau}>
                     <Image draggable="false" src={soleilLevant} alt="" width="auto" height="auto" />
-                    <h3>{peinture.nom_tableau}</h3>
-                    <p>{peinture.description_tableau}</p>
-                    <p>{peinture.date_tableau}</p>
+                    <div className="collection_paintings_presentation_txt">
+                      <p>{peinture.date_tableau}</p>
+                      <h3>{peinture.nom_peintre}, {peinture.nom_tableau}</h3>
+                      <Link href={`/oeuvre?id=${peinture.id_tableau}`} key={peinture.id_tableau}>En savoir plus →</Link>
+                    </div>
                   </div>
                 </>
               )

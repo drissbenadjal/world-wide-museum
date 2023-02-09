@@ -7,23 +7,26 @@ import { useRouter } from 'next/router';
 
 export default function Home() {
 
-  // const router = useRouter();
+  const router = useRouter();
 
-  // //verifier l'url si il y a /oeuvre/1
+  let id = router.query.id;
+  const [oeuvre, setOeuvre] = useState({});
 
-  // const [oeuvre, setOeuvre] = useState([])
+  const fetchOeuvre = async () => {
+    fetch('https://benadjal.butmmi.o2switch.site/api_resa_expo/tableaux/' + id)
+      .then(res => res.json())
+      .then(data => {
+        setOeuvre(data);
+        console.log(data);
+      })
+      .catch(err => console.log(err));
+  }
 
-  // const fetchOeuvre = async () => {
-  //   fetch('https://benadjal.butmmi.o2switch.site/api_resa_expo/tableaux/1').then((response) => {
-  //     return response.json()
-  //   }).then((data) => {
-  //     setOeuvre(data)
-  //   })
-  // }
-
-  // useEffect(() => {
-  //   fetchOeuvre()
-  // }, [])
+  //attendre qu'on ait le id
+  useEffect(() => {
+    if (!id) return;
+    fetchOeuvre();
+  });
 
   return (
     <>
@@ -35,8 +38,6 @@ export default function Home() {
       </Head>
       <main>
         <h1>Oeuvre</h1>
-        {/* <h2>{oeuvre.tableau.nom_tableau}</h2>
-        <p>{oeuvre.tableau.description_tableau}</p> */}
       </main>
     </>
   )

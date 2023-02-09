@@ -44,7 +44,7 @@
   --small: 0.8rem;
 
   --padding: 72px;
-  --max-width: 1300px;
+  --max-width: 1350px;
   --margin-end: 100px;
 
   color-scheme: dark;
@@ -287,7 +287,7 @@ nav a {
   display: flex;
   margin: auto;
   align-items: center;
-  padding: 100px var(--padding);
+  padding: 100px 0;
   max-width: var(--max-width);
   gap: 56px;
 }
@@ -314,30 +314,69 @@ nav a {
 
 .home_infos_right .nuitEtoile {
   top: 0;
-  right: 10%;
-  width: 75%;
+  right: 20%;
+  width: 60%;
   height: auto;
 }
 
 .home_infos_right .pontNeuf {
   bottom: 0;
   left: 0;
-  width: 50%;
+  width: 45%;
   height: auto;
 }
 
 .home_infos_right .soleilLevant {
   right: 0;
-  bottom: 8%;
+  bottom: 5%;
   width: 40%;
   height: auto;
+}
+
+.home_points {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  margin: auto;
+  align-items: baseline;
+  padding: 100px 0;
+  max-width: var(--max-width);
+  gap: 100px;
+}
+
+.home_points .home_points_element {
+  display: flex;
+  flex-direction: column;
+}
+
+.home_points .home_points_element .home_points_element_circle {
+  width: 60px;
+  height: 60px;
+  border-radius: 50%;
+  margin-bottom: 16px;
+}
+
+.circle_one {
+  background-color: var(--green);
+}
+
+.circle_two {
+  background-color: var(--blue);
+}
+
+.circle_three {
+  background-color: var(--beige);
+}
+
+.home_points .home_points_element h3 {
+  margin: 15px 0;
+  font-family: var(--secondary-font);
 }
 
 .home_oeuvres {
   margin: 0 auto;
   width: 100%;
   max-width: var(--max-width);
-  padding: 0 var(--padding);
 }
 
 .home__slider__wrapper {
@@ -452,7 +491,6 @@ nav a {
   max-width: var(--max-width);
   margin: auto;
   margin-bottom: var(--margin-end);
-  padding: 0 var(--padding);
 }
 
 .discover_infos .discover_infos_left h2 {
@@ -471,7 +509,6 @@ nav a {
   max-width: var(--max-width);
   margin: auto;
   margin-bottom: var(--margin-end);
-  padding: 0 var(--padding);
 }
 
 .discover_univers h2 {
@@ -539,20 +576,74 @@ nav a {
 }
 
 .collection_artists h2 {
-  margin-bottom: 35px;
+  margin-bottom: 50px;
 }
 
 .collection_artists_list {
   display: flex;
   flex-direction: row;
+  justify-content: space-between;
 }
 
 .collection_artists_presentation {
-  height: 400px;
-  width: 250px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 30px;
+}
+
+.collection_artists_presentation img {
+  height: 420px;
+  width: 290px;
   -o-object-fit: cover;
   object-fit: cover;
   border-radius: 160px;
+}
+
+.collection_artists_presentation h3 {
+  font-weight: 100;
+}
+
+.collection_paintings {
+  max-width: var(--max-width);
+  margin: auto;
+  margin-bottom: var(--margin-end);
+}
+
+.collection_paintings h2 {
+  margin-bottom: 50px;
+}
+
+.collection_paintings_presentation {
+  display: flex;
+  flex-direction: row;
+  gap: 33px;
+  margin-bottom: 40px;
+}
+
+.collection_paintings_presentation img {
+  width: 370px;
+  height: 270px;
+  -o-object-fit: cover;
+  object-fit: cover;
+}
+
+.collection_paintings_presentation_txt {
+  display: flex;
+  flex-direction: column;
+}
+
+.collection_paintings_presentation_txt p,
+.collection_paintings_presentation_txt h3 {
+  font-family: var(--secondary-font);
+  font-weight: 100;
+  font-size: 1.7rem;
+}
+
+.collection_paintings_presentation_txt a {
+  text-decoration: none;
+  color: var(--white);
+  margin-top: 30px;
 }
 
 /*Oeuvre*/
@@ -567,10 +658,76 @@ nav a {
 .billeterie {
   margin: 200px auto var(--margin-end) auto;
   max-width: var(--max-width);
-  padding: var(--padding);
+  padding: 0 var(--padding);
+}
+
+.billeterie__head {
+  margin-bottom: 56px;
+}
+
+.billeterie__content {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  gap: 40px;
+}
+
+.billeterie__left {
+  display: flex;
+  gap: 32px;
+}
+
+.billeterie__left>div {
+  margin-top: 24px;
+}
+
+.billeterie__left img {
+  -o-object-fit: cover;
+  object-fit: cover;
+}
+
+.expo__date {
+  margin-top: 8px;
+  margin-bottom: 24px;
+}
+
+.placeSelector {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 32px;
+  min-width: 210px;
+}
+
+/* Field */
+.field {}
+
+.field label {
+  margin-bottom: 16px;
+  display: block;
+}
+
+.field input {
+  border: none;
+  border-radius: 2px;
+  background-color: var(--black-lighter);
+  height: 56px;
 }
 
 
+.field input::-webkit-input-placeholder {}
+
+
+.field input::-moz-placeholder {}
+
+
+.field input:-ms-input-placeholder {}
+
+
+.field input::-ms-input-placeholder {}
+
+
+.field input::placeholder {}
 
 /* Footer */
 footer {

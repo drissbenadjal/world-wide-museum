@@ -113,6 +113,29 @@ export default function Home() {
             <Image draggable="false" src={soleilLevant} alt="" width="auto" height="auto" className="soleilLevant" />
           </div>
         </section>
+        <section className="home_points">
+          <div className="home_points_element">
+            <div className="home_points_element_circle circle_one">
+
+            </div>
+            <h3>Première information</h3>
+            <p>Sit quaerat sunt sit quod fugit eos neque accusamus At voluptatem dolorum a alias optio eum distinctio sint eum unde veritatis. </p>
+          </div>
+          <div className="home_points_element">
+            <div className="home_points_element_circle circle_two">
+
+            </div>
+            <h3>Deuxième information</h3>
+            <p>Sit quaerat sunt sit quod fugit eos neque accusamus At voluptatem dolorum a alias optio eum distinctio sint eum unde veritatis. </p>
+          </div>
+          <div className="home_points_element">
+            <div className="home_points_element_circle circle_three">
+
+            </div>
+            <h3>Troisième information</h3>
+            <p>Sit quaerat sunt sit quod fugit eos neque accusamus At voluptatem dolorum a alias optio eum distinctio sint eum unde veritatis. </p>
+          </div>
+        </section>
         <section className="home_oeuvres">
           <h2>DÉCOUVRIR LES OEUVRES</h2>
           <div className="home__slider__wrapper">

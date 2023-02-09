@@ -1,3 +1,5 @@
+import { useState, useEffect } from 'react'
+
 import Head from 'next/head'
 import Link from 'next/link'
 import Image from 'next/image'
@@ -5,8 +7,39 @@ import styles from '@/styles/Home.module.css'
 
 // Import Images
 import nuitEtoile from '../images/nuit-etoile.jpg'
+import minusBtn from '../images/icons/minus__button.svg'
+import plusBtn from '../images/icons/plus__button.svg'
 
 export default function Home() {
+
+  const [place, setPlace] = useState(1);
+  const [textPlace, setTextPlace] = useState();
+
+  const handlePlus = () => {
+    if (place >= 10) {
+      setPlace(10);
+    } else {
+      setPlace(place + 1);
+    }
+  }
+
+  const handleMinus = () => {
+    if (place <= 1) {
+      setPlace(1);
+    } else {
+      setPlace(place - 1);
+    }
+  }
+
+
+  useEffect(() => {
+    if (place == 1) {
+      setTextPlace(place + ' place');
+    } else {
+      setTextPlace(place + ' places');
+    }
+  }, [place]);
+
   return (
     <>
       <Head>
@@ -16,11 +49,33 @@ export default function Home() {
         <link rel="icon" href="/favicon.ico" />
       </Head>
       <main className="billeterie">
-        <h1 className="display2 billeterie-head">Plus qu’une étape avant de rejoindre l’expérience...</h1>
+        <h1 className="display2 billeterie__head">Plus qu’une étape avant de rejoindre l’expérience...</h1>
         <div className="billeterie__content">
           <div className="billeterie__left">
             <Image draggable="false" src={nuitEtoile} alt="" width="200" height="200" />
+            <div>
+              <h3>Nom de lexposition</h3>
+              <div className="expo__date">Du 10 mars au 10 avril 2023</div>
+              <div className="placeSelector">
+                <button onClick={() => handleMinus()} id="minusBtn">
+                  <Image draggable="false" src={minusBtn} alt="" width="32" height="32" />
+                </button>
+                <div>
+                  <span>{textPlace}</span>
+                </div>
+                <button onClick={() => handlePlus()} id="plusBtn">
+                  <Image draggable="false" src={plusBtn} alt="" width="32" height="32" />
+                </button>
+              </div>
+            </div>
           </div>
+          <form action="" method="POST">
+            <div className="field">
+              <label className="display3" htmlFor="first-name">Prénom</label>
+              <input type="text" name="first-name" id="first-name" placeholder="test" />
+              <div className="caption">Le mot de passe doit contenir au minimum 6 caractères dont 1 majuscule et 1 chiffre.</div>
+            </div>
+          </form>
         </div>
       </main>
     </>
