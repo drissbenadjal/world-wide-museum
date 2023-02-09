@@ -1,9 +1,30 @@
+import { useState, useEffect } from 'react'
 import Head from 'next/head'
 import Link from 'next/link'
 import Image from 'next/image'
 import styles from '@/styles/Home.module.css'
+import { useRouter } from 'next/router';
 
 export default function Home() {
+
+  // const router = useRouter();
+
+  // //verifier l'url si il y a /oeuvre/1
+
+  // const [oeuvre, setOeuvre] = useState([])
+
+  // const fetchOeuvre = async () => {
+  //   fetch('https://benadjal.butmmi.o2switch.site/api_resa_expo/tableaux/1').then((response) => {
+  //     return response.json()
+  //   }).then((data) => {
+  //     setOeuvre(data)
+  //   })
+  // }
+
+  // useEffect(() => {
+  //   fetchOeuvre()
+  // }, [])
+
   return (
     <>
       <Head>
@@ -14,6 +35,8 @@ export default function Home() {
       </Head>
       <main>
         <h1>Oeuvre</h1>
+        {/* <h2>{oeuvre.tableau.nom_tableau}</h2>
+        <p>{oeuvre.tableau.description_tableau}</p> */}
       </main>
     </>
   )

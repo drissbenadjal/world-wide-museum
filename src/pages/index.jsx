@@ -8,7 +8,7 @@ import styles from '@/styles/Home.module.css'
 
 
 // import Components
-import Button from './components/button'
+import Button from '../components/button'
 
 
 // import Images
@@ -63,9 +63,9 @@ export default function Home() {
             <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Porro explicabo voluptatem qui atque quam quaerat consequatur blanditiis hic vitae aperiam corporis provident, quo eum ullam veritatis eligendi eaque ex tempora placeat, unde, omnis maiores modi repudiandae quia. Similique, inventore incidunt in facilis nemo commodi suscipit fuga ipsum tempora excepturi ipsam omnis a aperiam? Laudantium numquam ad omnis officia ipsa magni debitis hic velit itaque corrupti cum, non unde adipisci nostrum maxime perspiciatis aliquid similique, dolorum officiis maiores inventore minima autem? Velit illum at maiores sed accusantium dolorum voluptate unde possimus quo magni commodi animi doloremque distinctio reiciendis, obcaecati magnam. Sint?</p>
           </div>
           <div className='home_infos_right'>
-            <Image draggable="false" src={nuitEtoile} alt="" width={500} />
-            <Image draggable="false" src={pontNeuf} alt="" width={500} />
-            <Image draggable="false" src={soleilLevant} alt="" width={500} />
+            <Image draggable="false" src={nuitEtoile} alt="" width="auto" height="auto" className="nuitEtoile" />
+            <Image draggable="false" src={pontNeuf} alt="" width="auto" height="auto" className="pontNeuf" />
+            <Image draggable="false" src={soleilLevant} alt="" width="auto" height="auto" className="soleilLevant" />
           </div>
         </section>
         <section>
@@ -74,9 +74,10 @@ export default function Home() {
             peintures.map((peinture) => {
               return (
                 <>
-                  <Link href={`/tableau/${peinture.id_tableau}`} key={peinture.id_tableau}>
+                  <Link href={`/oeuvre?id=${peinture.id_tableau}`} key={peinture.id_tableau} className="oeuvre-card">
                     <h3>{peinture.nom_tableau}</h3>
                     <p>{peinture.nom_peintre}</p>
+                    <Image draggable="false" src={nuitEtoile} alt="" width="auto" height="auto" />
                   </Link>
                 </>
               )

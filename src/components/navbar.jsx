@@ -10,9 +10,9 @@ export default function NavBar() {
     return (
         <>
             <header>
-            <Link href="/">
-                <Image src="/logo.png" alt="logo" width={100} height={100} />
-            </Link>
+                <Link href="/">
+                    <Image src="/logo.png" alt="logo" width={100} height={100} />
+                </Link>
                 <nav>
                     <ul>
                         <li>
