@@ -18,6 +18,9 @@ import soleilLevant from '../images/soleil-levant.jpg'
 import navHero from '../images/hero/nav__hero.png'
 import radialHero from '../images/hero/radial__hero.png'
 
+//import icons
+import arrow from '../images/icons/arrow_white.svg'
+
 
 export default function Home() {
 
@@ -34,6 +37,48 @@ export default function Home() {
   useEffect(() => {
     fetchPeintures()
   }, [])
+
+  useEffect(() => {
+    // Slider
+    const gap = 32;
+
+    const carouselContainer = document.querySelector(
+      ".home__slider__container"
+    );
+    const carousel = document.querySelector(".home__slider");
+    const next = document.querySelector(".home__slider__btn--right");
+    const prev = document.querySelector(".home__slider__btn--left");
+
+    next.addEventListener("click", (e) => {
+      carouselContainer.scrollBy(width + gap, 0);
+    });
+    prev.addEventListener("click", (e) => {
+      carouselContainer.scrollBy(-(width + gap), 0);
+    });
+
+    carouselContainer.addEventListener("scroll", () => {
+      if (carouselContainer.scrollLeft != 0) {
+        prev.disabled = false;
+      } else {
+        prev.disabled = true;
+      }
+
+      if (
+        carouselContainer.offsetWidth + carouselContainer.scrollLeft >=
+        carouselContainer.scrollWidth
+      ) {
+        next.disabled = true;
+      } else {
+        next.disabled = false;
+      }
+    });
+
+    let width = carouselContainer.offsetWidth;
+    window.addEventListener(
+      "resize",
+      (e) => (width = carouselContainer.offsetWidth)
+    );
+  })
 
   return (
     <>
@@ -68,21 +113,35 @@ export default function Home() {
             <Image draggable="false" src={soleilLevant} alt="" width="auto" height="auto" className="soleilLevant" />
           </div>
         </section>
-        <section>
+        <section className="home_oeuvres">
           <h2>DÉCOUVRIR LES OEUVRES</h2>
-          {
-            peintures.map((peinture) => {
-              return (
-                <>
-                  <Link href={`/oeuvre?id=${peinture.id_tableau}`} key={peinture.id_tableau} className="oeuvre-card">
-                    <h3>{peinture.nom_tableau}</h3>
-                    <p>{peinture.nom_peintre}</p>
-                    <Image draggable="false" src={nuitEtoile} alt="" width="auto" height="auto" />
-                  </Link>
-                </>
-              )
-            })
-          }
+          <div className="home__slider__wrapper">
+            <div className="home__slider__container">
+              <div className="home__slider">
+                {
+                  peintures.map((peinture) => {
+                    return (
+                      <>
+                        <Link href={`/oeuvre?id=${peinture.id_tableau}`} key={peinture.id_tableau} className="oeuvre-card">
+                          <div className="oeuvre_infos">
+                            <h3 className="display2">{peinture.nom_tableau}</h3>
+                            <div className="spacer"></div>
+                            <p className="display3">{peinture.nom_peintre}</p>
+                          </div>
+                          <Image draggable="false" src={nuitEtoile} alt="" width="auto" height="auto" />
+                        </Link>
+                      </>
+                    )
+                  })
+                }
+              </div>
+
+            </div>
+            <div className="home__slider__btns">
+              <button className="home__slider__btn--left" disabled><Image draggable="false" src={arrow} alt="" width="auto" height="auto" /></button>
+              <button className="home__slider__btn--right"><Image draggable="false" src={arrow} alt="" width="auto" height="auto" /></button>
+            </div>
+          </div>
         </section>
       </main>
     </>

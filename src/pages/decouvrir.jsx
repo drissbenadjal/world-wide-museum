@@ -5,9 +5,11 @@ import styles from '@/styles/Home.module.css'
 
 // import Components
 import Button from '../components/button'
+import BannerTop from '../components/banner_top'
 
 // import Images
 import nuitEtoile from '../images/nuit-etoile.jpg'
+import appVR from '../images/app.webp'
 
 
 export default function Home() {
@@ -20,10 +22,7 @@ export default function Home() {
         <link rel="icon" href="/favicon.ico" />
       </Head>
       <main>
-        <section className="discover_haut">
-          <Image draggable="false" src={nuitEtoile} alt="" width="auto" height="auto" />
-          <h1>WORLD WIDE MUSEUM</h1>
-        </section>
+        <BannerTop name="WORLD WIDE MUSEUM" image={nuitEtoile} />
         <section className="discover_infos">
           <div className="discover_infos_left">
             <h2>Présentation du Projet</h2>
@@ -52,7 +51,7 @@ export default function Home() {
 
         <section className="discover_app">
           <div className="discover_app_left">
-
+            <Image draggable="false" src={appVR} alt="" width="auto" height="auto" />
           </div>
           <div className="discover_app_right">
             <h2>Application</h2>

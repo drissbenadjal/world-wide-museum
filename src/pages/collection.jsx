@@ -4,9 +4,16 @@ import Link from 'next/link'
 import Image from 'next/image'
 import styles from '@/styles/Home.module.css'
 
+// import Components
+import BannerTop from '../components/banner_top'
+
+// import Images
+import soleilLevant from '../images/soleil-levant.jpg'
+
 export default function Home() {
 
   const [peintres, setPeintres] = useState([])
+  const [peintures, setPeintures] = useState([])
 
   const fetchPeintres = async () => {
     fetch('https://benadjal.butmmi.o2switch.site/api_resa_expo/peintres').then((response) => {
@@ -16,8 +23,17 @@ export default function Home() {
     })
   }
 
+  const fetchPeintures = async () => {
+    fetch('https://benadjal.butmmi.o2switch.site/api_resa_expo/tableaux').then((response) => {
+      return response.json()
+    }).then((data) => {
+      setPeintures(data)
+    })
+  }
+
   useEffect(() => {
     fetchPeintres()
+    fetchPeintures()
   }, [])
 
   return (
@@ -28,19 +44,45 @@ export default function Home() {
         <meta name="viewport" content="width=device-width, initial-scale=1" />
         <link rel="icon" href="/favicon.ico" />
       </Head>
-      <h2>LE CHOIX DES ARTISTES</h2>
-      {
-        peintres.map((peintre) => {
-          return (
-            <>
-            <div key={peintre.id_peintre}>
-              <h3>{peintre.nom_peintre}</h3>
-              <p>{peintre.description_peintre}</p>
-            </div>
-            </>
-          )
-        })
-      }
+      <BannerTop name="DECOUVRIR NOTRE COLLECTION" image={soleilLevant} />
+      <section className="collection_artists">
+        <h2>LE CHOIX DES ARTISTES</h2>
+        <div className="collection_artists_list">
+          {
+            peintres.map((peintre) => {
+              return (
+                <>
+                  <div className="collection_artists_presentation" key={peintre.id_peintre}>
+                    <Image draggable="false" src={soleilLevant} alt="" width="auto" height="auto" />
+                    <h3>{peintre.nom_peintre}</h3>
+                    <p>{peintre.description_peintre}</p>
+                  </div>
+                </>
+              )
+            })
+          }
+        </div>
+      </section>
+
+      <section className="collection_paintngs">
+        <h2>LE CHOIX DES OEUVRES</h2>
+        <div className="collection_paintngs_list">
+          {
+            peintures.map((peinture) => {
+              return (
+                <>
+                  <div className="collection_paintngs_presentation" key={peinture.id_tableau}>
+                    <Image draggable="false" src={soleilLevant} alt="" width="auto" height="auto" />
+                    <h3>{peinture.nom_tableau}</h3>
+                    <p>{peinture.description_tableau}</p>
+                    <p>{peinture.date_tableau}</p>
+                  </div>
+                </>
+              )
+            })
+          }
+        </div>
+      </section>
     </>
   )
 }

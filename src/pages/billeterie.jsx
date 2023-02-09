@@ -3,6 +3,9 @@ import Link from 'next/link'
 import Image from 'next/image'
 import styles from '@/styles/Home.module.css'
 
+// Import Images
+import nuitEtoile from '../images/nuit-etoile.jpg'
+
 export default function Home() {
   return (
     <>
@@ -12,8 +15,13 @@ export default function Home() {
         <meta name="viewport" content="width=device-width, initial-scale=1" />
         <link rel="icon" href="/favicon.ico" />
       </Head>
-      <main>
-        <h1>billeterie</h1>
+      <main className="billeterie">
+        <h1 className="display2 billeterie-head">Plus qu’une étape avant de rejoindre l’expérience...</h1>
+        <div className="billeterie__content">
+          <div className="billeterie__left">
+            <Image draggable="false" src={nuitEtoile} alt="" width="200" height="200" />
+          </div>
+        </div>
       </main>
     </>
   )
