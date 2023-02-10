@@ -59,6 +59,10 @@ body {
   color: var(--white);
 }
 
+img {
+  -webkit-user-select: none;
+}
+
 button {
   background: none;
   border: none;
