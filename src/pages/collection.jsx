@@ -44,46 +44,50 @@ export default function Home() {
         <meta name="viewport" content="width=device-width, initial-scale=1" />
         <link rel="icon" href="/favicon.ico" />
       </Head>
-      <BannerTop name="DECOUVRIR NOTRE COLLECTION" image={soleilLevant} />
-      <section className="collection_artists">
-        <h2>LE CHOIX DES ARTISTES</h2>
-        <div className="collection_artists_list">
-          {
-            peintres.map((peintre) => {
-              return (
-                <>
-                  <div className="collection_artists_presentation" key={peintre.id_peintre}>
-                    <Image draggable="false" src={soleilLevant} alt="" width="auto" height="auto" />
-                    <h3>{peintre.nom_peintre}</h3>
-                  </div>
-                </>
-              )
-            })
-          }
-        </div>
-      </section>
-
-      <section className="collection_paintings">
-        <h2>LE CHOIX DES OEUVRES</h2>
-        <div className="collection_paintings_list">
-          {
-            peintures.map((peinture) => {
-              return (
-                <>
-                  <div className="collection_paintings_presentation" key={peinture.id_tableau}>
-                    <Image draggable="false" src={soleilLevant} alt="" width="auto" height="auto" />
-                    <div className="collection_paintings_presentation_txt">
-                      <p>{peinture.date_tableau}</p>
-                      <h3>{peinture.nom_peintre}, {peinture.nom_tableau}</h3>
-                      <Link href={`/oeuvre?id=${peinture.id_tableau}`} key={peinture.id_tableau}>En savoir plus →</Link>
+      <main>
+        <BannerTop name="DECOUVRIR NOTRE COLLECTION" image={soleilLevant} />
+        <section className="collection_artists">
+          <h2>LE CHOIX DES ARTISTES</h2>
+          <div className="collection_artists_list">
+            {
+              peintres.map((peintre) => {
+                return (
+                  <>
+                    <div className="collection_artists_presentation" key={peintre.id_peintre}>
+                      <Image draggable="false" src={soleilLevant} alt="" width="auto" height="auto" />
+                      <h3>{peintre.nom_peintre}</h3>
                     </div>
-                  </div>
-                </>
-              )
-            })
-          }
-        </div>
-      </section>
+                  </>
+                )
+              })
+            }
+          </div>
+        </section>
+
+        <section className="collection_paintings">
+          <h2>LE CHOIX DES OEUVRES</h2>
+          <div className="collection_paintings_list">
+            {
+              peintures.map((peinture) => {
+                return (
+                  <>
+                    <Link href={`/oeuvre?id=${peinture.id_tableau}`} key={peinture.id_tableau}>
+                      <div className="collection_paintings_presentation" key={peinture.id_tableau}>
+                        <Image draggable="false" src={soleilLevant} alt="" width="auto" height="auto" />
+                        <div className="collection_paintings_presentation_txt">
+                          <p>{peinture.date_tableau}</p>
+                          <h3>{peinture.nom_peintre}, {peinture.nom_tableau}</h3>
+                          <Link href={`/oeuvre?id=${peinture.id_tableau}`} key={peinture.id_tableau}>En savoir plus →</Link>
+                        </div>
+                      </div>
+                    </Link>
+                  </>
+                )
+              })
+            }
+          </div>
+        </section>
+      </main>
     </>
   )
 }

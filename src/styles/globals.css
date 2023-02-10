@@ -71,6 +71,10 @@ button {
   padding: 0;
 }
 
+input {
+  font-family: var(--main-font);
+}
+
 /* Text styles */
 h1 {
   font-family: var(--secondary-font), serif;
@@ -110,6 +114,10 @@ p {
   margin: 0;
 }
 
+.small {
+  font-size: 0.875rem;
+}
+
 /* Button */
 .btn {
   color: var(--blue);
@@ -124,6 +132,8 @@ p {
   border-radius: 2px;
   text-decoration: none;
   transition: 0.3s;
+  background-color: transparent;
+  cursor: pointer;
 }
 
 .btn:hover,
@@ -618,6 +628,11 @@ nav a {
   margin-bottom: 50px;
 }
 
+.collection_paintings_list a {
+  text-decoration: none;
+  color: var(--white);
+}
+
 .collection_paintings_presentation {
   display: flex;
   flex-direction: row;
@@ -652,10 +667,62 @@ nav a {
 
 /*Oeuvre*/
 
+.oeuvrepage {
+  margin-top: 200px;
+}
 
+.oeuvrepage_ariane {
+  display: flex;
+  flex-direction: row;
+  gap: 10px;
+  max-width: var(--max-width);
+  margin: auto;
+  margin-bottom: var(--margin-end);
+}
 
+.oeuvrepage_ariane a {
+  text-decoration: none;
+  color: var(--white);
+}
 
+.oeuvrepage_infos {
+  display: flex;
+  flex-direction: column;
+  max-width: var(--max-width);
+  margin: auto;
+  margin-bottom: var(--margin-end);
+}
 
+.oeuvrepage_infos_details {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  margin-bottom: var(--margin-end);
+}
+
+.oeuvrepage_infos_titre {
+  margin-bottom: 70px;
+}
+
+.oeuvrepage_infos_titre h2 {
+  font-family: var(--main-font);
+  font-weight: 100;
+}
+
+.oeuvrepage_infos_titre .oeuvrepage_infos_details {
+  display: flex;
+  flex-direction: row;
+}
+
+.oeuvrepage_infos .oeuvrepage_infos_details_image {
+  width: 40%;
+}
+
+.oeuvrepage_infos .oeuvrepage_infos_details_txt {
+  display: flex;
+  flex-direction: column;
+  width: 50%;
+}
 
 
 /* Billeterie */
@@ -681,13 +748,17 @@ nav a {
   gap: 32px;
 }
 
-.billeterie__left>div {
+/* .billeterie__left>div {
   margin-top: 24px;
-}
+} */
 
 .billeterie__left img {
   -o-object-fit: cover;
   object-fit: cover;
+}
+
+.billeterie__left .place {
+  font-size: 1.1rem;
 }
 
 .expo__date {
@@ -703,11 +774,20 @@ nav a {
   min-width: 210px;
 }
 
+.billeterie__content form {
+  width: 100%;
+}
+
+
+
 /* Field */
-.field {}
+
+.field {
+  margin-bottom: 40px;
+}
 
 .field label {
-  margin-bottom: 16px;
+  margin-bottom: 8px;
   display: block;
 }
 
@@ -716,22 +796,70 @@ nav a {
   border-radius: 2px;
   background-color: var(--black-lighter);
   height: 56px;
+  width: 100%;
+  padding: 16px;
+  font-size: 1rem;
+
 }
 
+.field input:focus {
+  outline-color: var(--blue);
+}
 
-.field input::-webkit-input-placeholder {}
+.field input::-webkit-input-placeholder {
+  font-size: 16px;
+  color: var(--grey);
+}
 
+.field input::-moz-placeholder {
+  font-size: 16px;
+  color: var(--grey);
+}
 
-.field input::-moz-placeholder {}
+.field input:-ms-input-placeholder {
+  font-size: 16px;
+  color: var(--grey);
+}
 
+.field input::-ms-input-placeholder {
+  font-size: 16px;
+  color: var(--grey);
+}
 
-.field input:-ms-input-placeholder {}
+.field input::placeholder {
+  font-size: 16px;
+  color: var(--grey);
+}
 
+.field .caption {
+  margin-top: 8px;
+  color: var(--grey);
+}
 
-.field input::-ms-input-placeholder {}
+select {
+  width: 100%;
+  border: none;
+  padding: 16px;
+  border-radius: 2px;
+}
 
+input[type="date"] {
+  color: var(--grey);
+  /* Selectionner changer color */
+}
 
-.field input::placeholder {}
+select {
+  font-size: 1rem;
+  color: var(--grey);
+}
+
+select:focus {
+  outline-color: var(--blue);
+}
+
+select option {
+  color: red;
+}
 
 /* Footer */
 footer {

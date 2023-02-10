@@ -10,6 +10,7 @@ export default function Home() {
   const router = useRouter();
 
   let id = router.query.id;
+  let Loading = true;
   const [oeuvre, setOeuvre] = useState({});
 
   const fetchOeuvre = async () => {
@@ -17,7 +18,7 @@ export default function Home() {
       .then(res => res.json())
       .then(data => {
         setOeuvre(data);
-        console.log(data);
+        Loading = false;
       })
       .catch(err => console.log(err));
   }
@@ -36,8 +37,28 @@ export default function Home() {
         <meta name="viewport" content="width=device-width, initial-scale=1" />
         <link rel="icon" href="/favicon.ico" />
       </Head>
-      <main>
-        <h1>Oeuvre</h1>
+      <main className="oeuvrepage">
+        <div className="oeuvrepage_ariane">
+          <Link href="/">Accueil</Link>
+          <span> / </span>
+          <Link href="/collection">Collection</Link>
+          <span> / </span>
+          <Link href="/oeuvre">Tableau</Link>
+        </div>
+        <section className="oeuvrepage_infos">
+          <div className="oeuvrepage_infos_titre">
+            <h1>NOM DE LOEUVRE, 1881</h1>
+            <h2>Nom de lAuteur</h2>
+          </div>
+          <div className="oeuvrepage_infos_details">
+            <div className="oeuvrepage_infos_details_image">
+            </div>
+            <div className="oeuvrepage_infos_details_txt">
+              <p>Lorem ipsum dolor sit amet. Est rerum vero qui sequi nobis sed fugiat ratione. Et quia repellat aut mollitia neque aut accusamus ullam sit voluptas distinctio non accusantium dolor qui perferendis dolorem ea sint nihil.</p>
+              <p>Eos incidunt placeat est aliquam sapiente quo ullam enim est animi minima ut deleniti voluptatem est vitae galisum non maxime omnis. Ut nostrum repellat sit nobis quia est adipisci voluptatem ab maiores eligendi aut molestiae reiciendis in atque quaerat quo omnis velit!</p>
+            </div>
+          </div>
+        </section>
       </main>
     </>
   )

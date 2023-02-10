@@ -4,6 +4,7 @@ import Head from 'next/head'
 import Link from 'next/link'
 import Image from 'next/image'
 import styles from '@/styles/Home.module.css'
+import Button from '../components/button'
 
 // Import Images
 import nuitEtoile from '../images/nuit-etoile.jpg'
@@ -52,19 +53,19 @@ export default function Home() {
         <h1 className="display2 billeterie__head">Plus qu’une étape avant de rejoindre l’expérience...</h1>
         <div className="billeterie__content">
           <div className="billeterie__left">
-            <Image draggable="false" src={nuitEtoile} alt="" width="200" height="200" />
+            <Image draggable="false" src={nuitEtoile} alt="" width="250" height="250" />
             <div>
               <h3>Nom de lexposition</h3>
               <div className="expo__date">Du 10 mars au 10 avril 2023</div>
               <div className="placeSelector">
                 <button onClick={() => handleMinus()} id="minusBtn">
-                  <Image draggable="false" src={minusBtn} alt="" width="32" height="32" />
+                  <Image draggable="false" src={minusBtn} alt="" width="33" height="33" />
                 </button>
-                <div>
+                <div className="place">
                   <span>{textPlace}</span>
                 </div>
                 <button onClick={() => handlePlus()} id="plusBtn">
-                  <Image draggable="false" src={plusBtn} alt="" width="32" height="32" />
+                  <Image draggable="false" src={plusBtn} alt="" width="33" height="33" />
                 </button>
               </div>
             </div>
@@ -72,9 +73,33 @@ export default function Home() {
           <form action="" method="POST">
             <div className="field">
               <label className="display3" htmlFor="first-name">Prénom</label>
-              <input type="text" name="first-name" id="first-name" placeholder="test" />
-              <div className="caption">Le mot de passe doit contenir au minimum 6 caractères dont 1 majuscule et 1 chiffre.</div>
+              <input type="text" name="first-name" id="first-name" placeholder="Saisissez votre prénom" />
             </div>
+            <div className="field">
+              <label className="display3" htmlFor="last-name">Nom</label>
+              <input type="text" name="last-name" id="last-name" placeholder="Saisissez votre nom" />
+            </div>
+            <div className="field">
+              <label className="display3" htmlFor="mail">Prénom</label>
+              <input type="email" name="mail" id="mail" placeholder="exemple@gmail.com" />
+            </div>
+            <div className="field">
+              <label className="display3" htmlFor="date">Date</label>
+              <input type="date" name="date" id="date" placeholder="Sélectionner une date" />
+            </div>
+            <div className="field">
+              <label className="display3" htmlFor="horaire">Horaire</label>
+              {/* <input type="date" name="date" id="date" placeholder="Sélectionner une date" /> */}
+              <select name="horaire" id="horaire">
+                <option value="">Sélectionner un créneau</option>
+                <option value="">14:00 - 15:00</option>
+                <option value="">15:00 - 16:00</option>
+                <option value="">16:00 - 17:00</option>
+                <option value="">17:00 - 18:00</option>
+                <option value="">19:00 - 19:00</option>
+              </select>
+            </div>
+            <input type="submit" value="Confirmer la réservation" className="btn" />
           </form>
         </div>
       </main>
