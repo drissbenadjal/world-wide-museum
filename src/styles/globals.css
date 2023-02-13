@@ -47,6 +47,9 @@
   --max-width: 1350px;
   --margin-end: 100px;
 
+  --responsive-margin: auto 3vw var(--margin-end) 3vw;
+  --responsive-padding: 0 3vw;
+
   color-scheme: dark;
 }
 
@@ -492,9 +495,9 @@ nav a {
 .banner__top h1 {
   padding: 0 var(--padding);
   position: relative;
-  bottom: 16vh;
+  bottom: 11vh;
   font-size: calc(2rem + 5vw);
-  width: 70vw;
+  width: 95vw;
 }
 
 .discover_infos {
@@ -583,11 +586,15 @@ nav a {
 
 @media screen and (max-width: 1400px) {
   .discover_infos {
-    padding: 0 3vw;
+    padding: var(--responsive-padding);
   }
 
   .discover_univers {
-    padding: 0 3vw;
+    padding: var(--responsive-padding);
+  }
+
+  .discover_app {
+    margin: var(--responsive-margin);
   }
 }
 
@@ -737,6 +744,12 @@ nav a {
   margin-bottom: 40px;
 }
 
+.collection_paintings_list_element:nth-child(3) .collection_paintings_presentation,
+.collection_paintings_list_element:nth-child(4) .collection_paintings_presentation {
+  flex-direction: row-reverse;
+  text-align: right;
+}
+
 .collection_paintings_presentation img {
   width: 370px;
   height: 270px;
@@ -756,14 +769,16 @@ nav a {
   font-size: 1.7rem;
 }
 
-.collection_paintings_presentation_txt a {
+.collection_paintings_presentation_txt span {
   text-decoration: none;
   color: var(--white);
   margin-top: 30px;
 }
 
-.collection_paintings_list_element {
-  background-color: red;
+@media screen and (max-width: 550px) {
+  .banner__top h1 {
+    font-size: calc(2rem + 4vw);
+  }
 }
 
 /*Oeuvre*/
