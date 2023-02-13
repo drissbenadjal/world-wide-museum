@@ -71,7 +71,7 @@ export default function Home() {
             {
               peintures.map((peinture) => {
                 return (
-                  <Link href={`/oeuvre?id=${peinture.id_tableau}`} key={peinture.id_tableau}>
+                  <Link href={`/oeuvre?id=${peinture.id_tableau}`} className="collection_paintings_list_element" key={peinture.id_tableau}>
                     <div className="collection_paintings_presentation" key={peinture.id_tableau}>
                       <Image draggable="false" src={soleilLevant} alt="" width="auto" height="auto" />
                       <div className="collection_paintings_presentation_txt">

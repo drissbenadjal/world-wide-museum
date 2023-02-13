@@ -762,6 +762,10 @@ nav a {
   margin-top: 30px;
 }
 
+.collection_paintings_list_element {
+  background-color: red;
+}
+
 /*Oeuvre*/
 
 .oeuvrepage {
