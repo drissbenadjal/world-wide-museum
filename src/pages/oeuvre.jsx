@@ -1,4 +1,4 @@
-import { useState, useEffect } from 'react'
+import { useState, useEffect, useRef } from 'react'
 import Head from 'next/head'
 import Link from 'next/link'
 import Image from 'next/image'
@@ -13,6 +13,12 @@ export default function Home() {
   let Loading = true;
   const [oeuvre, setOeuvre] = useState({});
 
+  const titre = useRef(null);
+  const auteur = useRef(null);
+  const description = useRef(null);
+  const image = useRef(null);
+  const idOeuvre = useRef(null);
+
   const fetchOeuvre = async () => {
     fetch('https://benadjal.butmmi.o2switch.site/api_resa_expo/tableaux/' + id)
       .then(res => res.json())
@@ -23,11 +29,16 @@ export default function Home() {
       .catch(err => console.log(err));
   }
 
-  //attendre qu'on ait le id
+
   useEffect(() => {
     if (!id) return;
     fetchOeuvre();
-  });
+  }, [id]);
+
+  // useEffect(() => {
+  //   if (oeuvre.length === 0) return;
+  //   titre.current.innerHTML = oeuvre.tableau.nom_tableau;
+  // }, [id]);
 
   return (
     <>
@@ -43,17 +54,17 @@ export default function Home() {
           <span> / </span>
           <Link href="/collection">Collection</Link>
           <span> / </span>
-          <Link href="/oeuvre">Tableau</Link>
+          <Link href={"/oeuvre/" + id} key={idOeuvre}>Nom de lOeuvre</Link>
         </div>
         <section className="oeuvrepage_infos">
           <div className="oeuvrepage_infos_titre">
-            <h1>NOM DE LOEUVRE, 1881</h1>
-            <h2>Nom de lAuteur</h2>
+            <h1 ref={titre}>NOM DE LOEUVRE, 1881</h1>
+            <h2 ref={auteur}>Nom de lAuteur</h2>
           </div>
           <div className="oeuvrepage_infos_details">
-            <div className="oeuvrepage_infos_details_image">
+            <div className="oeuvrepage_infos_details_image" ref={image}>
             </div>
-            <div className="oeuvrepage_infos_details_txt">
+            <div className="oeuvrepage_infos_details_txt" ref={description}>
               <p>Lorem ipsum dolor sit amet. Est rerum vero qui sequi nobis sed fugiat ratione. Et quia repellat aut mollitia neque aut accusamus ullam sit voluptas distinctio non accusantium dolor qui perferendis dolorem ea sint nihil.</p>
               <p>Eos incidunt placeat est aliquam sapiente quo ullam enim est animi minima ut deleniti voluptatem est vitae galisum non maxime omnis. Ut nostrum repellat sit nobis quia est adipisci voluptatem ab maiores eligendi aut molestiae reiciendis in atque quaerat quo omnis velit!</p>
             </div>

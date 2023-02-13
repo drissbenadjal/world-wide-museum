@@ -1,4 +1,4 @@
-import { useState, useEffect } from 'react'
+import { useState, useEffect, useRef } from 'react'
 
 import Head from 'next/head'
 import Link from 'next/link'
@@ -41,6 +41,54 @@ export default function Home() {
     }
   }, [place]);
 
+  const prenom_reservation = useRef();
+  const nom_reservation = useRef();
+  const email_reservation = useRef();
+  const date_day = useRef();
+  const date_hour = useRef();
+
+
+  const handleSubmit = (e) => {
+    e.preventDefault();
+
+    let error = false;
+    const inputs = [prenom_reservation, nom_reservation, email_reservation, date_day, date_hour];
+
+    inputs.forEach((input) => {
+      if (!input.current.value.trim()) {
+        error = true;
+      };
+    })
+    if (error) return;
+
+    const date_reservation = date_day.current.value + ' ' + date_hour.current.value;
+
+    //https://benadjal.butmmi.o2switch.site/api_resa_expo/reservations
+
+    fetch('https://benadjal.butmmi.o2switch.site/api_resa_expo/reservations', {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json'
+      },
+      body: JSON.stringify({
+        prenom_reservation: prenom_reservation.current.value,
+        nom_reservation: nom_reservation.current.value,
+        email_reservation: email_reservation.current.value,
+        date_reservation: date_reservation,
+      })
+    })
+      .then(res => res.json())
+      .then(data => {
+        console.log(data);
+      }
+      )
+      .catch(err => console.log(err));
+
+  }
+
+
+
+
   return (
     <>
       <Head>
@@ -70,33 +118,36 @@ export default function Home() {
               </div>
             </div>
           </div>
-          <form action="" method="POST">
+          <form onSubmit={(e) => handleSubmit(e)}>
             <div className="field">
-              <label className="display3" htmlFor="first-name">Prénom</label>
-              <input type="text" name="first-name" id="first-name" placeholder="Saisissez votre prénom" />
+              <label className="display3" htmlFor="prenom_reservation">Prénom</label>
+              <input type="text" name="prenom_reservation" id="prenom_reservation" placeholder="Saisissez votre prénom" ref={prenom_reservation} />
             </div>
             <div className="field">
-              <label className="display3" htmlFor="last-name">Nom</label>
-              <input type="text" name="last-name" id="last-name" placeholder="Saisissez votre nom" />
+              <label className="display3" htmlFor="nom_reservation">Nom</label>
+              <input type="text" name="nom_reservation" id="nom_reservation" placeholder="Saisissez votre nom" ref={nom_reservation} />
             </div>
             <div className="field">
-              <label className="display3" htmlFor="mail">Prénom</label>
-              <input type="email" name="mail" id="mail" placeholder="exemple@gmail.com" />
+              <label className="display3" htmlFor="email_reservation">Prénom</label>
+              <input type="email" name="email_reservation" id="email_reservation" placeholder="exemple@gmail.com" ref={email_reservation} />
             </div>
             <div className="field">
-              <label className="display3" htmlFor="date">Date</label>
-              <input type="date" name="date" id="date" placeholder="Sélectionner une date" />
+              <label className="display3" htmlFor="date_day">Date</label>
+              <input type="date" name="date_day" id="date_day" placeholder="Sélectionner une date" ref={date_day} />
             </div>
             <div className="field">
-              <label className="display3" htmlFor="horaire">Horaire</label>
+              <label className="display3" htmlFor="date_hour">Horaire</label>
               {/* <input type="date" name="date" id="date" placeholder="Sélectionner une date" /> */}
-              <select name="horaire" id="horaire">
+              <select name="date_hour" id="date_hour" ref={date_hour}>
                 <option value="">Sélectionner un créneau</option>
-                <option value="">14:00 - 15:00</option>
-                <option value="">15:00 - 16:00</option>
-                <option value="">16:00 - 17:00</option>
-                <option value="">17:00 - 18:00</option>
-                <option value="">19:00 - 19:00</option>
+                <option value="10:00:00">10:00 - 11:00</option>
+                <option value="11:00:00">11:00 - 12:00</option>
+                <option value="12:00:00">12:00 - 13:00</option>
+                <option value="13:00:00">13:00 - 14:00</option>
+                <option value="14:00:00">14:00 - 15:00</option>
+                <option value="15:00:00">15:00 - 16:00</option>
+                <option value="16:00:00">16:00 - 17:00</option>
+                <option value="17:00:00">17:00 - 18:00</option>
               </select>
             </div>
             <input type="submit" value="Confirmer la réservation" className="btn" />

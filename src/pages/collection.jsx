@@ -33,6 +33,9 @@ export default function Home() {
 
   useEffect(() => {
     fetchPeintres()
+  }, [])
+
+  useEffect(() => {
     fetchPeintures()
   }, [])
 
@@ -52,12 +55,10 @@ export default function Home() {
             {
               peintres.map((peintre) => {
                 return (
-                  <>
-                    <div className="collection_artists_presentation" key={peintre.id_peintre}>
-                      <Image draggable="false" src={soleilLevant} alt="" width="auto" height="auto" />
-                      <h3>{peintre.nom_peintre}</h3>
-                    </div>
-                  </>
+                  <div className="collection_artists_presentation" key={peintre.id_peintre}>
+                    <Image draggable="false" src={soleilLevant} alt="" width="auto" height="auto" />
+                    <h3>{peintre.nom_peintre}</h3>
+                  </div>
                 )
               })
             }
@@ -70,18 +71,16 @@ export default function Home() {
             {
               peintures.map((peinture) => {
                 return (
-                  <>
-                    <Link href={`/oeuvre?id=${peinture.id_tableau}`} key={peinture.id_tableau}>
-                      <div className="collection_paintings_presentation" key={peinture.id_tableau}>
-                        <Image draggable="false" src={soleilLevant} alt="" width="auto" height="auto" />
-                        <div className="collection_paintings_presentation_txt">
-                          <p>{peinture.date_tableau}</p>
-                          <h3>{peinture.nom_peintre}, {peinture.nom_tableau}</h3>
-                          <Link href={`/oeuvre?id=${peinture.id_tableau}`} key={peinture.id_tableau}>En savoir plus →</Link>
-                        </div>
+                  <Link href={`/oeuvre?id=${peinture.id_tableau}`} key={peinture.id_tableau}>
+                    <div className="collection_paintings_presentation" key={peinture.id_tableau}>
+                      <Image draggable="false" src={soleilLevant} alt="" width="auto" height="auto" />
+                      <div className="collection_paintings_presentation_txt">
+                        <p>{peinture.date_tableau}</p>
+                        <h3>{peinture.nom_peintre}, {peinture.nom_tableau}</h3>
+                        <span>En savoir plus →</span>
                       </div>
-                    </Link>
-                  </>
+                    </div>
+                  </Link>
                 )
               })
             }

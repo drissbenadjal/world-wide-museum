@@ -56,7 +56,7 @@ export default function Home() {
           <div className="discover_app_right">
             <h2>Application</h2>
             <p>Lorem ipsum dolor sit amet. Est rerum vero qui sequi nobis sed fugiat ratione. Et quia repellat aut mollitia neque aut accusamus ullam sit voluptas.</p>
-            <p>Lorem ipsum dolor sit amet. Est rerum vero qui sequi nobis sed fugiat ratione. Et quia repellat aut mollitia neque aut accusamus ullam sit voluptas.</p>
+            <p>Lorem ipsum dolor sit amet. Est rerum vero qui sequi nobis sed fugiat ratione. t quia repellat aut mollitia neque aut accusamus ullam sit voluptas.</p>
             <Button name="DECOUVRIR" linkbtn="/"></Button>
           </div>
         </section>
