@@ -110,7 +110,7 @@ h3 {
 }
 
 .display3 {
-  font-size: var(--h3) !important;
+  font-size: var(--h3);
   font-weight: 600 !important;
 }
 
@@ -212,6 +212,7 @@ nav a {
   background-repeat: no-repeat; */
   height: 100vh;
   /* filter: brightness(0.5); */
+  margin-bottom: var(--margin-end);
 
   display: flex;
   flex-direction: column;
@@ -309,6 +310,7 @@ nav a {
   padding: 100px 0 0;
   max-width: var(--max-width);
   gap: 56px;
+  margin-bottom: var(--margin-end);
 }
 
 .home_infos_left {
@@ -358,9 +360,9 @@ nav a {
   justify-content: space-between;
   margin: auto;
   align-items: baseline;
-  padding: 100px 0;
   max-width: var(--max-width);
   gap: 100px;
+  margin-bottom: var(--margin-end);
 }
 
 .home_points .home_points_element {
@@ -483,6 +485,58 @@ nav a {
 .home__slider__btn--left {
   transform: rotate(180deg);
 }
+
+@media screen and (max-width: 1400px) {
+  .home_infos, .home_points, .home_oeuvres {
+    padding: var(--responsive-padding);
+  }
+}
+
+@media screen and (max-width: 1050px) {
+  .hero h1 {
+    font-size: 5rem;
+  }
+}
+
+@media screen and (max-width: 750px) {
+  .hero h1 {
+      font-size: 4.5rem;
+  }
+
+  .hero-top {
+    gap: 15px;
+  }
+}
+
+@media screen and (max-width: 590px) { 
+  .hero h1 {
+    font-size: 4rem;
+    width: 82%;
+    display: flex;
+    justify-content: center;
+    font-size: 3.5rem;
+  }
+
+  .hero-top {
+    gap: 10px;
+  }
+
+  .hero-top .spacer {
+    width: 25px;
+  }
+}
+
+@media screen and (max-width: 430px) {
+  .hero h1 {
+    font-size: 3rem;
+  }
+
+  .display3 {
+    font-size: 1rem;
+  }
+}
+  
+
 
 /* Découvrir */
 .banner__top img {
@@ -777,16 +831,104 @@ nav a {
   margin-top: 30px;
 }
 
+@media screen and (max-width: 1400px) {
+  .collection_artists, .collection_paintings {
+    padding: var(--responsive-padding);
+  }
+}
+
+@media screen and (max-width: 1300px) {
+  .collection_artists_presentation img {
+    height: 400px;
+    width: 270px;
+  }
+}
+
+@media screen and (max-width: 1200px) {
+  .collection_artists_presentation img {
+    height: 380px;
+    width: 250px;
+  }
+}
+
+@media screen and (max-width: 1100px) {
+  /*
+  .collection_artists_presentation:nth-child(3) img, .collection_artists_presentation:nth-child(4) img {
+    height: 590px;
+  }
+  */
+
+  .collection_artists_presentation img {
+    height: 335px;
+  }
+}
+
+@media screen and (max-width: 765px) {
+  .collection_paintings_presentation img {
+    width: 320px;
+    height: 250px;
+  }
+}
+
+@media screen and (max-width: 600px) {
+  .collection_paintings_list {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .collection_paintings_presentation {
+    flex-direction: column;
+  }
+
+  .collection_paintings_list_element:nth-child(3) .collection_paintings_presentation, .collection_paintings_list_element:nth-child(4) .collection_paintings_presentation {
+    flex-direction: column;
+    text-align: left;
+  }
+
+  .collection_paintings_presentation img {
+    width: 92vw;
+    height: 335px;
+  }
+
+  .collection_paintings_presentation {
+    gap: 15px;
+    margin-top: 60px;
+  }
+
+  .collection_paintings_presentation_txt span {
+    margin-top: 15px;
+  }
+
+  .collection_paintings_presentation_txt {
+    width: 100%;
+  }
+
+  .collection_paintings h2 {
+    margin-bottom: 0;
+  }
+
+  .collection_paintings_list_element:nth-child(1) .collection_paintings_presentation {
+    margin-top: 50px;
+  }
+}
+
 @media screen and (max-width: 550px) {
   .banner__top h1 {
     font-size: calc(2rem + 4vw);
   }
 }
 
+@media screen and (max-width: 420px) {
+  .collection_paintings_presentation img {
+    height: 280px;
+  }
+}
+
 /*Oeuvre*/
 
 .oeuvrepage {
-  margin-top: 150px;
+  margin-top: 200px;
 }
 
 .oeuvrepage_ariane {
@@ -834,11 +976,6 @@ nav a {
 
 .oeuvrepage_infos .oeuvrepage_infos_details_image {
   width: 40%;
-}
-
-.oeuvrepage_infos .oeuvrepage_infos_details_image img {
-  width: 100%;
-  border-radius: 2px;
 }
 
 .oeuvrepage_infos .oeuvrepage_infos_details_txt {
@@ -1050,90 +1187,21 @@ footer .footer_bottom {
 
 
 /* Skeleton */
-
 .skeleton {
-  pointer-events: none;
-  cursor: default;
-
-}
-
-.skeleton:before {
-  content: "";
-  display: block;
-  width: 100%;
-  height: 100%;
-  position: relative;
-  z-index: 100;
   background-color: var(--loading-grey);
-  background: linear-gradient(100deg,
-      rgba(255, 255, 255, 0) 40%,
-      rgba(255, 255, 255, .2) 50%,
-      rgba(255, 255, 255, 0) 60%) var(--loading-grey);
+  background: linear-gradient(
+    100deg,
+    rgba(255, 255, 255, 0) 40%,
+    rgba(255, 255, 255, .5) 50%,
+    rgba(255, 255, 255, 0) 60%
+  ) var(--loading-grey);
   background-size: 200% 100%;
   background-position-x: 180%;
-  -webkit-animation: 1s loading ease-in-out infinite;
   animation: 1s loading ease-in-out infinite;
-}
-
-@-webkit-keyframes loading {
-  to {
-    background-position-x: -20%;
-  }
 }
 
 @keyframes loading {
   to {
     background-position-x: -20%;
   }
-}
-
-.oeuvrepage_infos {
-  min-height: 294.54;
-}
-
-.oeuvrepage_infos h1.skeleton::before {
-  height: 210px;
-  margin-bottom: 24px;
-}
-
-.oeuvrepage_infos h2.skeleton::before {
-  height: 50px;
-  width: 300px;
-}
-
-.oeuvrepage_infos .oeuvrepage_infos_details_image.skeleton::before {
-  height: 400px;
-}
-
-.collection_artists_presentation h3.skeleton::before {
-  height: 30px;
-  width: 200px;
-  border-radius: 2px;
-}
-
-.collection_artists_presentation div.skeleton::before {
-  height: 420px;
-  width: 290px;
-  border-radius: 160px
-}
-
-.collection_paintings_list_element .collection_paintings_presentation_image.skeleton::before {
-  width: 370px;
-  height: 270px;
-}
-
-.collection_paintings_list_element p.skeleton::before {
-  width: 150px;
-  height: 35px;
-  margin-bottom: 8px;
-}
-
-.collection_paintings_list_element h3.skeleton::before {
-  width: 400px;
-  height: 35px;
-}
-
-.collection_paintings_list_element span.skeleton::before {
-  width: 150px;
-  height: 35px;
 }
