@@ -44,9 +44,11 @@ export default function Home() {
   const prenom_reservation = useRef();
   const nom_reservation = useRef();
   const email_reservation = useRef();
+  const place_reservation = useRef();
   const date_day = useRef();
   const date_hour = useRef();
 
+  const [errorMessage, setErrorMessage] = useState(false);
 
   const handleSubmit = (e) => {
     e.preventDefault();
@@ -63,8 +65,6 @@ export default function Home() {
 
     const date_reservation = date_day.current.value + ' ' + date_hour.current.value;
 
-    //https://benadjal.butmmi.o2switch.site/api_resa_expo/reservations
-
     fetch('https://benadjal.butmmi.o2switch.site/api_resa_expo/reservations', {
       method: 'POST',
       headers: {
@@ -75,11 +75,20 @@ export default function Home() {
         nom_reservation: nom_reservation.current.value,
         email_reservation: email_reservation.current.value,
         date_reservation: date_reservation,
+        place_reservation: place_reservation.current.value
       })
     })
       .then(res => res.json())
       .then(data => {
         console.log(data);
+        if (data.status === 'success') {
+          prenom_reservation.current.value = '';
+          nom_reservation.current.value = '';
+          email_reservation.current.value = '';
+          console.log(data.message);
+        } else {
+          setErrorMessage(data.message);
+        }
       }
       )
       .catch(err => console.log(err));
@@ -151,6 +160,10 @@ export default function Home() {
                 <option value="17:00:00">17:00 - 18:00</option>
               </select>
             </div>
+            <input type="hidden" ref={place_reservation} name="place_reservation" id="place_reservation" value={place} />
+            {
+              errorMessage ? <p className="error">{errorMessage}</p> : ''
+            }
             <input type="submit" value="Confirmer la réservation" className="btn" />
           </form>
         </div>
