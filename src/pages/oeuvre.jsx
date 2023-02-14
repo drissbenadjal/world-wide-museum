@@ -5,12 +5,16 @@ import Image from 'next/image'
 import styles from '@/styles/Home.module.css'
 import { useRouter } from 'next/router';
 
+
+
 export default function Home() {
 
   const router = useRouter();
 
   let id = router.query.id;
+  if (id === undefined) id = 1;
 
+  const ariane = useRef(null);
   const titre = useRef(null);
   const auteur = useRef(null);
   const description = useRef(null);
@@ -26,8 +30,14 @@ export default function Home() {
         titre.current.innerHTML = data.tableau.nom_tableau + ', ' + data.tableau.date_tableau;
         auteur.current.innerHTML = data.tableau.nom_peintre;
         description.current.innerHTML = data.tableau.description_tableau;
-        image.current.innerHTML = '<img src="https://benadjal.butmmi.o2switch.site/api_resa_expo/images/' + data.tableau.image_tableau + '" alt="' + data.tableau.nom_tableau + '">';
+        image.current.innerHTML = '<img src="http://localhost:3000/_next/image?url=%2F_next%2Fstatic%2Fmedia%2Fpont-neuf.4d683e51.jpg&w=3840&q=10" alt="' + data.tableau.nom_tableau + '">';
         idOeuvre.current = data.tableau.id_tableau;
+        ariane.current.innerHTML = data.tableau.nom_tableau
+
+        titre.current.classList.remove('skeleton');
+        auteur.current.classList.remove('skeleton');
+        description.current.classList.remove('skeleton');
+        image.current.classList.remove('skeleton');
       })
       .catch(err => console.log(err));
   }
@@ -52,19 +62,19 @@ export default function Home() {
           <span> / </span>
           <Link href="/collection">Collection</Link>
           <span> / </span>
-          <Link href={"/oeuvre/" + id} key={idOeuvre}>Nom de lOeuvre</Link>
+          <Link href={"/oeuvre?id=" + id} key={idOeuvre} ref={ariane}>---</Link>
         </div>
         <section className="oeuvrepage_infos">
           <div className="oeuvrepage_infos_titre">
-            <h1 ref={titre}>NOM DE LOEUVRE, 1881</h1>
-            <h2 ref={auteur}>Nom de lAuteur</h2>
+            <h1 ref={titre} className="skeleton"></h1>
+            <h2 ref={auteur} className="skeleton"></h2>
           </div>
           <div className="oeuvrepage_infos_details">
-            <div className="oeuvrepage_infos_details_image" ref={image}>
+            <div className="oeuvrepage_infos_details_image skeleton" ref={image}>
             </div>
-            <div className="oeuvrepage_infos_details_txt" ref={description}>
-              <p>Lorem ipsum dolor sit amet. Est rerum vero qui sequi nobis sed fugiat ratione. Et quia repellat aut mollitia neque aut accusamus ullam sit voluptas distinctio non accusantium dolor qui perferendis dolorem ea sint nihil.</p>
-              <p>Eos incidunt placeat est aliquam sapiente quo ullam enim est animi minima ut deleniti voluptatem est vitae galisum non maxime omnis. Ut nostrum repellat sit nobis quia est adipisci voluptatem ab maiores eligendi aut molestiae reiciendis in atque quaerat quo omnis velit!</p>
+            <div className="oeuvrepage_infos_details_txt skeleton" ref={description}>
+              <p></p>
+              <p></p>
             </div>
           </div>
         </section>

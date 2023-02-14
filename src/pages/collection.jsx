@@ -14,12 +14,15 @@ export default function Home() {
 
   const [peintres, setPeintres] = useState([])
   const [peintures, setPeintures] = useState([])
+  const [loadingPeintre, setLoadingPeintre] = useState(true);
+  const [loadingPeinture, setLoadingPeinture] = useState(true);
 
   const fetchPeintres = async () => {
     fetch('https://benadjal.butmmi.o2switch.site/api_resa_expo/peintres').then((response) => {
       return response.json()
     }).then((data) => {
       setPeintres(data)
+      setLoadingPeintre(false);
     })
   }
 
@@ -28,6 +31,7 @@ export default function Home() {
       return response.json()
     }).then((data) => {
       setPeintures(data)
+      setLoadingPeinture(false);
     })
   }
 
@@ -53,14 +57,15 @@ export default function Home() {
           <h2>LE CHOIX DES ARTISTES</h2>
           <div className="collection_artists_list">
             {
-              peintres.map((peintre) => {
-                return (
-                  <div className="collection_artists_presentation" key={peintre.id_peintre}>
-                    <Image draggable="false" src={soleilLevant} alt="" width="auto" height="auto" />
-                    <h3>{peintre.nom_peintre}</h3>
-                  </div>
-                )
-              })
+              loadingPeintre ? (<div className="collection_artists_presentation"><div className="skeleton"></div><h3 className="skeleton"></h3></div>) :
+                peintres.map((peintre) => {
+                  return (
+                    <div className="collection_artists_presentation" key={peintre.id_peintre}>
+                      <Image draggable="false" src={soleilLevant} alt="" width="auto" height="auto" />
+                      <h3>{peintre.nom_peintre}</h3>
+                    </div>
+                  )
+                })
             }
           </div>
         </section>
@@ -69,20 +74,95 @@ export default function Home() {
           <h2>LE CHOIX DES OEUVRES</h2>
           <div className="collection_paintings_list">
             {
-              peintures.map((peinture) => {
-                return (
-                  <Link href={`/oeuvre?id=${peinture.id_tableau}`} className="collection_paintings_list_element" key={peinture.id_tableau}>
-                    <div className="collection_paintings_presentation" key={peinture.id_tableau}>
-                      <Image draggable="false" src={soleilLevant} alt="" width="auto" height="auto" />
+              loadingPeinture ? (
+                <>
+                  <Link href={`/`} className="collection_paintings_list_element skeleton">
+                    <div className="collection_paintings_presentation">
+                      <div className='skeleton collection_paintings_presentation_image'>
+                      </div>
                       <div className="collection_paintings_presentation_txt">
-                        <p>{peinture.date_tableau}</p>
-                        <h3>{peinture.nom_peintre}, {peinture.nom_tableau}</h3>
-                        <span>En savoir plus →</span>
+                        <p className='skeleton'></p>
+                        <h3 className="skeleton"></h3>
+                        <span className='skeleton'></span>
                       </div>
                     </div>
                   </Link>
-                )
-              })
+
+                  <Link href={`/`} className="collection_paintings_list_element skeleton">
+                    <div className="collection_paintings_presentation">
+                      <div className='skeleton collection_paintings_presentation_image'>
+                      </div>
+                      <div className="collection_paintings_presentation_txt">
+                        <p className='skeleton'></p>
+                        <h3 className="skeleton"></h3>
+                        <span className='skeleton'></span>
+                      </div>
+                    </div>
+                  </Link>
+
+                  <Link href={`/`} className="collection_paintings_list_element skeleton">
+                    <div className="collection_paintings_presentation">
+                      <div className='skeleton collection_paintings_presentation_image'>
+                      </div>
+                      <div className="collection_paintings_presentation_txt">
+                        <p className='skeleton'></p>
+                        <h3 className="skeleton"></h3>
+                        <span className='skeleton'></span>
+                      </div>
+                    </div>
+                  </Link>
+
+                  <Link href={`/`} className="collection_paintings_list_element skeleton">
+                    <div className="collection_paintings_presentation">
+                      <div className='skeleton collection_paintings_presentation_image'>
+                      </div>
+                      <div className="collection_paintings_presentation_txt">
+                        <p className='skeleton'></p>
+                        <h3 className="skeleton"></h3>
+                        <span className='skeleton'></span>
+                      </div>
+                    </div>
+                  </Link>
+
+                  <Link href={`/`} className="collection_paintings_list_element skeleton">
+                    <div className="collection_paintings_presentation">
+                      <div className='skeleton collection_paintings_presentation_image'>
+                      </div>
+                      <div className="collection_paintings_presentation_txt">
+                        <p className='skeleton'></p>
+                        <h3 className="skeleton"></h3>
+                        <span className='skeleton'></span>
+                      </div>
+                    </div>
+                  </Link>
+
+                  <Link href={`/`} className="collection_paintings_list_element skeleton">
+                    <div className="collection_paintings_presentation">
+                      <div className='skeleton collection_paintings_presentation_image'>
+                      </div>
+                      <div className="collection_paintings_presentation_txt">
+                        <p className='skeleton'></p>
+                        <h3 className="skeleton"></h3>
+                        <span className='skeleton'></span>
+                      </div>
+                    </div>
+                  </Link>
+                </>
+              ) :
+                peintures.map((peinture) => {
+                  return (
+                    <Link href={`/oeuvre?id=${peinture.id_tableau}`} className="collection_paintings_list_element" key={peinture.id_tableau}>
+                      <div className="collection_paintings_presentation" key={peinture.id_tableau}>
+                        <Image draggable="false" src={soleilLevant} alt="" width="auto" height="auto" />
+                        <div className="collection_paintings_presentation_txt">
+                          <p>{peinture.date_tableau}</p>
+                          <h3>{peinture.nom_peintre}, {peinture.nom_tableau}</h3>
+                          <span>En savoir plus →</span>
+                        </div>
+                      </div>
+                    </Link>
+                  )
+                })
             }
           </div>
         </section>

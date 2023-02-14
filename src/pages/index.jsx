@@ -82,9 +82,6 @@ export default function Home() {
     );
   })
 
- 
-
-
   return (
     <>
       <Head>
@@ -145,20 +142,23 @@ export default function Home() {
           <h2>DÉCOUVRIR LES OEUVRES</h2>
           <div className="home__slider__wrapper">
             <div className="home__slider__container">
-              <div className="home__slider skeleton">
+
+              <div className="home__slider">
                 {
-                  peintures.map((peinture) => {
-                    return (
-                      <Link href={`/oeuvre?id=${peinture.id_tableau}`} key={peinture.id_tableau} className="oeuvre-card">
-                        <div className="oeuvre_infos">
-                          <h3 className="display2">{peinture.nom_tableau}</h3>
-                          <div className="spacer"></div>
-                          <p className="display3">{peinture.nom_peintre}</p>
-                        </div>
-                        <Image draggable="false" src={nuitEtoile} alt="" width="auto" height="auto" />
-                      </Link>
-                    )
-                  })
+                  //si loading est true alors on affiche le skeleton
+                  loading ? (<><Link href={`/`} className="oeuvre-card skeleton"></Link><Link href={`/`} className="oeuvre-card skeleton"></Link><Link href={`/`} className="oeuvre-card skeleton"></Link><Link href={`/`} className="oeuvre-card skeleton"></Link><Link href={`/`} className="oeuvre-card skeleton"></Link><Link href={`/`} className="oeuvre-card skeleton"></Link></>) :
+                    peintures.map((peinture) => {
+                      return (
+                        <Link href={`/oeuvre?id=${peinture.id_tableau}`} key={peinture.id_tableau} className="oeuvre-card">
+                          <div className="oeuvre_infos">
+                            <h3 className="display2">{peinture.nom_tableau}</h3>
+                            <div className="spacer"></div>
+                            <p className="display3">{peinture.nom_peintre}</p>
+                          </div>
+                          <Image draggable="false" src={nuitEtoile} alt="" width="auto" height="auto" />
+                        </Link>
+                      )
+                    })
                 }
               </div>
 
