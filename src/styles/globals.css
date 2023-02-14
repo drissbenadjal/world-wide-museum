@@ -50,6 +50,8 @@
   --responsive-margin: auto 3vw var(--margin-end) 3vw;
   --responsive-padding: 0 3vw;
 
+  --loading-grey: grey;
+
   color-scheme: dark;
 }
 
@@ -1039,4 +1041,25 @@ footer .footer_bottom {
   gap: 5vw;
   margin-top: 3vh;
   justify-content: center;
+}
+
+
+/* Skeleton */
+.skeleton {
+  background-color: var(--loading-grey);
+  background: linear-gradient(
+    100deg,
+    rgba(255, 255, 255, 0) 40%,
+    rgba(255, 255, 255, .5) 50%,
+    rgba(255, 255, 255, 0) 60%
+  ) var(--loading-grey);
+  background-size: 200% 100%;
+  background-position-x: 180%;
+  animation: 1s loading ease-in-out infinite;
+}
+
+@keyframes loading {
+  to {
+    background-position-x: -20%;
+  }
 }

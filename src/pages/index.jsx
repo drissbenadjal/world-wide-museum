@@ -25,12 +25,14 @@ import arrow from '../images/icons/arrow_white.svg'
 export default function Home() {
 
   const [peintures, setPeintures] = useState([])
+  const [loading, setLoading] = useState(true);
 
   const fetchPeintures = async () => {
     fetch('https://benadjal.butmmi.o2switch.site/api_resa_expo/tableaux').then((response) => {
       return response.json()
     }).then((data) => {
       setPeintures(data)
+      setLoading(false);
     })
   }
 
@@ -79,6 +81,9 @@ export default function Home() {
       (e) => (width = carouselContainer.offsetWidth)
     );
   })
+
+ 
+
 
   return (
     <>
@@ -140,7 +145,7 @@ export default function Home() {
           <h2>DÉCOUVRIR LES OEUVRES</h2>
           <div className="home__slider__wrapper">
             <div className="home__slider__container">
-              <div className="home__slider">
+              <div className="home__slider skeleton">
                 {
                   peintures.map((peinture) => {
                     return (
