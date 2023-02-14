@@ -57,7 +57,26 @@ export default function Home() {
           <h2>LE CHOIX DES ARTISTES</h2>
           <div className="collection_artists_list">
             {
-              loadingPeintre ? (<div className="collection_artists_presentation"><div className="skeleton"></div><h3 className="skeleton"></h3></div>) :
+              loadingPeintre ? (
+                <>
+                  <div className="collection_artists_presentation">
+                    <div className="skeleton"></div>
+                    <h3 className="skeleton"></h3>
+                  </div>
+                  <div className="collection_artists_presentation">
+                    <div className="skeleton"></div>
+                    <h3 className="skeleton"></h3>
+                  </div>
+                  <div className="collection_artists_presentation">
+                    <div className="skeleton"></div>
+                    <h3 className="skeleton"></h3>
+                  </div>
+                  <div className="collection_artists_presentation">
+                    <div className="skeleton"></div>
+                    <h3 className="skeleton"></h3>
+                  </div>
+                </>
+              ) :
                 peintres.map((peintre) => {
                   return (
                     <div className="collection_artists_presentation" key={peintre.id_peintre}>
