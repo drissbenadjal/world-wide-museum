@@ -22,7 +22,7 @@ export default function NavBar() {
                             <Link href="/collection" className={router.pathname == "/collection" ? "nav-active link" : "link"}>Collection</Link>
                         </li>
                         <li>
-                            <Button name='Billeterie' linkbtn='/billeterie'></Button>
+                            <Button linkbtn='/billeterie'>Billeterie</Button>
                         </li>
                     </ul>
                 </nav>

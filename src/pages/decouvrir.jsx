@@ -57,7 +57,7 @@ export default function Home() {
             <h2>Application</h2>
             <p>Lorem ipsum dolor sit amet. Est rerum vero qui sequi nobis sed fugiat ratione. Et quia repellat aut mollitia neque aut accusamus ullam sit voluptas.</p>
             <p>Lorem ipsum dolor sit amet. Est rerum vero qui sequi nobis sed fugiat ratione. t quia repellat aut mollitia neque aut accusamus ullam sit voluptas.</p>
-            <Button name="DECOUVRIR" linkbtn="/"></Button>
+            <Button linkbtn="/">DECOUVRIR</Button>
           </div>
         </section>
       </main>

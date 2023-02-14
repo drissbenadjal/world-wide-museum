@@ -10,8 +10,6 @@ export default function Home() {
   const router = useRouter();
 
   let id = router.query.id;
-  let Loading = true;
-  const [oeuvre, setOeuvre] = useState({});
 
   const titre = useRef(null);
   const auteur = useRef(null);
@@ -20,11 +18,16 @@ export default function Home() {
   const idOeuvre = useRef(null);
 
   const fetchOeuvre = async () => {
-    fetch('https://benadjal.butmmi.o2switch.site/api_resa_expo/tableaux/' + id)
+    await fetch('https://benadjal.butmmi.o2switch.site/api_resa_expo/tableaux/' + id)
       .then(res => res.json())
       .then(data => {
-        setOeuvre(data);
-        Loading = false;
+        //si un id est renseigné mais que l'oeuvre n'existe pas
+        if (data.tableau === undefined) router.push('/404');
+        titre.current.innerHTML = data.tableau.nom_tableau + ', ' + data.tableau.date_tableau;
+        auteur.current.innerHTML = data.tableau.nom_peintre;
+        description.current.innerHTML = data.tableau.description_tableau;
+        image.current.innerHTML = '<img src="https://benadjal.butmmi.o2switch.site/api_resa_expo/images/' + data.tableau.image_tableau + '" alt="' + data.tableau.nom_tableau + '">';
+        idOeuvre.current = data.tableau.id_tableau;
       })
       .catch(err => console.log(err));
   }
@@ -34,11 +37,6 @@ export default function Home() {
     if (!id) return;
     fetchOeuvre();
   }, [id]);
-
-  // useEffect(() => {
-  //   if (oeuvre.length === 0) return;
-  //   titre.current.innerHTML = oeuvre.tableau.nom_tableau;
-  // }, [id]);
 
   return (
     <>

@@ -96,8 +96,8 @@ export default function Home() {
             <span className='spacer'></span>
             <span className='display3'>Compatible casque VR</span>
           </div>
-          <h1>Entrez au coeur de limpressionnisme</h1>
-          <Button name="Rejoindre lexpérience" linkbtn="/billeterie"></Button>
+          <h1>Entrez au coeur de l&apos;impressionnisme</h1>
+          <Button linkbtn="/billeterie">Rejoindre l&apos;expérience</Button>
           <Image className="hero__bg" draggable="false" src={nuitEtoile} alt="" width="auto" height="auto" />
           <Image className="nav__hero" draggable="false" src={navHero} alt="" width="auto" height="auto" />
           <Image className="radial__hero" draggable="false" src={radialHero} alt="" width="auto" height="auto" />
@@ -144,16 +144,14 @@ export default function Home() {
                 {
                   peintures.map((peinture) => {
                     return (
-                      <>
-                        <Link href={`/oeuvre?id=${peinture.id_tableau}`} key={peinture.id_tableau} className="oeuvre-card">
-                          <div className="oeuvre_infos">
-                            <h3 className="display2">{peinture.nom_tableau}</h3>
-                            <div className="spacer"></div>
-                            <p className="display3">{peinture.nom_peintre}</p>
-                          </div>
-                          <Image draggable="false" src={nuitEtoile} alt="" width="auto" height="auto" />
-                        </Link>
-                      </>
+                      <Link href={`/oeuvre?id=${peinture.id_tableau}`} key={peinture.id_tableau} className="oeuvre-card">
+                        <div className="oeuvre_infos">
+                          <h3 className="display2">{peinture.nom_tableau}</h3>
+                          <div className="spacer"></div>
+                          <p className="display3">{peinture.nom_peintre}</p>
+                        </div>
+                        <Image draggable="false" src={nuitEtoile} alt="" width="auto" height="auto" />
+                      </Link>
                     )
                   })
                 }
