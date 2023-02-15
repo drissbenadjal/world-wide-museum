@@ -1,18 +1,17 @@
-import { useState, useEffect, useRef } from 'react'
+import { useState, useEffect, useRef } from "react";
 
-import Head from 'next/head'
-import Link from 'next/link'
-import Image from 'next/image'
-import styles from '@/styles/Home.module.css'
-import Button from '../components/button'
+import Head from "next/head";
+import Link from "next/link";
+import Image from "next/image";
+import styles from "@/styles/Home.module.css";
+import Button from "../components/button";
 
 // Import Images
-import nuitEtoile from '../images/nuit-etoile.jpg'
-import minusBtn from '../images/icons/minus__button.svg'
-import plusBtn from '../images/icons/plus__button.svg'
+import nuitEtoile from "../images/nuit-etoile.jpg";
+import minusBtn from "../images/icons/minus__button.svg";
+import plusBtn from "../images/icons/plus__button.svg";
 
 export default function Home() {
-
   const [place, setPlace] = useState(1);
   const [textPlace, setTextPlace] = useState();
 
@@ -22,7 +21,7 @@ export default function Home() {
     } else {
       setPlace(place + 1);
     }
-  }
+  };
 
   const handleMinus = () => {
     if (place <= 1) {
@@ -30,17 +29,17 @@ export default function Home() {
     } else {
       setPlace(place - 1);
     }
-  }
-
+  };
 
   useEffect(() => {
     if (place == 1) {
-      setTextPlace(place + ' place');
+      setTextPlace(place + " place");
     } else {
-      setTextPlace(place + ' places');
+      setTextPlace(place + " places");
     }
   }, [place]);
 
+  const form = useRef();
   const prenom_reservation = useRef();
   const nom_reservation = useRef();
   const email_reservation = useRef();
@@ -54,50 +53,44 @@ export default function Home() {
     e.preventDefault();
 
     let error = false;
-    const inputs = [prenom_reservation, nom_reservation, email_reservation, date_day, date_hour];
+    const fields = document.querySelectorAll(".field");
 
-    inputs.forEach((input) => {
-      if (!input.current.value.trim()) {
-        error = true;
-      };
-    })
+    // Form verification
+    form.addEventListener("submit", () => {
+      fields.forEach((field) => {});
+    });
     if (error) return;
 
-    const date_reservation = date_day.current.value + ' ' + date_hour.current.value;
+    const date_reservation =
+      date_day.current.value + " " + date_hour.current.value;
 
-    fetch('https://benadjal.butmmi.o2switch.site/api_resa_expo/reservations', {
-      method: 'POST',
+    fetch("https://benadjal.butmmi.o2switch.site/api_resa_expo/reservations", {
+      method: "POST",
       headers: {
-        'Content-Type': 'application/json'
+        "Content-Type": "application/json",
       },
       body: JSON.stringify({
         prenom_reservation: prenom_reservation.current.value,
         nom_reservation: nom_reservation.current.value,
         email_reservation: email_reservation.current.value,
         date_reservation: date_reservation,
-        place_reservation: place_reservation.current.value
-      })
+        place_reservation: place_reservation.current.value,
+      }),
     })
-      .then(res => res.json())
-      .then(data => {
+      .then((res) => res.json())
+      .then((data) => {
         console.log(data);
-        if (data.status === 'success') {
-          prenom_reservation.current.value = '';
-          nom_reservation.current.value = '';
-          email_reservation.current.value = '';
+        if (data.status === "success") {
+          prenom_reservation.current.value = "";
+          nom_reservation.current.value = "";
+          email_reservation.current.value = "";
           console.log(data.message);
         } else {
           setErrorMessage(data.message);
         }
-      }
-      )
-      .catch(err => console.log(err));
-
-
-  }
-
-
-
+      })
+      .catch((err) => console.log(err));
+  };
 
   return (
     <>
@@ -108,47 +101,109 @@ export default function Home() {
         <link rel="icon" href="/favicon.ico" />
       </Head>
       <main className="billeterie">
-        <h1 className="display2 billeterie__head">Plus qu’une étape avant de rejoindre l’expérience...</h1>
+        <h1 className="display2 billeterie__head">
+          Plus qu’une étape avant de rejoindre l’expérience...
+        </h1>
         <div className="billeterie__content">
           <div className="billeterie__left">
-            <Image draggable="false" src={nuitEtoile} alt="" width="250" height="250" />
+            <Image
+              draggable="false"
+              src={nuitEtoile}
+              alt=""
+              width="250"
+              height="250"
+            />
             <div>
               <h3>Nom de lexposition</h3>
               <div className="expo__date">Du 10 mars au 10 avril 2023</div>
               <div className="placeSelector">
                 <button onClick={() => handleMinus()} id="minusBtn">
-                  <Image draggable="false" src={minusBtn} alt="" width="33" height="33" />
+                  <Image
+                    draggable="false"
+                    src={minusBtn}
+                    alt=""
+                    width="33"
+                    height="33"
+                  />
                 </button>
                 <div className="place">
                   <span>{textPlace}</span>
                 </div>
                 <button onClick={() => handlePlus()} id="plusBtn">
-                  <Image draggable="false" src={plusBtn} alt="" width="33" height="33" />
+                  <Image
+                    draggable="false"
+                    src={plusBtn}
+                    alt=""
+                    width="33"
+                    height="33"
+                  />
                 </button>
               </div>
             </div>
           </div>
-          <form onSubmit={(e) => handleSubmit(e)}>
+          <form onSubmit={(e) => handleSubmit(e)} ref={form}>
             <div className="field">
-              <label className="display3" htmlFor="prenom_reservation">Prénom</label>
-              <input type="text" name="prenom_reservation" id="prenom_reservation" placeholder="Saisissez votre prénom" ref={prenom_reservation} />
+              <label className="display3" htmlFor="prenom_reservation">
+                Prénom
+              </label>
+              <input
+                type="text"
+                name="prenom_reservation"
+                id="prenom_reservation"
+                placeholder="Saisissez votre prénom"
+                ref={prenom_reservation}
+                required
+              />
+              <small></small>
             </div>
             <div className="field">
-              <label className="display3" htmlFor="nom_reservation">Nom</label>
-              <input type="text" name="nom_reservation" id="nom_reservation" placeholder="Saisissez votre nom" ref={nom_reservation} />
+              <label className="display3" htmlFor="nom_reservation">
+                Nom
+              </label>
+              <input
+                type="text"
+                name="nom_reservation"
+                id="nom_reservation"
+                placeholder="Saisissez votre nom"
+                ref={nom_reservation}
+                required
+              />
+              <small></small>
             </div>
             <div className="field">
-              <label className="display3" htmlFor="email_reservation">Prénom</label>
-              <input type="email" name="email_reservation" id="email_reservation" placeholder="exemple@gmail.com" ref={email_reservation} />
+              <label className="display3" htmlFor="email_reservation">
+                Prénom
+              </label>
+              <input
+                type="email"
+                name="email_reservation"
+                id="email_reservation"
+                placeholder="exemple@gmail.com"
+                ref={email_reservation}
+                required
+              />
+              <small></small>
             </div>
             <div className="field">
-              <label className="display3" htmlFor="date_day">Date</label>
-              <input type="date" name="date_day" id="date_day" placeholder="Sélectionner une date" ref={date_day} />
+              <label className="display3" htmlFor="date_day">
+                Date
+              </label>
+              <input
+                type="date"
+                name="date_day"
+                id="date_day"
+                placeholder="Sélectionner une date"
+                ref={date_day}
+                required
+              />
+              <small></small>
             </div>
-            <div className="field">
-              <label className="display3" htmlFor="date_hour">Horaire</label>
+            <div className="field field--last">
+              <label className="display3" htmlFor="date_hour">
+                Horaire
+              </label>
               {/* <input type="date" name="date" id="date" placeholder="Sélectionner une date" /> */}
-              <select name="date_hour" id="date_hour" ref={date_hour}>
+              <select name="date_hour" id="date_hour" ref={date_hour} required>
                 <option value="">Sélectionner un créneau</option>
                 <option value="10:00:00">10:00 - 11:00</option>
                 <option value="11:00:00">11:00 - 12:00</option>
@@ -159,15 +214,25 @@ export default function Home() {
                 <option value="16:00:00">16:00 - 17:00</option>
                 <option value="17:00:00">17:00 - 18:00</option>
               </select>
+              <small></small>
             </div>
-            <input type="hidden" ref={place_reservation} name="place_reservation" id="place_reservation" value={place} />
-            {
-              errorMessage ? <p className="error">{errorMessage}</p> : ''
-            }
-            <input type="submit" value="Confirmer la réservation" className="btn" />
+            <input
+              type="hidden"
+              ref={place_reservation}
+              name="place_reservation"
+              id="place_reservation"
+              value={place}
+            />
+            {errorMessage ? <p className="error">{errorMessage}</p> : ""}
+            <div className="form__infos">Tous les champs sont obligatoires</div>
+            <input
+              type="submit"
+              value="Confirmer la réservation"
+              className="btn"
+            />
           </form>
         </div>
       </main>
     </>
-  )
+  );
 }

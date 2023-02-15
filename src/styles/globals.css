@@ -5,22 +5,22 @@
 }
 
 @font-face {
-  font-family: 'Edensor-Free';
-  src: url('./fonts/Edensor-Free.woff2') format('woff2'),
-    url('./fonts/Edensor-Free.woff') format('woff');
+  font-family: "Edensor-Free";
+  src: url("./fonts/Edensor-Free.woff2") format("woff2"),
+    url("./fonts/Edensor-Free.woff") format("woff");
 }
 
 @font-face {
-  font-family: 'Inter';
-  src: url('./fonts/Inter-SemiBold.woff2') format('woff2'),
-    url('./fonts/Inter-SemiBold.woff') format('woff');
+  font-family: "Inter";
+  src: url("./fonts/Inter-SemiBold.woff2") format("woff2"),
+    url("./fonts/Inter-SemiBold.woff") format("woff");
   font-weight: 600;
 }
 
 @font-face {
-  font-family: 'Inter';
-  src: url('./fonts/Inter-Regular.woff2') format('woff2'),
-    url('./fonts/Inter-Regular.woff') format('woff');
+  font-family: "Inter";
+  src: url("./fonts/Inter-Regular.woff2") format("woff2"),
+    url("./fonts/Inter-Regular.woff") format("woff");
   font-weight: 400;
 }
 
@@ -34,14 +34,14 @@
   --beige: #fff3f3;
   --black-lighter: #373737;
 
-  --main-font: 'Inter';
-  --secondary-font: 'Edensor-Free';
+  --main-font: "Inter";
+  --secondary-font: "Edensor-Free";
 
   --headline: 6rem;
   --h2: 2.5rem;
   --h3: 1.2rem;
   --body: 1rem;
-  --small: 0.8rem;
+  --small: 0.875rem;
 
   --padding: 72px;
   --max-width: 1350px;
@@ -50,7 +50,7 @@
   --responsive-margin: auto 3vw var(--margin-end) 3vw;
   --responsive-padding: 0 3vw;
 
-  --loading-grey: #4B4B4B;
+  --loading-grey: #4b4b4b;
 
   color-scheme: dark;
 }
@@ -119,8 +119,9 @@ p {
   margin: 0;
 }
 
+small,
 .small {
-  font-size: 0.875rem;
+  font-size: var(--small);
 }
 
 /* Button */
@@ -184,7 +185,7 @@ nav a {
   position: absolute;
   left: 0;
   bottom: -4px;
-  content: '';
+  content: "";
   width: 0%;
   height: 2px;
   background-color: var(--blue);
@@ -239,7 +240,7 @@ nav a {
   transition: filter 0.3s, transform 0.3s, opacity 0.3s, -webkit-filter 0.3s;
 }
 
-.hero a:hover~.hero__bg {
+.hero a:hover ~ .hero__bg {
   -webkit-filter: revert;
   filter: revert;
   transform: scale(1.15);
@@ -248,13 +249,13 @@ nav a {
   transition: filter 0.3s, transform 0.3s, -webkit-filter 0.3s;
 }
 
-.hero a:hover~.radial__hero {
+.hero a:hover ~ .radial__hero {
   opacity: 0;
   transition: opacity 0.3s;
 }
 
-.hero a:hover~.nav__hero {
-  opacity: .85;
+.hero a:hover ~ .nav__hero {
+  opacity: 0.85;
   transition: opacity 0.3s;
 }
 
@@ -277,7 +278,7 @@ nav a {
   left: 0;
   width: 100%;
   height: 100vh;
-  opacity: .6;
+  opacity: 0.6;
   -o-object-fit: cover;
   object-fit: cover;
   transition: opacity 0.3s;
@@ -471,7 +472,7 @@ nav a {
 }
 
 .home__slider__btns button:disabled {
-  opacity: .3;
+  opacity: 0.3;
 }
 
 .home__slider__btns {
@@ -487,7 +488,9 @@ nav a {
 }
 
 @media screen and (max-width: 1400px) {
-  .home_infos, .home_points, .home_oeuvres {
+  .home_infos,
+  .home_points,
+  .home_oeuvres {
     padding: var(--responsive-padding);
   }
 }
@@ -523,31 +526,59 @@ nav a {
 @media screen and (max-width: 800px) {
   .home_infos {
     flex-direction: column;
+    margin-bottom: 0px;
   }
 
   .home_infos_right {
     width: 90vw;
-    margin-top: 6vh;
-    margin-bottom: 6vh;
+    margin: 7vh 0 15vh 0;
     flex: initial;
   }
 
   .home_infos_right .nuitEtoile {
     width: 50%;
   }
+
+  .home_infos_right .soleilLevant {
+    bottom: 0%;
+    width: 35%;
+  }
+
+  .home_infos_right .pontNeuf {
+    top: 36%;
+    left: 5%;
+    width: 37%;
+  }
 }
 
 @media screen and (max-width: 750px) {
   .hero h1 {
-      font-size: 4.5rem;
+    font-size: 4.5rem;
   }
 
   .hero-top {
     gap: 15px;
   }
+
+  .home_points {
+    gap: 45px;
+  }
 }
 
-@media screen and (max-width: 590px) { 
+@media screen and (max-width: 800px) {
+  .home_infos_right .soleilLevant {
+    bottom: 15%;
+  }
+
+  .home_infos_right {
+    margin-bottom: 8vh;
+  }
+}
+
+@media screen and (max-width: 660px) {
+}
+
+@media screen and (max-width: 590px) {
   .hero h1 {
     font-size: 4rem;
     width: 82%;
@@ -565,6 +596,28 @@ nav a {
   }
 }
 
+@media screen and (max-width: 555px) {
+  .home_infos_right .nuitEtoile {
+    width: 65%;
+    right: 17%;
+  }
+
+  .home_infos_right .pontNeuf {
+    width: 41%;
+  }
+
+  .home_infos_right .soleilLevant {
+    bottom: 19%;
+    width: 37%;
+  }
+}
+
+@media screen and (max-width: 470px) {
+  .home_infos_right .soleilLevant {
+    bottom: 25%;
+  }
+}
+
 @media screen and (max-width: 430px) {
   .hero h1 {
     font-size: 3rem;
@@ -578,8 +631,53 @@ nav a {
     padding: 12px 20px;
   }
 }
-  
 
+@media screen and (max-width: 400px) {
+  .home_infos_right {
+    margin: 7vh 0 0 0;
+  }
+
+  .home_infos_right .soleilLevant {
+    bottom: 34%;
+  }
+
+  .home_infos_right .pontNeuf {
+    top: 30%;
+  }
+
+  .home_infos_right .soleilLevant {
+    bottom: 38%;
+  }
+}
+
+@media screen and (max-width: 330px) {
+  .home_infos_right .nuitEtoile {
+    width: 85%;
+    right: 9%;
+  }
+
+  .home_infos_right .pontNeuf {
+    top: 37%;
+    width: 49%;
+    left: -2%;
+  }
+
+  .home_infos_right .soleilLevant {
+    width: 44%;
+    bottom: 31%;
+  }
+}
+
+@media screen and (max-width: 280px) {
+  .home_infos_right .soleilLevant {
+    bottom: 39%;
+  }
+
+  .home_infos_right .pontNeuf {
+    top: 34%;
+    width: 50%;
+  }
+}
 
 /* Découvrir */
 .banner__top img {
@@ -843,8 +941,10 @@ nav a {
   margin-bottom: 40px;
 }
 
-.collection_paintings_list_element:nth-child(3) .collection_paintings_presentation,
-.collection_paintings_list_element:nth-child(4) .collection_paintings_presentation {
+.collection_paintings_list_element:nth-child(3)
+  .collection_paintings_presentation,
+.collection_paintings_list_element:nth-child(4)
+  .collection_paintings_presentation {
   flex-direction: row-reverse;
   text-align: right;
 }
@@ -875,7 +975,8 @@ nav a {
 }
 
 @media screen and (max-width: 1400px) {
-  .collection_artists, .collection_paintings {
+  .collection_artists,
+  .collection_paintings {
     padding: var(--responsive-padding);
   }
 }
@@ -924,7 +1025,10 @@ nav a {
     flex-direction: column;
   }
 
-  .collection_paintings_list_element:nth-child(3) .collection_paintings_presentation, .collection_paintings_list_element:nth-child(4) .collection_paintings_presentation {
+  .collection_paintings_list_element:nth-child(3)
+    .collection_paintings_presentation,
+  .collection_paintings_list_element:nth-child(4)
+    .collection_paintings_presentation {
     flex-direction: column;
     text-align: left;
   }
@@ -951,7 +1055,8 @@ nav a {
     margin-bottom: 0;
   }
 
-  .collection_paintings_list_element:nth-child(1) .collection_paintings_presentation {
+  .collection_paintings_list_element:nth-child(1)
+    .collection_paintings_presentation {
     margin-top: 50px;
   }
 }
@@ -1027,7 +1132,6 @@ nav a {
   width: 50%;
 }
 
-
 /* Billeterie */
 .billeterie {
   margin: 200px auto var(--margin-end) auto;
@@ -1081,12 +1185,19 @@ nav a {
   width: 100%;
 }
 
-
-
 /* Field */
 
 .field {
   margin-bottom: 40px;
+}
+
+.field--last {
+  margin-bottom: 0;
+}
+
+.form__infos {
+  margin-top: 16px;
+  margin-bottom: 32px;
 }
 
 .field label {
@@ -1094,7 +1205,8 @@ nav a {
   display: block;
 }
 
-.field input {
+.field input,
+.field select {
   border: none;
   border-radius: 2px;
   background-color: var(--black-lighter);
@@ -1102,7 +1214,6 @@ nav a {
   width: 100%;
   padding: 16px;
   font-size: 1rem;
-
 }
 
 .field input:focus {
@@ -1160,8 +1271,15 @@ select:focus {
   outline-color: var(--blue);
 }
 
-select option {
+.field small {
+  display: block;
   color: red;
+  margin-top: 8px;
+}
+
+.field.error input,
+.field.error select {
+  border: 1px solid red;
 }
 
 /* Footer */
@@ -1228,16 +1346,16 @@ footer .footer_bottom {
   justify-content: center;
 }
 
-
 /* Skeleton */
 .skeleton {
   background-color: var(--loading-grey);
   background: linear-gradient(
-    100deg,
-    rgba(255, 255, 255, 0) 40%,
-    rgba(255, 255, 255, .5) 50%,
-    rgba(255, 255, 255, 0) 60%
-  ) var(--loading-grey);
+      100deg,
+      rgba(255, 255, 255, 0) 40%,
+      rgba(255, 255, 255, 0.5) 50%,
+      rgba(255, 255, 255, 0) 60%
+    )
+    var(--loading-grey);
   background-size: 200% 100%;
   background-position-x: 180%;
   animation: 1s loading ease-in-out infinite;
