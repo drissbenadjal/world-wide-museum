@@ -565,17 +565,10 @@ nav a {
   }
 }
 
-@media screen and (max-width: 800px) {
-  .home_infos_right .soleilLevant {
-    bottom: 15%;
-  }
-
-  .home_infos_right {
-    margin-bottom: 8vh;
-  }
-}
-
 @media screen and (max-width: 660px) {
+  .home_points {
+    gap: 30px;
+  }
 }
 
 @media screen and (max-width: 590px) {
@@ -593,6 +586,18 @@ nav a {
 
   .hero-top .spacer {
     width: 25px;
+  }
+
+  .home_points {
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    width: 80%;
+    gap: 55px;
+  }
+
+  .home_points .home_points_element {
+    align-items: center;
   }
 }
 
@@ -1344,6 +1349,41 @@ footer .footer_bottom {
   gap: 5vw;
   margin-top: 3vh;
   justify-content: center;
+}
+
+@media screen and (max-width: 660px) {
+  .footer_part1 {
+    display: none;
+  }
+}
+
+@media screen and (max-width: 530px) {
+  footer {
+    align-items: center;
+  }
+
+  footer .footer_top {
+    gap: 75px;
+  }
+
+  footer .footer_top .footer_part3 .reseaux ul {
+    gap: 50px;
+    margin: 5vh 0;
+  }
+
+  footer .footer_bottom {
+    flex-direction: column;
+    gap: 2vw;
+    align-items: center;
+  }
+}
+
+@media screen and (max-width: 450px) {
+  footer .footer_top {
+    flex-direction: column;
+    gap: 29px;
+    width: 100%;
+  }
 }
 
 /* Skeleton */
