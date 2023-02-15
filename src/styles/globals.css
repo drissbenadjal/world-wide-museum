@@ -496,6 +496,45 @@ nav a {
   .hero h1 {
     font-size: 5rem;
   }
+
+  .home_infos_right .pontNeuf {
+    bottom: 16%;
+  }
+
+  .home_infos_right .soleilLevant {
+    bottom: 20%;
+  }
+}
+
+@media screen and (max-width: 910px) {
+  .home_infos_right .nuitEtoile {
+    width: 70%;
+  }
+
+  .home_infos_right .pontNeuf {
+    bottom: 25%;
+  }
+
+  .home_infos_right .soleilLevant {
+    bottom: 30%;
+  }
+}
+
+@media screen and (max-width: 800px) {
+  .home_infos {
+    flex-direction: column;
+  }
+
+  .home_infos_right {
+    width: 90vw;
+    margin-top: 6vh;
+    margin-bottom: 6vh;
+    flex: initial;
+  }
+
+  .home_infos_right .nuitEtoile {
+    width: 50%;
+  }
 }
 
 @media screen and (max-width: 750px) {
@@ -533,6 +572,10 @@ nav a {
 
   .display3 {
     font-size: 1rem;
+  }
+
+  .btn {
+    padding: 12px 20px;
   }
 }
   
