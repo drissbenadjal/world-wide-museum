@@ -694,7 +694,7 @@ nav a {
 
 @media screen and (max-width: 430px) {
   .hero h1 {
-    font-size: 3rem;
+    font-size: 2.5rem !important;
   }
 
   .display3 {
@@ -1429,11 +1429,17 @@ select:focus {
 
   .billeterie_img {
     width: 100%;
-    height: auto;
+    height: 28vh;
   }
 
   .field {
     width: 100%;
+  }
+}
+
+@media screen and (max-width: 730px) {
+  .billeterie {
+    padding: 0 20px;
   }
 }
 
@@ -1451,7 +1457,11 @@ select:focus {
   }
 }
 
-@media screen and (max-width: 580px) {}
+@media screen and (max-width: 500px) {
+  .billeterie h1 {
+    font-size: 1.8em !important;
+  }
+}
 
 /* Footer */
 footer {
