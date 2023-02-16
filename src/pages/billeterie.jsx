@@ -47,19 +47,96 @@ export default function Home() {
   const date_day = useRef();
   const date_hour = useRef();
 
+
+  const regex = /^[a-zA-Z0-9._-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,4}$/;
+  // Form verification and error message
+  useEffect(() => {
+    prenom_reservation.current.addEventListener("input", (e) => {
+      if (e.target.value.length < 2) {
+        e.target.nextElementSibling.innerHTML = "Ce champ ne peut pas être vide";
+      } else {
+        e.target.nextElementSibling.innerHTML = "";
+      }
+    });
+    nom_reservation.current.addEventListener("input", (e) => {
+      if (e.target.value.length < 2) {
+        e.target.nextElementSibling.innerHTML = "Ce champ ne peut pas être vide";
+      } else {
+        e.target.nextElementSibling.innerHTML = "";
+      }
+    }
+    );
+    email_reservation.current.addEventListener("input", (e) => {
+      if (!regex.test(e.target.value)) {
+        e.target.nextElementSibling.innerHTML = "L'adresse email n'est pas valide";
+      } else {
+        e.target.nextElementSibling.innerHTML = "";
+      }
+    }
+    );
+    date_day.current.addEventListener("input", (e) => {
+      if (e.target.value == "") {
+        e.target.nextElementSibling.innerHTML = "Veuillez sélectionner une date";
+      } else {
+        e.target.nextElementSibling.innerHTML = "";
+      }
+    }
+    );
+    date_hour.current.addEventListener("input", (e) => {
+      if (e.target.value == "") {
+        e.target.nextElementSibling.innerHTML = "Veuillez sélectionner une heure";
+      } else {
+        e.target.nextElementSibling.innerHTML = "";
+      }
+      if (
+        e.target.value != "10:00:00" &&
+        e.target.value != "11:00:00" &&
+        e.target.value != "12:00:00" &&
+        e.target.value != "13:00:00" &&
+        e.target.value != "14:00:00" &&
+        e.target.value != "15:00:00" &&
+        e.target.value != "16:00:00" &&
+        e.target.value != "17:00:00"
+      ) {
+        e.target.nextElementSibling.innerHTML =
+          "Veuillez sélectionner une heure valide";
+      } else {
+        e.target.nextElementSibling.innerHTML = "";
+      }
+    }
+    );
+  }, []);
+
   const [errorMessage, setErrorMessage] = useState(false);
 
   const handleSubmit = (e) => {
     e.preventDefault();
 
-    let error = false;
-    const fields = document.querySelectorAll(".field");
+    //verifier que les champs sont remplis
+    if (
+      prenom_reservation.current.value.length < 2 ||
+      nom_reservation.current.value.length < 2 ||
+      !regex.test(email_reservation.current.value) ||
+      date_day.current.value == "" ||
+      date_hour.current.value == ""
+    ) {
+      setErrorMessage("Veuillez remplir tous les champs");
+      return;
+    }
 
-    // Form verification
-    form.addEventListener("submit", () => {
-      fields.forEach((field) => {});
-    });
-    if (error) return;
+    if (
+      e.target.value != "10:00:00" &&
+      e.target.value != "11:00:00" &&
+      e.target.value != "12:00:00" &&
+      e.target.value != "13:00:00" &&
+      e.target.value != "14:00:00" &&
+      e.target.value != "15:00:00" &&
+      e.target.value != "16:00:00" &&
+      e.target.value != "17:00:00"
+    ) {
+      setErrorMessage("Veuillez sélectionner une heure valide");
+      return;
+    }
 
     const date_reservation =
       date_day.current.value + " " + date_hour.current.value;
@@ -108,7 +185,7 @@ export default function Home() {
           <div className="billeterie__left">
             <Image
               draggable="false"
-              src={nuitEtoile}
+              src={nuitEtoile} className="billeterie_img"
               alt=""
               width="250"
               height="250"
@@ -142,89 +219,94 @@ export default function Home() {
             </div>
           </div>
           <form onSubmit={(e) => handleSubmit(e)} ref={form}>
-            <div className="field">
-              <label className="display3" htmlFor="prenom_reservation">
-                Prénom
-              </label>
-              <input
-                type="text"
-                name="prenom_reservation"
-                id="prenom_reservation"
-                placeholder="Saisissez votre prénom"
-                ref={prenom_reservation}
-                required
-              />
-              <small></small>
+            <div className="form_parts">
+              <div className="form_part1">
+                <div className="field">
+                  <label className="display3" htmlFor="prenom_reservation">
+                    Prénom <span>*</span>
+                  </label>
+                  <input
+                    type="text"
+                    name="prenom_reservation"
+                    id="prenom_reservation"
+                    placeholder="Saisissez votre prénom"
+                    ref={prenom_reservation}
+
+                  />
+                  <small></small>
+                </div>
+                <div className="field">
+                  <label className="display3" htmlFor="nom_reservation">
+                    Nom <span>*</span>
+                  </label>
+                  <input
+                    type="text"
+                    name="nom_reservation"
+                    id="nom_reservation"
+                    placeholder="Saisissez votre nom"
+                    ref={nom_reservation}
+
+                  />
+                  <small></small>
+                </div>
+                <div className="field">
+                  <label className="display3" htmlFor="email_reservation">
+                    Email <span>*</span>
+                  </label>
+                  <input
+                    type="email"
+                    name="email_reservation"
+                    id="email_reservation"
+                    placeholder="exemple@gmail.com"
+                    ref={email_reservation}
+
+                  />
+                  <small></small>
+                </div>
+              </div>
+              <div className="form_part2">
+                <div className="field">
+                  <label className="display3" htmlFor="date_day">
+                    Date <span>*</span>
+                  </label>
+                  <input
+                    type="date"
+                    name="date_day"
+                    id="date_day"
+                    placeholder="Sélectionner une date"
+                    ref={date_day}
+
+                  />
+                  <small></small>
+                </div>
+                <div className="field">
+                  <label className="display3" htmlFor="date_hour">
+                    Horaire <span>*</span>
+                  </label>
+                  {/* <input type="date" name="date" id="date" placeholder="Sélectionner une date" /> */}
+                  <select name="date_hour" id="date_hour" ref={date_hour}>
+                    <option value="">Sélectionner un créneau</option>
+                    <option value="10:00:00">10:00 - 11:00</option>
+                    <option value="11:00:00">11:00 - 12:00</option>
+                    <option value="12:00:00">12:00 - 13:00</option>
+                    <option value="13:00:00">13:00 - 14:00</option>
+                    <option value="14:00:00">14:00 - 15:00</option>
+                    <option value="15:00:00">15:00 - 16:00</option>
+                    <option value="16:00:00">16:00 - 17:00</option>
+                    <option value="17:00:00">17:00 - 18:00</option>
+                  </select>
+                  <small></small>
+                </div>
+                <input
+                  type="hidden"
+                  ref={place_reservation}
+                  name="place_reservation"
+                  id="place_reservation"
+                  value={place}
+                />
+                {errorMessage ? <p className="error">{errorMessage}</p> : ""}
+              </div>
             </div>
-            <div className="field">
-              <label className="display3" htmlFor="nom_reservation">
-                Nom
-              </label>
-              <input
-                type="text"
-                name="nom_reservation"
-                id="nom_reservation"
-                placeholder="Saisissez votre nom"
-                ref={nom_reservation}
-                required
-              />
-              <small></small>
-            </div>
-            <div className="field">
-              <label className="display3" htmlFor="email_reservation">
-                Prénom
-              </label>
-              <input
-                type="email"
-                name="email_reservation"
-                id="email_reservation"
-                placeholder="exemple@gmail.com"
-                ref={email_reservation}
-                required
-              />
-              <small></small>
-            </div>
-            <div className="field">
-              <label className="display3" htmlFor="date_day">
-                Date
-              </label>
-              <input
-                type="date"
-                name="date_day"
-                id="date_day"
-                placeholder="Sélectionner une date"
-                ref={date_day}
-                required
-              />
-              <small></small>
-            </div>
-            <div className="field field--last">
-              <label className="display3" htmlFor="date_hour">
-                Horaire
-              </label>
-              {/* <input type="date" name="date" id="date" placeholder="Sélectionner une date" /> */}
-              <select name="date_hour" id="date_hour" ref={date_hour} required>
-                <option value="">Sélectionner un créneau</option>
-                <option value="10:00:00">10:00 - 11:00</option>
-                <option value="11:00:00">11:00 - 12:00</option>
-                <option value="12:00:00">12:00 - 13:00</option>
-                <option value="13:00:00">13:00 - 14:00</option>
-                <option value="14:00:00">14:00 - 15:00</option>
-                <option value="15:00:00">15:00 - 16:00</option>
-                <option value="16:00:00">16:00 - 17:00</option>
-                <option value="17:00:00">17:00 - 18:00</option>
-              </select>
-              <small></small>
-            </div>
-            <input
-              type="hidden"
-              ref={place_reservation}
-              name="place_reservation"
-              id="place_reservation"
-              value={place}
-            />
-            {errorMessage ? <p className="error">{errorMessage}</p> : ""}
-            <div className="form__infos">Tous les champs sont obligatoires</div>
             <input
               type="submit"
               value="Confirmer la réservation"

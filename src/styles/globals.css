@@ -159,6 +159,57 @@ header {
   position: fixed;
   top: 0;
   z-index: 999;
+  transition: 0.2s ease-in-out;
+}
+
+header.nav-scroll {
+  -webkit-backdrop-filter: blur(30px);
+  backdrop-filter: blur(30px);
+  padding: 0px var(--padding);
+}
+
+header.burger.nav-scroll {
+  padding: 0 24px;
+}
+
+.burger {
+  padding: 0 24px;
+}
+
+.burger.active {
+  display: block;
+  -webkit-backdrop-filter: blur(30px);
+  backdrop-filter: blur(30px);
+  height: 100vh;
+}
+
+.burger .top-header {
+  display: flex;
+  width: 100%;
+  padding: 24px 0;
+  justify-content: space-between;
+}
+
+.burger nav {
+  display: none;
+}
+
+.burger.active nav {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  height: 100%;
+  width: 100%;
+}
+
+.burger.active nav ul {
+  flex-direction: column;
+  padding: 0;
+}
+
+.burger.active nav ul li {
+  font-size: var(--h3);
 }
 
 nav ul {
@@ -240,7 +291,7 @@ nav a {
   transition: filter 0.3s, transform 0.3s, opacity 0.3s, -webkit-filter 0.3s;
 }
 
-.hero a:hover ~ .hero__bg {
+.hero a:hover~.hero__bg {
   -webkit-filter: revert;
   filter: revert;
   transform: scale(1.15);
@@ -249,12 +300,12 @@ nav a {
   transition: filter 0.3s, transform 0.3s, -webkit-filter 0.3s;
 }
 
-.hero a:hover ~ .radial__hero {
+.hero a:hover~.radial__hero {
   opacity: 0;
   transition: opacity 0.3s;
 }
 
-.hero a:hover ~ .nav__hero {
+.hero a:hover~.nav__hero {
   opacity: 0.85;
   transition: opacity 0.3s;
 }
@@ -310,7 +361,7 @@ nav a {
   align-items: center;
   padding: 100px 0 0;
   max-width: var(--max-width);
-  gap: 56px;
+  gap: 100px;
   margin-bottom: var(--margin-end);
 }
 
@@ -488,6 +539,7 @@ nav a {
 }
 
 @media screen and (max-width: 1400px) {
+
   .home_infos,
   .home_points,
   .home_oeuvres {
@@ -527,6 +579,7 @@ nav a {
   .home_infos {
     flex-direction: column;
     margin-bottom: 0px;
+    gap: 0;
   }
 
   .home_infos_right {
@@ -551,7 +604,7 @@ nav a {
   }
 }
 
-@media screen and (max-width: 750px) {
+@media screen and (max-width: 730px) {
   .hero h1 {
     font-size: 4.5rem;
   }
@@ -565,19 +618,24 @@ nav a {
   }
 }
 
-@media screen and (max-width: 660px) {
+@media screen and (max-width: 640px) {
   .home_points {
     gap: 30px;
+  }
+
+  .home_infos_right .soleilLevant {
+    bottom: 14%;
   }
 }
 
 @media screen and (max-width: 590px) {
   .hero h1 {
     font-size: 4rem;
-    width: 82%;
+    width: 90%;
     display: flex;
     justify-content: center;
     font-size: 3.5rem;
+    margin-top: 2vh;
   }
 
   .hero-top {
@@ -590,14 +648,25 @@ nav a {
 
   .home_points {
     flex-direction: column;
-    align-items: center;
-    text-align: center;
+    align-items: self-start;
+    text-align: left;
     width: 80%;
     gap: 55px;
+    margin-top: 5vh;
   }
 
   .home_points .home_points_element {
-    align-items: center;
+    align-items: self-start;
+  }
+
+  .home_infos_right {
+    margin-bottom: 0;
+    height: 284px;
+  }
+
+  .home_infos_right .soleilLevant {
+    bottom: 28%;
+    right: 8%;
   }
 }
 
@@ -612,7 +681,7 @@ nav a {
   }
 
   .home_infos_right .soleilLevant {
-    bottom: 19%;
+    bottom: 11%;
     width: 37%;
   }
 }
@@ -879,6 +948,7 @@ nav a {
     font-size: calc(2rem + 4vw);
     width: 95vw;
     bottom: 11vh;
+    padding: 0 20px;
   }
 
   .banner__top img {
@@ -946,10 +1016,8 @@ nav a {
   margin-bottom: 40px;
 }
 
-.collection_paintings_list_element:nth-child(3)
-  .collection_paintings_presentation,
-.collection_paintings_list_element:nth-child(4)
-  .collection_paintings_presentation {
+.collection_paintings_list_element:nth-child(3) .collection_paintings_presentation,
+.collection_paintings_list_element:nth-child(4) .collection_paintings_presentation {
   flex-direction: row-reverse;
   text-align: right;
 }
@@ -980,6 +1048,7 @@ nav a {
 }
 
 @media screen and (max-width: 1400px) {
+
   .collection_artists,
   .collection_paintings {
     padding: var(--responsive-padding);
@@ -1030,10 +1099,8 @@ nav a {
     flex-direction: column;
   }
 
-  .collection_paintings_list_element:nth-child(3)
-    .collection_paintings_presentation,
-  .collection_paintings_list_element:nth-child(4)
-    .collection_paintings_presentation {
+  .collection_paintings_list_element:nth-child(3) .collection_paintings_presentation,
+  .collection_paintings_list_element:nth-child(4) .collection_paintings_presentation {
     flex-direction: column;
     text-align: left;
   }
@@ -1060,8 +1127,7 @@ nav a {
     margin-bottom: 0;
   }
 
-  .collection_paintings_list_element:nth-child(1)
-    .collection_paintings_presentation {
+  .collection_paintings_list_element:nth-child(1) .collection_paintings_presentation {
     margin-top: 50px;
   }
 }
@@ -1139,7 +1205,7 @@ nav a {
 
 /* Billeterie */
 .billeterie {
-  margin: 200px auto var(--margin-end) auto;
+  margin: 130px auto var(--margin-end) auto;
   max-width: var(--max-width);
   padding: 0 var(--padding);
 }
@@ -1158,6 +1224,9 @@ nav a {
 .billeterie__left {
   display: flex;
   gap: 32px;
+  height: -webkit-fit-content;
+  height: -moz-fit-content;
+  height: fit-content;
 }
 
 /* .billeterie__left>div {
@@ -1196,13 +1265,12 @@ nav a {
   margin-bottom: 40px;
 }
 
-.field--last {
-  margin-bottom: 0;
+.form__infos {
+  margin-bottom: 32px;
 }
 
-.form__infos {
-  margin-top: 16px;
-  margin-bottom: 32px;
+.error {
+  margin-bottom: 16px;
 }
 
 .field label {
@@ -1287,6 +1355,104 @@ select:focus {
   border: 1px solid red;
 }
 
+.error {
+  color: red;
+  margin-top: 8px;
+  margin-bottom: 24px;
+}
+
+@media screen and (min-width:1050px) {
+  .billeterie__left {
+    position: -webkit-sticky;
+    position: sticky;
+    top: 120px;
+  }
+}
+
+@media screen and (max-width: 1050px) {
+  .billeterie__content {
+    flex-direction: column;
+    gap: 60px;
+  }
+
+  .form_parts {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    gap: 40px;
+  }
+
+  .form_part1 {
+    width: 60%;
+  }
+
+  .form_part2 {
+    width: 35%;
+  }
+
+  .billeterie__left {
+    gap: 44px;
+  }
+}
+
+@media screen and (max-width: 830px) {
+  .form_parts {
+    flex-direction: column;
+    gap: 0px;
+  }
+
+  .form_part1 {
+    width: 100%;
+  }
+
+  .form_part2 {
+    width: -webkit-fit-content;
+    width: -moz-fit-content;
+    width: fit-content;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    width: 100%;
+    gap: 20px;
+  }
+
+  .billeterie__left {
+    gap: 20px;
+    flex-direction: column;
+  }
+
+  .placeSelector {
+    width: -webkit-fit-content;
+    width: -moz-fit-content;
+    width: fit-content;
+  }
+
+  .billeterie_img {
+    width: 100%;
+    height: auto;
+  }
+
+  .field {
+    width: 100%;
+  }
+}
+
+@media screen and (max-width: 640px) {
+  .form_part2 {
+    flex-direction: column;
+  }
+
+  .form_part2 .field {
+    margin-bottom: 0;
+  }
+
+  form input[type="submit" i] {
+    margin-top: 5vh;
+  }
+}
+
+@media screen and (max-width: 580px) {}
+
 /* Footer */
 footer {
   background-color: var(--black-lighter);
@@ -1360,6 +1526,7 @@ footer .footer_bottom {
 @media screen and (max-width: 530px) {
   footer {
     align-items: center;
+    padding: 20px;
   }
 
   footer .footer_top {
@@ -1389,16 +1556,20 @@ footer .footer_bottom {
 /* Skeleton */
 .skeleton {
   background-color: var(--loading-grey);
-  background: linear-gradient(
-      100deg,
+  background: linear-gradient(100deg,
       rgba(255, 255, 255, 0) 40%,
       rgba(255, 255, 255, 0.5) 50%,
-      rgba(255, 255, 255, 0) 60%
-    )
-    var(--loading-grey);
+      rgba(255, 255, 255, 0) 60%) var(--loading-grey);
   background-size: 200% 100%;
   background-position-x: 180%;
+  -webkit-animation: 1s loading ease-in-out infinite;
   animation: 1s loading ease-in-out infinite;
+}
+
+@-webkit-keyframes loading {
+  to {
+    background-position-x: -20%;
+  }
 }
 
 @keyframes loading {
