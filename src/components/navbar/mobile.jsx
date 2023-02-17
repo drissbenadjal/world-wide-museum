@@ -9,9 +9,12 @@ export const Mobilenavbar = () => {
     const router = useRouter();
 
     const burger = useRef(null);
+    const burgerIcon = useRef(null);
 
     const handleBurger = () => {
         burger.current.classList.toggle('active');
+        burgerIcon.current.classList.toggle('active');
+
     }
 
 
@@ -22,7 +25,11 @@ export const Mobilenavbar = () => {
                     <Link href="/">
                         <Image src="/logo.png" alt="logo" width={100} height={100} />
                     </Link>
-                    <button onClick={handleBurger}>Burger</button>
+                    <button onClick={handleBurger}>
+                        <div className="burgerIcon" ref={burgerIcon}></div>
+                        <span class="sr-only">Menu de navigation</span>
+                    </button>
+
                 </div>
                 <nav>
                     <ul>

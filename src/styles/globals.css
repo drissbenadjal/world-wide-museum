@@ -80,6 +80,29 @@ input {
   font-family: var(--main-font);
 }
 
+.sr-only {
+  border: 0;
+  clip: rect(0 0 0 0);
+  height: 1px;
+  margin: -1px;
+  overflow: hidden;
+  padding: 0;
+  position: absolute;
+  white-space: nowrap;
+  width: 1px;
+}
+
+.sr-only-focusable:active,
+.sr-only-focusable:focus {
+  clip: auto;
+  height: auto;
+  margin: 0;
+  overflow: visible;
+  position: static;
+  white-space: normal;
+  width: auto;
+}
+
 /* Text styles */
 h1 {
   font-family: var(--secondary-font), serif;
@@ -253,6 +276,85 @@ nav a {
 
 .nav-active.link {
   color: var(--blue);
+}
+
+.burgerIcon {
+  display: inline-block;
+  width: 32px;
+  height: 32px;
+  cursor: pointer;
+}
+
+.burgerIcon {
+  position: relative;
+  display: inline-block;
+  width: 32px;
+  height: 2px;
+  border-radius: 2px;
+  background: white;
+  transition: all 0.2s ease-out;
+}
+
+.burgerIcon::before,
+.burgerIcon::after {
+  content: "";
+  width: 32px;
+  height: 2px;
+  background: white;
+  position: absolute;
+  border-radius: 2px;
+  left: 0;
+  transition: all 0.2s ease-out;
+}
+
+.burgerIcon::before {
+  top: -10px;
+}
+
+.burgerIcon::after {
+  bottom: -10px;
+}
+
+header button {
+  width: 48px;
+  height: 48px;
+  transform: translateX(8px);
+  cursor: pointer;
+  display: none;
+  justify-content: center;
+  align-items: center;
+}
+
+header button:hover .burgerIcon::before {
+  top: -12px;
+}
+
+header button:hover .burgerIcon::after {
+  bottom: -12px;
+}
+
+.burgerIcon.active {
+  background: transparent !important;
+}
+
+.burgerIcon.active::before {
+  top: 0;
+  transform: rotateZ(45deg);
+}
+
+.burgerIcon.active::after {
+  bottom: 0;
+  transform: rotateZ(-45deg);
+}
+
+header button:hover .burgerIcon.active::before {
+  top: 0;
+  transform: rotateZ(45deg);
+}
+
+header button:hover .burgerIcon.active::after {
+  bottom: 0;
+  transform: rotateZ(-45deg);
 }
 
 /* Main */
@@ -1197,6 +1299,11 @@ nav a {
   width: 40%;
 }
 
+.oeuvrepage_infos .oeuvrepage_infos_details_image img {
+  width: 100%;
+  border-radius: 2px;
+}
+
 .oeuvrepage_infos .oeuvrepage_infos_details_txt {
   display: flex;
   flex-direction: column;
@@ -1564,11 +1671,28 @@ footer .footer_bottom {
 }
 
 /* Skeleton */
+
 .skeleton {
+  pointer-events: none;
+  cursor: default;
+
+}
+
+.skeleton:before {
+  content: "";
+  display: block;
+  width: 100%;
+  height: 100%;
+  position: relative;
+  z-index: 100;
   background-color: var(--loading-grey);
   background: linear-gradient(100deg,
       rgba(255, 255, 255, 0) 40%,
-      rgba(255, 255, 255, 0.5) 50%,
+      rgba(255, 255, 255, .2) 50%,
+      rgba(255, 255, 255, 0) 60%) var(--loading-grey);
+  background: linear-gradient(100deg,
+      rgba(255, 255, 255, 0) 40%,
+      rgba(255, 255, 255, .5) 50%,
       rgba(255, 255, 255, 0) 60%) var(--loading-grey);
   background-size: 200% 100%;
   background-position-x: 180%;
@@ -1586,4 +1710,55 @@ footer .footer_bottom {
   to {
     background-position-x: -20%;
   }
+}
+
+.oeuvrepage_infos {
+  min-height: 294.54;
+}
+
+.oeuvrepage_infos h1.skeleton::before {
+  height: 210px;
+  margin-bottom: 24px;
+}
+
+.oeuvrepage_infos h2.skeleton::before {
+  height: 50px;
+  width: 300px;
+}
+
+.oeuvrepage_infos .oeuvrepage_infos_details_image.skeleton::before {
+  height: 400px;
+}
+
+.collection_artists_presentation h3.skeleton::before {
+  height: 30px;
+  width: 200px;
+  border-radius: 2px;
+}
+
+.collection_artists_presentation div.skeleton::before {
+  height: 420px;
+  width: 290px;
+  border-radius: 160px
+}
+
+.collection_paintings_list_element .collection_paintings_presentation_image.skeleton::before {
+  width: 370px;
+  height: 270px;
+}
+
+.collection_paintings_list_element p.skeleton::before {
+  width: 150px;
+  height: 35px;
+  margin-bottom: 8px;
+}
+
+.collection_paintings_list_element h3.skeleton::before {
+  width: 400px;
+  height: 35px;
+}
+
+.collection_paintings_list_element span.skeleton::before {
+  width: 150px;
+  height: 35px;
 }
