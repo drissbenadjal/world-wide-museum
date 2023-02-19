@@ -826,21 +826,36 @@ header button:hover .burgerIcon.active::after {
   }
 }
 
+@media screen and (max-width: 365px) {
+  .display3 {
+    font-size: 0.8rem;
+  }
+
+  .hero h1 {
+    font-size: 2.3rem !important;
+  }
+
+  .hero-top .spacer {
+    width: 15px;
+  }
+}
+
 @media screen and (max-width: 330px) {
   .home_infos_right .nuitEtoile {
     width: 85%;
     right: 9%;
   }
 
+  .home_infos_right .soleilLevant {
+    width: 37%;
+    bottom: 31%;
+    right: 2%;
+  }
+
   .home_infos_right .pontNeuf {
     top: 37%;
     width: 49%;
     left: -2%;
-  }
-
-  .home_infos_right .soleilLevant {
-    width: 44%;
-    bottom: 31%;
   }
 }
 
@@ -1058,6 +1073,12 @@ header button:hover .burgerIcon.active::after {
   }
 }
 
+@media screen and (max-width: 500px) {
+  .discover_app {
+    padding: 30px;
+  }
+}
+
 /*Collection*/
 .collection_artists {
   max-width: var(--max-width);
@@ -1246,6 +1267,20 @@ header button:hover .burgerIcon.active::after {
   }
 }
 
+@media screen and (max-width: 350px) {
+  .collection_paintings_presentation img {
+    height: 220px;
+  }
+
+  .collection_artists h2 {
+    font-size: 2rem;
+  }
+
+  .collection_paintings h2 {
+    font-size: 2rem;
+  }
+}
+
 /*Oeuvre*/
 
 .oeuvrepage {
@@ -1308,6 +1343,86 @@ header button:hover .burgerIcon.active::after {
   display: flex;
   flex-direction: column;
   width: 50%;
+}
+
+@media screen and (max-width: 1370px) {
+  .oeuvrepage_ariane {
+    padding: var(--responsive-padding);
+  }
+
+  .oeuvrepage_infos {
+    padding: var(--responsive-padding);
+  }
+}
+
+@media screen and (max-width: 1050px) {
+  .oeuvrepage_ariane {
+    margin-bottom: 60px;
+  }
+
+  .oeuvrepage_infos_titre h1 {
+    font-size: 5rem;
+  }
+
+  .oeuvrepage_infos_titre h2 {
+    font-size: 1.8rem;
+  }
+}
+
+@media screen and (max-width: 800px) {
+  .oeuvrepage_ariane {
+    margin-bottom: 35px;
+  }
+
+  .oeuvrepage_infos_titre h1 {
+    font-size: 4rem;
+  }
+
+  .oeuvrepage_infos_titre h2 {
+    font-size: 1.5rem;
+  }
+}
+
+@media screen and (max-width: 590px) {
+  .oeuvrepage_infos_titre h1 {
+    font-size: 3rem;
+  }
+
+  .oeuvrepage_infos_titre h2 {
+    font-size: 1.3rem;
+  }
+
+  .oeuvrepage_infos_details {
+    flex-direction: column;
+    gap: 30px;
+  }
+
+  .oeuvrepage_infos .oeuvrepage_infos_details_image {
+    width: 100%;
+  }
+
+  .oeuvrepage_infos .oeuvrepage_infos_details_image img {
+    height: 50vh;
+    object-fit: cover;
+  }
+
+  .oeuvrepage_infos .oeuvrepage_infos_details_txt {
+    width: 100%;
+  }
+
+  .oeuvrepage_infos {
+    margin-bottom: 30px;
+  }
+}
+
+@media screen and (max-width: 440px) {
+  .oeuvrepage_infos .oeuvrepage_infos_details_image img {
+    height: 37vh;
+  }
+
+  .oeuvrepage_infos {
+    margin-bottom: 10px;
+  }
 }
 
 /* Billeterie */
