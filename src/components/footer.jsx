@@ -1,18 +1,25 @@
 import Image from 'next/image'
 import Link from 'next/link'
 
+//images
+import logo from '../images/logo.svg'
+import logoBlue from '../images/logo_blue.svg'
+import twitterLogo from '../images/icons/twitter.svg'
+import instagramLogo from '../images/icons/instagram.svg'
+import tiktokLogo from '../images/icons/tiktok.svg'
+
 export default function Footer() {
     return (
         <>
             <footer>
                 <div className="footer_top">
                     <div className="footer_part1">
-                    <Link href="/">
-                        <Image src="/logo.png" alt="logo" width={100} height={100} />
-                    </Link>
+                        <Link href="/">
+                            <Image src={logo} alt="logo" width={100} height={100} />
+                        </Link>
                     </div>
                     <div className="footer_part2">
-                        <h3>LEXPOSITION</h3>
+                        <h3>L’EXPOSITION</h3>
                         <ul>
                             <li>
                                 <Link href="/collection" className="link">Collection</Link>
@@ -21,10 +28,7 @@ export default function Footer() {
                                 <Link href="/billeterie" className="link">Billeterie</Link>
                             </li>
                             <li>
-                                <Link href="/faq" className="link">FAQ</Link>
-                            </li>
-                            <li>
-                                <Link href="/contact" className="link">Contactez-nous</Link>
+                                <Link href="https://wordpress.nathaliedouang.fr/index.php/contact/" className="link">Contactez-nous</Link>
                             </li>
                         </ul>
                     </div>
@@ -34,17 +38,17 @@ export default function Footer() {
                             <ul>
                                 <li>
                                     <Link href="/">
-                                        <Image src="/instagram.png" alt="logo" width={100} height={100} />
+                                        <Image src={twitterLogo} alt="logo" width={100} height={100} />
                                     </Link>
                                 </li>
                                 <li>
                                     <Link href="/">
-                                        <Image src="/tiktok.png" alt="logo" width={100} height={100} />
+                                        <Image src={instagramLogo} alt="logo" width={100} height={100} />
                                     </Link>
                                 </li>
                                 <li>
                                     <Link href="/">
-                                        <Image src="/twitter.png" alt="logo" width={100} height={100} />
+                                        <Image src={tiktokLogo} alt="logo" width={100} height={100} />
                                     </Link>
                                 </li>
                             </ul>

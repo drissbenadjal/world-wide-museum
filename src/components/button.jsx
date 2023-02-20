@@ -1,9 +1,9 @@
 import Link from 'next/link'
 
-export default function Button(props) {
+export default function Button({ onClick, linkBtn, children }) {
   return (
     <>
-      <Link className='btn' href={props.linkbtn}>{props.children}</Link>
+      <Link onClick={onClick} className='btn' href={linkBtn}>{children}</Link>
     </>
   )
 }

@@ -4,6 +4,10 @@ import Image from "next/image";
 import { useRouter } from 'next/router';
 import { useEffect, useRef } from "react";
 
+//image
+import logo from '../../images/logo.svg'
+import logoBlue from '../../images/logo_blue.svg'
+
 export const Mobilenavbar = () => {
 
     const router = useRouter();
@@ -23,7 +27,7 @@ export const Mobilenavbar = () => {
             <header className="burger" ref={burger}>
                 <div className="top-header">
                     <Link href="/">
-                        <Image src="/logo.png" alt="logo" width={100} height={100} />
+                        <Image src={logo} alt="logo" width={40} height={40} />
                     </Link>
                     <button onClick={handleBurger}>
                         <div className="burgerIcon" ref={burgerIcon}></div>
@@ -34,13 +38,13 @@ export const Mobilenavbar = () => {
                 <nav>
                     <ul>
                         <li>
-                            <Link href="/decouvrir" className={router.pathname == "/decouvrir" ? "nav-active link" : "link"}>Découvrir</Link>
+                            <Link href="/decouvrir" onClick={handleBurger} className={router.pathname == "/decouvrir" ? "nav-active link" : "link"}>Découvrir</Link>
                         </li>
                         <li>
-                            <Link href="/collection" className={router.pathname == "/collection" ? "nav-active link" : "link"}>Collection</Link>
+                            <Link href="/collection" onClick={handleBurger} className={router.pathname == "/collection" ? "nav-active link" : "link"}>Collection</Link>
                         </li>
                         <li>
-                            <Button linkbtn='/billeterie'>Billeterie</Button>
+                            <Button linkBtn='/billeterie' onClick={handleBurger}>Billeterie</Button>
                         </li>
                     </ul>
                 </nav>

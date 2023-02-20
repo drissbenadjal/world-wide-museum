@@ -4,6 +4,10 @@ import Image from "next/image";
 import { useRouter } from 'next/router';
 import { useEffect } from "react";
 
+//image
+import logo from '../../images/logo.svg'
+import logoBlue from '../../images/logo_blue.svg'
+
 export const Desktopnavbar = () => {
 
     const router = useRouter();
@@ -23,7 +27,7 @@ export const Desktopnavbar = () => {
         <>
             <header>
                 <Link href="/">
-                    <Image src="/logo.png" alt="logo" width={100} height={100} />
+                    <Image src={logo} alt="logo" width={40} height={40} />
                 </Link>
                 <nav>
                     <ul>
@@ -34,7 +38,7 @@ export const Desktopnavbar = () => {
                             <Link href="/collection" className={router.pathname == "/collection" ? "nav-active link" : "link"}>Collection</Link>
                         </li>
                         <li>
-                            <Button linkbtn='/billeterie'>Billeterie</Button>
+                            <Button linkBtn='/billeterie'>Billeterie</Button>
                         </li>
                     </ul>
                 </nav>

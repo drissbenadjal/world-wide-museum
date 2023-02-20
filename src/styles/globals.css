@@ -5,9 +5,17 @@
 }
 
 @font-face {
-  font-family: "Edensor-Free";
-  src: url("./fonts/Edensor-Free.woff2") format("woff2"),
-    url("./fonts/Edensor-Free.woff") format("woff");
+  font-family: "El Messiri";
+  src: url("./fonts/ElMessiri-Regular.woff") format("woff"),
+    url("./fonts/ElMessiri-Regular.woff2") format("woff2");
+  font-weight: 400;
+}
+
+@font-face {
+  font-family: "'El Messiri'";
+  src: url("./fonts/ElMessiri-Medium.woff") format("woff"),
+    url("./fonts/ElMessiri-Medium.woff2") format("woff2");
+  font-weight: 500;
 }
 
 @font-face {
@@ -35,7 +43,7 @@
   --black-lighter: #373737;
 
   --main-font: "Inter";
-  --secondary-font: "Edensor-Free";
+  --secondary-font: "El Messiri";
 
   --headline: 6rem;
   --h2: 2.5rem;
@@ -108,6 +116,7 @@ h1 {
   font-family: var(--secondary-font), serif;
   font-size: var(--headline);
   margin: 0;
+  font-weight: 400;
 }
 
 .body-bold {
@@ -119,6 +128,7 @@ h2 {
   font-family: var(--secondary-font), serif;
   font-size: var(--h2);
   margin: 0;
+  font-weight: 400;
 }
 
 .display2 {
@@ -128,7 +138,7 @@ h2 {
 
 h3 {
   font-size: var(--h3);
-  font-weight: 600;
+  font-weight: 400;
   margin: 0;
 }
 
@@ -203,13 +213,14 @@ header.burger.nav-scroll {
   display: block;
   -webkit-backdrop-filter: blur(30px);
   backdrop-filter: blur(30px);
-  height: 100vh;
+  height: 100%;
 }
 
 .burger .top-header {
   display: flex;
   width: 100%;
-  padding: 24px 0;
+  padding: 16px 0;
+  align-items: center;
   justify-content: space-between;
 }
 
@@ -222,7 +233,7 @@ header.burger.nav-scroll {
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  height: 100%;
+  height: calc(100% - 80px);
   width: 100%;
 }
 
@@ -320,9 +331,13 @@ header button {
   height: 48px;
   transform: translateX(8px);
   cursor: pointer;
-  display: none;
+  /* display: none; */
   justify-content: center;
   align-items: center;
+}
+
+header.burger button {
+  display: flex;
 }
 
 header button:hover .burgerIcon::before {
@@ -360,7 +375,7 @@ header button:hover .burgerIcon.active::after {
 /* Main */
 .hero {
   position: relative;
-  /* background-image: url('../images/nuit-etoile.jpg');
+  /* background-image: url('../images/tableaux/nuitEtoile.webp');
   background-size: cover;
   background-position: center;
   background-repeat: no-repeat; */
@@ -474,6 +489,7 @@ header button:hover .burgerIcon.active::after {
 .home_infos_left p {
   font-style: italic;
   margin-top: 24px;
+  line-height: 21px;
 }
 
 .home_infos_right {
@@ -598,6 +614,12 @@ header button:hover .burgerIcon.active::after {
   z-index: -1;
   -webkit-filter: brightness(70%);
   filter: brightness(70%);
+  transition: 0.2s;
+}
+
+.oeuvre-card:hover img {
+  -webkit-filter: brightness(100%);
+  filter: brightness(100%);
 }
 
 .oeuvre_infos {
@@ -752,7 +774,7 @@ header button:hover .burgerIcon.active::after {
     flex-direction: column;
     align-items: self-start;
     text-align: left;
-    width: 80%;
+    width: 100%;
     gap: 55px;
     margin-top: 5vh;
   }
@@ -832,7 +854,7 @@ header button:hover .burgerIcon.active::after {
   }
 
   .hero h1 {
-    font-size: 2.3rem !important;
+    font-size: 2.2rem !important;
   }
 
   .hero-top .spacer {
@@ -1284,7 +1306,7 @@ header button:hover .burgerIcon.active::after {
 /*Oeuvre*/
 
 .oeuvrepage {
-  margin-top: 200px;
+  margin-top: 145px;
 }
 
 .oeuvrepage_ariane {
@@ -1293,7 +1315,7 @@ header button:hover .burgerIcon.active::after {
   gap: 10px;
   max-width: var(--max-width);
   margin: auto;
-  margin-bottom: var(--margin-end);
+  margin-bottom: 50px;
 }
 
 .oeuvrepage_ariane a {
@@ -1343,6 +1365,7 @@ header button:hover .burgerIcon.active::after {
   display: flex;
   flex-direction: column;
   width: 50%;
+  line-height: 21px;
 }
 
 @media screen and (max-width: 1370px) {
@@ -1736,22 +1759,32 @@ footer .footer_top .footer_part3 {
 footer .footer_top .footer_part3 .reseaux ul {
   display: flex;
   flex-direction: row;
-  gap: 20px;
   padding: 0;
+  gap: 15px;
   list-style: none;
 }
 
-footer .footer_bottom {
+.reseaux img {
+  height: 50px;
+  width: auto;
+}
+
+.footer_bottom {
+  width: 100%;
   display: flex;
-  flex-direction: row;
-  gap: 5vw;
-  margin-top: 3vh;
-  justify-content: center;
+  flex-direction: column;
+  align-items: center;
+  gap: 7px;
+  margin-top: 22px;
 }
 
 @media screen and (max-width: 660px) {
   .footer_part1 {
     display: none;
+  }
+
+  .reseaux img {
+    height: 43px;
   }
 }
 
@@ -1763,17 +1796,6 @@ footer .footer_bottom {
 
   footer .footer_top {
     gap: 75px;
-  }
-
-  footer .footer_top .footer_part3 .reseaux ul {
-    gap: 50px;
-    margin: 5vh 0;
-  }
-
-  footer .footer_bottom {
-    flex-direction: column;
-    gap: 2vw;
-    align-items: center;
   }
 }
 

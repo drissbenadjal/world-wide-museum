@@ -6,7 +6,6 @@ import styles from '@/styles/Home.module.css'
 import { useRouter } from 'next/router';
 
 
-
 export default function Home() {
 
   const router = useRouter();
@@ -30,10 +29,10 @@ export default function Home() {
         titre.current.innerHTML = data.tableau.nom_tableau + ', ' + data.tableau.date_tableau;
         auteur.current.innerHTML = data.tableau.nom_peintre;
         description.current.innerHTML = data.tableau.description_tableau;
-        image.current.innerHTML = '<img src="http://localhost:3000/_next/image?url=%2F_next%2Fstatic%2Fmedia%2Fpont-neuf.4d683e51.jpg&w=3840&q=10" alt="' + data.tableau.nom_tableau + '">';
+        //mettre par rapport au chemin dans le public
+        image.current.innerHTML = '<img src="/images/tableaux/' + data.tableau.image_tableau + '.webp" alt="' + data.tableau.nom_tableau + '">';
         idOeuvre.current = data.tableau.id_tableau;
         ariane.current.innerHTML = data.tableau.nom_tableau
-
         titre.current.classList.remove('skeleton');
         auteur.current.classList.remove('skeleton');
         description.current.classList.remove('skeleton');

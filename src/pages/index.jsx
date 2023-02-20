@@ -12,11 +12,11 @@ import Button from '../components/button'
 
 
 // import Images
-import nuitEtoile from '../images/nuit-etoile.jpg'
-import pontNeuf from '../images/pont-neuf.jpg'
-import soleilLevant from '../images/soleil-levant.jpg'
-import navHero from '../images/hero/nav__hero.png'
-import radialHero from '../images/hero/radial__hero.png'
+import nuitEtoile from '../images/tableaux/nuitEtoile.webp'
+import pontNeuf from '../images/tableaux/pontNeuf.webp'
+import soleilLevant from '../images/tableaux/soleilLevant.webp'
+import navHero from '../images/hero/nav__hero.webp'
+import radialHero from '../images/hero/radial__hero.webp'
 
 //import icons
 import arrow from '../images/icons/arrow_white.svg'
@@ -99,7 +99,7 @@ export default function Home() {
             <span className='display3'>Compatible casque VR</span>
           </div>
           <h1>Entrez au coeur de l&apos;impressionnisme</h1>
-          <Button linkbtn="/billeterie">Rejoindre l&apos;expérience</Button>
+          <Button linkBtn="/billeterie">Rejoindre l&apos;expérience</Button>
           <Image className="hero__bg" draggable="false" src={nuitEtoile} alt="" width="auto" height="auto" />
           <Image className="nav__hero" draggable="false" src={navHero} alt="" width="auto" height="auto" />
           <Image className="radial__hero" draggable="false" src={radialHero} alt="" width="auto" height="auto" />
@@ -107,7 +107,7 @@ export default function Home() {
         <section className='home_infos'>
           <div className="home_infos_left">
             <h2>VISITEZ LE WORLD WIDE MUSEUM</h2>
-            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Porro explicabo voluptatem qui atque quam quaerat consequatur blanditiis hic vitae aperiam corporis provident, quo eum ullam veritatis eligendi eaque ex tempora placeat, unde, omnis maiores modi repudiandae quia. Similique, inventore incidunt in facilis nemo commodi suscipit fuga ipsum tempora excepturi ipsam omnis a aperiam? Laudantium numquam ad omnis officia ipsa magni debitis hic velit itaque corrupti cum, non unde adipisci nostrum maxime perspiciatis aliquid similique, dolorum officiis maiores inventore minima autem? Velit illum at maiores sed accusantium dolorum voluptate unde possimus quo magni commodi animi doloremque distinctio reiciendis, obcaecati magnam. Sint?</p>
+            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Porro explicabo voluptatem qui atque quam quaerat consequatur blanditiis hic vitae aperiam corporis provident, quo eum ullam veritatis eligendi eaque ex tempora placeat, unde, omnis maiores modi repudiandae quia. Similique, inventore incidunt in facilis nemo commodi suscipit fuga ipsum tempora excepturi ipsam omnis a aperiam? Laudantium numquam ad omnis officia ipsa magni debitis hic velit itaque corrupti cum.</p>
           </div>
           <div className='home_infos_right'>
             <Image draggable="false" src={nuitEtoile} alt="" width="auto" height="auto" className="nuitEtoile" />
@@ -155,7 +155,7 @@ export default function Home() {
                             <div className="spacer"></div>
                             <p className="display3">{peinture.nom_peintre}</p>
                           </div>
-                          <Image draggable="false" src={nuitEtoile} alt="" width="auto" height="auto" />
+                          <Image draggable="false" src={`/images/tableaux/${peinture.image_tableau}.webp`} alt="" width="400" height="400" />
                         </Link>
                       )
                     })

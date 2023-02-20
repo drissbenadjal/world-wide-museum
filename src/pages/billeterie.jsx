@@ -7,7 +7,7 @@ import styles from "@/styles/Home.module.css";
 import Button from "../components/button";
 
 // Import Images
-import nuitEtoile from "../images/nuit-etoile.jpg";
+import nuitEtoile from "../images/tableaux/nuitEtoile.webp";
 import minusBtn from "../images/icons/minus__button.svg";
 import plusBtn from "../images/icons/plus__button.svg";
 
@@ -191,7 +191,7 @@ export default function Home() {
               height="250"
             />
             <div>
-              <h3>Nom de lexposition</h3>
+              <h3>Nom de l’exposition</h3>
               <div className="expo__date">Du 10 mars au 10 avril 2023</div>
               <div className="placeSelector">
                 <button onClick={() => handleMinus()} id="minusBtn">

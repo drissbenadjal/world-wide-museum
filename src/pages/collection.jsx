@@ -8,7 +8,7 @@ import styles from '@/styles/Home.module.css'
 import BannerTop from '../components/banner_top'
 
 // import Images
-import soleilLevant from '../images/soleil-levant.jpg'
+import soleilLevant from '../images/tableaux/soleilLevant.webp'
 
 export default function Home() {
 
@@ -80,7 +80,7 @@ export default function Home() {
                 peintres.map((peintre) => {
                   return (
                     <div className="collection_artists_presentation" key={peintre.id_peintre}>
-                      <Image draggable="false" src={soleilLevant} alt="" width="auto" height="auto" />
+                      <Image draggable="false" src={`/images/peintres/${peintre.image_peintre}.webp`} alt="" width="200" height="400" />
                       <h3>{peintre.nom_peintre}</h3>
                     </div>
                   )
@@ -172,7 +172,7 @@ export default function Home() {
                   return (
                     <Link href={`/oeuvre?id=${peinture.id_tableau}`} className="collection_paintings_list_element" key={peinture.id_tableau}>
                       <div className="collection_paintings_presentation" key={peinture.id_tableau}>
-                        <Image draggable="false" src={soleilLevant} alt="" width="auto" height="auto" />
+                        <Image draggable="false" src={`/images/tableaux/${peinture.image_tableau}.webp`} alt="" width="400" height="200" />
                         <div className="collection_paintings_presentation_txt">
                           <p>{peinture.date_tableau}</p>
                           <h3>{peinture.nom_peintre}, {peinture.nom_tableau}</h3>

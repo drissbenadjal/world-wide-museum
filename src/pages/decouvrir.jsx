@@ -8,7 +8,7 @@ import Button from '../components/button'
 import BannerTop from '../components/banner_top'
 
 // import Images
-import nuitEtoile from '../images/nuit-etoile.jpg'
+import nuitEtoile from '../images/tableaux/nuitEtoile.webp'
 import appVR from '../images/app.webp'
 
 
@@ -37,7 +37,7 @@ export default function Home() {
           <h2>Notre univers</h2>
           <div className="discover_univers_contenu">
             <div className="discover_univers_contenu_left">
-              <h3>La naissance de lidée</h3>
+              <h3>La naissance de l’idée</h3>
               <p>Lorem ipsum dolor sit amet. Est rerum vero qui sequi nobis sed fugiat ratione. Et quia repellat aut mollitia neque aut accusamus ullam sit voluptas.</p>
               <p>Lorem ipsum dolor sit amet. Est rerum vero qui sequi nobis sed fugiat ratione. Et quia repellat aut mollitia neque aut accusamus ullam sit voluptas.</p>
             </div>
@@ -57,7 +57,7 @@ export default function Home() {
             <h2>Application</h2>
             <p>Lorem ipsum dolor sit amet. Est rerum vero qui sequi nobis sed fugiat ratione. Et quia repellat aut mollitia neque aut accusamus ullam sit voluptas.</p>
             <p>Lorem ipsum dolor sit amet. Est rerum vero qui sequi nobis sed fugiat ratione. t quia repellat aut mollitia neque aut accusamus ullam sit voluptas.</p>
-            <Button linkbtn="/">DECOUVRIR</Button>
+            <Button linkBtn="/">DECOUVRIR</Button>
           </div>
         </section>
       </main>
