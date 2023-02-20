@@ -192,7 +192,7 @@ export default function Home() {
               height="250"
             />
             <div>
-              <h3>Nom de l’exposition</h3>
+              <h3>Nom de l&apos;exposition</h3>
               <div className="expo__date">Du 10 mars au 10 avril 2023</div>
               <div className="placeSelector">
                 <button onClick={() => handleMinus()} id="minusBtn">

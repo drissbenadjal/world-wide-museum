@@ -1,7 +1,11 @@
-import Head from 'next/head'
-import Link from 'next/link'
-import Image from 'next/image'
-import styles from '@/styles/Home.module.css'
+import Head from "next/head";
+import Link from "next/link";
+import Image from "next/image";
+import styles from "@/styles/Home.module.css";
+
+//image
+import logo from "../images/logo.svg";
+import logoBlue from "../images/logo_blue.svg";
 
 export default function NotFound() {
   return (
@@ -12,9 +16,19 @@ export default function NotFound() {
         <meta name="viewport" content="width=device-width, initial-scale=1" />
         <link rel="icon" href="/favicon.ico" />
       </Head>
-      <main>
-        <h1>404</h1>
+      <main className="notfound">
+        <div>
+          <h1>404</h1>
+          <h2>Sorry, there is nothing here</h2>
+          <Image src={logo} alt="logo" width={100} height={100} />
+          <p>
+            {" "}
+            The page you are looking for might have been removed had its name
+            changed or is temporarily unavailable.
+          </p>
+          <Link href="/">Go Back Home</Link>
+        </div>
       </main>
     </>
-  )
+  );
 }
