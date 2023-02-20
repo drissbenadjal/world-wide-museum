@@ -47,44 +47,45 @@ export default function Home() {
   const date_day = useRef();
   const date_hour = useRef();
 
-
   const regex = /^[a-zA-Z0-9._-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,4}$/;
   // Form verification and error message
   useEffect(() => {
     prenom_reservation.current.addEventListener("input", (e) => {
       if (e.target.value.length < 2) {
-        e.target.nextElementSibling.innerHTML = "Ce champ ne peut pas être vide";
+        e.target.nextElementSibling.innerHTML =
+          "Ce champ ne peut pas être vide";
       } else {
         e.target.nextElementSibling.innerHTML = "";
       }
     });
     nom_reservation.current.addEventListener("input", (e) => {
       if (e.target.value.length < 2) {
-        e.target.nextElementSibling.innerHTML = "Ce champ ne peut pas être vide";
+        e.target.nextElementSibling.innerHTML =
+          "Ce champ ne peut pas être vide";
       } else {
         e.target.nextElementSibling.innerHTML = "";
       }
-    }
-    );
+    });
     email_reservation.current.addEventListener("input", (e) => {
       if (!regex.test(e.target.value)) {
-        e.target.nextElementSibling.innerHTML = "L'adresse email n'est pas valide";
+        e.target.nextElementSibling.innerHTML =
+          "L'adresse email n'est pas valide";
       } else {
         e.target.nextElementSibling.innerHTML = "";
       }
-    }
-    );
+    });
     date_day.current.addEventListener("input", (e) => {
       if (e.target.value == "") {
-        e.target.nextElementSibling.innerHTML = "Veuillez sélectionner une date";
+        e.target.nextElementSibling.innerHTML =
+          "Veuillez sélectionner une date";
       } else {
         e.target.nextElementSibling.innerHTML = "";
       }
-    }
-    );
+    });
     date_hour.current.addEventListener("input", (e) => {
       if (e.target.value == "") {
-        e.target.nextElementSibling.innerHTML = "Veuillez sélectionner une heure";
+        e.target.nextElementSibling.innerHTML =
+          "Veuillez sélectionner une heure";
       } else {
         e.target.nextElementSibling.innerHTML = "";
       }
@@ -103,8 +104,7 @@ export default function Home() {
       } else {
         e.target.nextElementSibling.innerHTML = "";
       }
-    }
-    );
+    });
   }, []);
 
   const [errorMessage, setErrorMessage] = useState(false);
@@ -185,7 +185,8 @@ export default function Home() {
           <div className="billeterie__left">
             <Image
               draggable="false"
-              src={nuitEtoile} className="billeterie_img"
+              src={nuitEtoile}
+              className="billeterie_img"
               alt=""
               width="250"
               height="250"
@@ -231,7 +232,6 @@ export default function Home() {
                     id="prenom_reservation"
                     placeholder="Saisissez votre prénom"
                     ref={prenom_reservation}
-
                   />
                   <small></small>
                 </div>
@@ -245,7 +245,6 @@ export default function Home() {
                     id="nom_reservation"
                     placeholder="Saisissez votre nom"
                     ref={nom_reservation}
-
                   />
                   <small></small>
                 </div>
@@ -259,7 +258,6 @@ export default function Home() {
                     id="email_reservation"
                     placeholder="exemple@gmail.com"
                     ref={email_reservation}
-
                   />
                   <small></small>
                 </div>
@@ -275,7 +273,6 @@ export default function Home() {
                     id="date_day"
                     placeholder="Sélectionner une date"
                     ref={date_day}
-
                   />
                   <small></small>
                 </div>
