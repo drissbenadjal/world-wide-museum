@@ -1,47 +1,34 @@
-import { useState, useEffect, useRef } from 'react'
-import Head from 'next/head'
-import Link from 'next/link'
-import Image from 'next/image'
-import styles from '@/styles/Home.module.css'
-import { useRouter } from 'next/router';
-
+import { useState, useEffect, useRef } from "react";
+import Head from "next/head";
+import Link from "next/link";
+import Image from "next/image";
+import styles from "@/styles/Home.module.css";
+import { useRouter } from "next/router";
 
 export default function Home() {
-
   const router = useRouter();
 
   let id = router.query.id;
   if (id === undefined) id = 1;
 
+  const [oeuvre, setOeuvre] = useState(null);
+
   const ariane = useRef(null);
-  const titre = useRef(null);
-  const auteur = useRef(null);
-  const description = useRef(null);
-  const image = useRef(null);
   const idOeuvre = useRef(null);
 
   const fetchOeuvre = async () => {
-    await fetch('https://benadjal.butmmi.o2switch.site/api_resa_expo/tableaux/' + id)
-      .then(res => res.json())
-      .then(data => {
-        //si un id est renseigné mais que l'oeuvre n'existe pas
-        if (data.tableau === undefined) router.push('/404');
-        titre.current.innerHTML = data.tableau.nom_tableau + ', ' + data.tableau.date_tableau;
-        auteur.current.innerHTML = data.tableau.nom_peintre;
-        description.current.innerHTML = data.tableau.description_tableau;
-        //mettre par rapport au chemin dans le public
-        image.current.innerHTML = '<img src="/images/tableaux/' + data.tableau.image_tableau + '.webp" alt="' + data.tableau.nom_tableau + '">';
-        idOeuvre.current = data.tableau.id_tableau;
-        ariane.current.innerHTML = data.tableau.nom_tableau
-        titre.current.classList.remove('skeleton');
-        auteur.current.classList.remove('skeleton');
-        description.current.classList.remove('skeleton');
-        image.current.classList.remove('skeleton');
+    await fetch(
+      "https://benadjal.butmmi.o2switch.site/api_resa_expo/tableaux/" + id
+    )
+      .then((res) => res.json())
+      .then((data) => {
+        if (data.tableau === undefined) router.push("/404");
+        else {
+          setOeuvre(data.tableau);
+        }
       })
-      .catch(err => console.log(err));
-  }
-
-
+      .catch((err) => console.log(err));
+  };
   useEffect(() => {
     if (!id) return;
     fetchOeuvre();
@@ -61,23 +48,48 @@ export default function Home() {
           <span> / </span>
           <Link href="/collection">Collection</Link>
           <span> / </span>
-          <Link href={"/oeuvre?id=" + id} key={idOeuvre} ref={ariane}>---</Link>
+          <Link href={"/oeuvre?id=" + id} key={idOeuvre} ref={ariane}>
+            {oeuvre && oeuvre.nom_tableau}
+          </Link>
         </div>
-        <section className="oeuvrepage_infos">
-          <div className="oeuvrepage_infos_titre">
-            <h1 ref={titre} className="skeleton"></h1>
-            <h2 ref={auteur} className="skeleton"></h2>
-          </div>
-          <div className="oeuvrepage_infos_details">
-            <div className="oeuvrepage_infos_details_image skeleton" ref={image}>
+        {!oeuvre && (
+          <section className="oeuvrepage_infos">
+            <div className="oeuvrepage_infos_titre">
+              <h1 className="skeleton"></h1>
+              <h2 className="skeleton"></h2>
             </div>
-            <div className="oeuvrepage_infos_details_txt skeleton" ref={description}>
-              <p></p>
-              <p></p>
+            <div className="oeuvrepage_infos_details">
+              <div className="oeuvrepage_infos_details_image skeleton"></div>
+              <div className="oeuvrepage_infos_details_txt skeleton">
+                <p></p>
+                <p></p>
+              </div>
             </div>
-          </div>
-        </section>
+          </section>
+        )}
+        {oeuvre && (
+          <section className="oeuvrepage_infos">
+            <div className="oeuvrepage_infos_titre">
+              <h1>{oeuvre.nom_tableau}</h1>
+              <h2>{oeuvre.nom_peintre}</h2>
+            </div>
+            <div className="oeuvrepage_infos_details">
+              <div className="oeuvrepage_infos_details_image">
+                <Image
+                  draggable="false"
+                  src={`/images/tableaux/${oeuvre.image_tableau}.webp`}
+                  alt=""
+                  width="400"
+                  height="400"
+                />
+              </div>
+              <div className="oeuvrepage_infos_details_txt">
+                <p>{oeuvre.description_tableau}</p>
+              </div>
+            </div>
+          </section>
+        )}
       </main>
     </>
-  )
+  );
 }

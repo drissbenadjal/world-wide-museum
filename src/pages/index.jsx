@@ -1,44 +1,44 @@
-import { useState, useEffect } from 'react'
-import Head from 'next/head'
-import Link from 'next/link'
-import Image from 'next/image'
+import { useState, useEffect } from "react";
+import Head from "next/head";
+import Link from "next/link";
+import Image from "next/image";
 
 // import styles
-import styles from '@/styles/Home.module.css'
-
+import styles from "@/styles/Home.module.css";
 
 // import Components
-import Button from '../components/button'
-
+import Button from "../components/button";
 
 // import Images
-import nuitEtoile from '../images/tableaux/nuitEtoile.webp'
-import pontNeuf from '../images/tableaux/pontNeuf.webp'
-import soleilLevant from '../images/tableaux/soleilLevant.webp'
-import navHero from '../images/hero/nav__hero.webp'
-import radialHero from '../images/hero/radial__hero.webp'
+import nuitEtoile from "../images/tableaux/nuitEtoile.webp";
+import pontNeuf from "../images/tableaux/pontNeuf.webp";
+import soleilLevant from "../images/tableaux/soleilLevant.webp";
+import navHero from "../images/hero/nav__hero.webp";
+import radialHero from "../images/hero/radial__hero.webp";
 
 //import icons
-import arrow from '../images/icons/arrow_white.svg'
-
+import arrow from "../images/icons/arrow_white.svg";
 
 export default function Home() {
-
-  const [peintures, setPeintures] = useState([])
+  const [peintures, setPeintures] = useState([]);
   const [loading, setLoading] = useState(true);
 
   const fetchPeintures = async () => {
-    fetch('https://benadjal.butmmi.o2switch.site/api_resa_expo/tableaux').then((response) => {
-      return response.json()
-    }).then((data) => {
-      setPeintures(data)
-      setLoading(false);
-    })
-  }
+    fetch("https://benadjal.butmmi.o2switch.site/api_resa_expo/tableaux")
+      .then((response) => {
+        return response.json();
+      })
+      .then((data) => {
+        setPeintures(data);
+        setTimeout(() => {
+          setLoading(false);
+        }, 500);
+      });
+  };
 
   useEffect(() => {
-    fetchPeintures()
-  }, [])
+    fetchPeintures();
+  }, []);
 
   useEffect(() => {
     // Slider
@@ -80,7 +80,7 @@ export default function Home() {
       "resize",
       (e) => (width = carouselContainer.offsetWidth)
     );
-  })
+  });
 
   return (
     <>
@@ -92,84 +92,172 @@ export default function Home() {
         <link rel="icon" href="/favicon.ico" />
       </Head>
       <main>
-        <section className='hero'>
-          <div className='hero-top'>
-            <span className='display3'>Visite interactive</span>
-            <span className='spacer'></span>
-            <span className='display3'>Compatible casque VR</span>
+        <section className="hero">
+          <div className="hero-top">
+            <span className="display3">Visite interactive</span>
+            <span className="spacer"></span>
+            <span className="display3">Compatible casque VR</span>
           </div>
           <h1>Entrez au coeur de l&apos;impressionnisme</h1>
           <Button linkBtn="/billeterie">Rejoindre l&apos;expérience</Button>
-          <Image className="hero__bg" draggable="false" src={nuitEtoile} alt="" width="auto" height="auto" />
-          <Image className="nav__hero" draggable="false" src={navHero} alt="" width="auto" height="auto" />
-          <Image className="radial__hero" draggable="false" src={radialHero} alt="" width="auto" height="auto" />
+          <Image
+            className="hero__bg"
+            draggable="false"
+            src={nuitEtoile}
+            alt=""
+            width="auto"
+            height="auto"
+          />
+          <Image
+            className="nav__hero"
+            draggable="false"
+            src={navHero}
+            alt=""
+            width="auto"
+            height="auto"
+          />
+          <Image
+            className="radial__hero"
+            draggable="false"
+            src={radialHero}
+            alt=""
+            width="auto"
+            height="auto"
+          />
         </section>
-        <section className='home_infos'>
+        <section className="home_infos">
           <div className="home_infos_left">
             <h2>VISITEZ LE WORLD WIDE MUSEUM</h2>
-            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Porro explicabo voluptatem qui atque quam quaerat consequatur blanditiis hic vitae aperiam corporis provident, quo eum ullam veritatis eligendi eaque ex tempora placeat, unde, omnis maiores modi repudiandae quia. Similique, inventore incidunt in facilis nemo commodi suscipit fuga ipsum tempora excepturi ipsam omnis a aperiam? Laudantium numquam ad omnis officia ipsa magni debitis hic velit itaque corrupti cum.</p>
+            <p>
+              Lorem ipsum dolor sit amet consectetur adipisicing elit. Porro
+              explicabo voluptatem qui atque quam quaerat consequatur blanditiis
+              hic vitae aperiam corporis provident, quo eum ullam veritatis
+              eligendi eaque ex tempora placeat, unde, omnis maiores modi
+              repudiandae quia. Similique, inventore incidunt in facilis nemo
+              commodi suscipit fuga ipsum tempora excepturi ipsam omnis a
+              aperiam? Laudantium numquam ad omnis officia ipsa magni debitis
+              hic velit itaque corrupti cum.
+            </p>
           </div>
-          <div className='home_infos_right'>
-            <Image draggable="false" src={nuitEtoile} alt="" width="auto" height="auto" className="nuitEtoile" />
-            <Image draggable="false" src={pontNeuf} alt="" width="auto" height="auto" className="pontNeuf" />
-            <Image draggable="false" src={soleilLevant} alt="" width="auto" height="auto" className="soleilLevant" />
+          <div className="home_infos_right">
+            <Image
+              draggable="false"
+              src={nuitEtoile}
+              alt=""
+              width="auto"
+              height="auto"
+              className="nuitEtoile"
+            />
+            <Image
+              draggable="false"
+              src={pontNeuf}
+              alt=""
+              width="auto"
+              height="auto"
+              className="pontNeuf"
+            />
+            <Image
+              draggable="false"
+              src={soleilLevant}
+              alt=""
+              width="auto"
+              height="auto"
+              className="soleilLevant"
+            />
           </div>
         </section>
         <section className="home_points">
           <div className="home_points_element">
-            <div className="home_points_element_circle circle_one">
-
-            </div>
+            <div className="home_points_element_circle circle_one"></div>
             <h3>Première information</h3>
-            <p>Sit quaerat sunt sit quod fugit eos neque accusamus At voluptatem dolorum a alias optio eum distinctio sint eum unde veritatis. </p>
+            <p>
+              Sit quaerat sunt sit quod fugit eos neque accusamus At voluptatem
+              dolorum a alias optio eum distinctio sint eum unde veritatis.{" "}
+            </p>
           </div>
           <div className="home_points_element">
-            <div className="home_points_element_circle circle_two">
-
-            </div>
+            <div className="home_points_element_circle circle_two"></div>
             <h3>Deuxième information</h3>
-            <p>Sit quaerat sunt sit quod fugit eos neque accusamus At voluptatem dolorum a alias optio eum distinctio sint eum unde veritatis. </p>
+            <p>
+              Sit quaerat sunt sit quod fugit eos neque accusamus At voluptatem
+              dolorum a alias optio eum distinctio sint eum unde veritatis.{" "}
+            </p>
           </div>
           <div className="home_points_element">
-            <div className="home_points_element_circle circle_three">
-
-            </div>
+            <div className="home_points_element_circle circle_three"></div>
             <h3>Troisième information</h3>
-            <p>Sit quaerat sunt sit quod fugit eos neque accusamus At voluptatem dolorum a alias optio eum distinctio sint eum unde veritatis. </p>
+            <p>
+              Sit quaerat sunt sit quod fugit eos neque accusamus At voluptatem
+              dolorum a alias optio eum distinctio sint eum unde veritatis.{" "}
+            </p>
           </div>
         </section>
         <section className="home_oeuvres">
           <h2>DÉCOUVRIR LES OEUVRES</h2>
           <div className="home__slider__wrapper">
             <div className="home__slider__container">
-
               <div className="home__slider">
                 {
                   //si loading est true alors on affiche le skeleton
-                  loading ? (<><Link href={`/`} className="oeuvre-card skeleton"></Link><Link href={`/`} className="oeuvre-card skeleton"></Link><Link href={`/`} className="oeuvre-card skeleton"></Link><Link href={`/`} className="oeuvre-card skeleton"></Link><Link href={`/`} className="oeuvre-card skeleton"></Link><Link href={`/`} className="oeuvre-card skeleton"></Link></>) :
+                  loading ? (
+                    <>
+                      <Link href={`/`} className="oeuvre-card skeleton"></Link>
+                      <Link href={`/`} className="oeuvre-card skeleton"></Link>
+                      <Link href={`/`} className="oeuvre-card skeleton"></Link>
+                      <Link href={`/`} className="oeuvre-card skeleton"></Link>
+                      <Link href={`/`} className="oeuvre-card skeleton"></Link>
+                      <Link href={`/`} className="oeuvre-card skeleton"></Link>
+                    </>
+                  ) : (
                     peintures.map((peinture) => {
                       return (
-                        <Link href={`/oeuvre?id=${peinture.id_tableau}`} key={peinture.id_tableau} className="oeuvre-card">
+                        <Link
+                          href={`/oeuvre?id=${peinture.id_tableau}`}
+                          key={peinture.id_tableau}
+                          className="oeuvre-card"
+                        >
                           <div className="oeuvre_infos">
                             <h3 className="display2">{peinture.nom_tableau}</h3>
                             <div className="spacer"></div>
                             <p className="display3">{peinture.nom_peintre}</p>
                           </div>
-                          <Image draggable="false" src={`/images/tableaux/${peinture.image_tableau}.webp`} alt="" width="400" height="400" />
+                          <Image
+                            draggable="false"
+                            src={`/images/tableaux/${peinture.image_tableau}.webp`}
+                            alt=""
+                            width="400"
+                            height="400"
+                          />
                         </Link>
-                      )
+                      );
                     })
+                  )
                 }
               </div>
-
             </div>
             <div className="home__slider__btns">
-              <button className="home__slider__btn--left" disabled><Image draggable="false" src={arrow} alt="" width="auto" height="auto" /></button>
-              <button className="home__slider__btn--right"><Image draggable="false" src={arrow} alt="" width="auto" height="auto" /></button>
+              <button className="home__slider__btn--left" disabled>
+                <Image
+                  draggable="false"
+                  src={arrow}
+                  alt=""
+                  width="auto"
+                  height="auto"
+                />
+              </button>
+              <button className="home__slider__btn--right">
+                <Image
+                  draggable="false"
+                  src={arrow}
+                  alt=""
+                  width="auto"
+                  height="auto"
+                />
+              </button>
             </div>
           </div>
         </section>
       </main>
     </>
-  )
+  );
 }
