@@ -413,7 +413,7 @@ header button:hover .burgerIcon.active::after {
   transition: filter 0.3s, transform 0.3s, opacity 0.3s, -webkit-filter 0.3s;
 }
 
-.hero a:hover ~ .hero__bg {
+.hero a:hover~.hero__bg {
   -webkit-filter: revert;
   filter: revert;
   transform: scale(1.15);
@@ -422,12 +422,12 @@ header button:hover .burgerIcon.active::after {
   transition: filter 0.3s, transform 0.3s, -webkit-filter 0.3s;
 }
 
-.hero a:hover ~ .radial__hero {
+.hero a:hover~.radial__hero {
   opacity: 0;
   transition: opacity 0.3s;
 }
 
-.hero a:hover ~ .nav__hero {
+.hero a:hover~.nav__hero {
   opacity: 0.85;
   transition: opacity 0.3s;
 }
@@ -668,6 +668,7 @@ header button:hover .burgerIcon.active::after {
 }
 
 @media screen and (max-width: 1400px) {
+
   .home_infos,
   .home_points,
   .home_oeuvres {
@@ -1164,10 +1165,8 @@ header button:hover .burgerIcon.active::after {
   margin-bottom: 40px;
 }
 
-.collection_paintings_list_element:nth-child(3)
-  .collection_paintings_presentation,
-.collection_paintings_list_element:nth-child(4)
-  .collection_paintings_presentation {
+.collection_paintings_list_element:nth-child(3) .collection_paintings_presentation,
+.collection_paintings_list_element:nth-child(4) .collection_paintings_presentation {
   flex-direction: row-reverse;
   text-align: right;
 }
@@ -1203,19 +1202,13 @@ header button:hover .burgerIcon.active::after {
   transition: 0.2s;
 }
 
-.collection_paintings_list_element:nth-child(3)
-  .collection_paintings_presentation_more,
-.collection_paintings_list_element:nth-child(4)
-  .collection_paintings_presentation_more {
+.collection_paintings_list_element:nth-child(3) .collection_paintings_presentation_more,
+.collection_paintings_list_element:nth-child(4) .collection_paintings_presentation_more {
   flex-direction: row;
 }
 
-.collection_paintings_list_element:nth-child(3)
-  .collection_paintings_presentation_more
-  .collection_paintings_presentation_more_icon,
-.collection_paintings_list_element:nth-child(4)
-  .collection_paintings_presentation_more
-  .collection_paintings_presentation_more_icon {
+.collection_paintings_list_element:nth-child(3) .collection_paintings_presentation_more .collection_paintings_presentation_more_icon,
+.collection_paintings_list_element:nth-child(4) .collection_paintings_presentation_more .collection_paintings_presentation_more_icon {
   transform: rotate(0deg);
 }
 
@@ -1239,6 +1232,7 @@ header button:hover .burgerIcon.active::after {
 }
 
 @media screen and (max-width: 1400px) {
+
   .collection_artists,
   .collection_paintings {
     padding: var(--responsive-padding);
@@ -1287,10 +1281,8 @@ header button:hover .burgerIcon.active::after {
     flex-direction: column;
   }
 
-  .collection_paintings_list_element:nth-child(3)
-    .collection_paintings_presentation,
-  .collection_paintings_list_element:nth-child(4)
-    .collection_paintings_presentation {
+  .collection_paintings_list_element:nth-child(3) .collection_paintings_presentation,
+  .collection_paintings_list_element:nth-child(4) .collection_paintings_presentation {
     flex-direction: column;
     text-align: left;
   }
@@ -1318,8 +1310,7 @@ header button:hover .burgerIcon.active::after {
     margin-bottom: 0;
   }
 
-  .collection_paintings_list_element:nth-child(1)
-    .collection_paintings_presentation {
+  .collection_paintings_list_element:nth-child(1) .collection_paintings_presentation {
     margin-top: 50px;
   }
 }
@@ -1888,20 +1879,14 @@ footer .footer_top .footer_part3 .reseaux ul {
   position: relative;
   z-index: 100;
   background-color: var(--loading-grey);
-  background: linear-gradient(
-      100deg,
+  background: linear-gradient(100deg,
       rgba(255, 255, 255, 0) 40%,
       rgba(255, 255, 255, 0.2) 50%,
-      rgba(255, 255, 255, 0) 60%
-    )
-    var(--loading-grey);
-  background: linear-gradient(
-      100deg,
+      rgba(255, 255, 255, 0) 60%) var(--loading-grey);
+  background: linear-gradient(100deg,
       rgba(255, 255, 255, 0) 40%,
       rgba(255, 255, 255, 0.5) 50%,
-      rgba(255, 255, 255, 0) 60%
-    )
-    var(--loading-grey);
+      rgba(255, 255, 255, 0) 60%) var(--loading-grey);
   background-size: 200% 100%;
   background-position-x: 180%;
   -webkit-animation: 1s loading ease-in-out infinite;
@@ -1950,8 +1935,7 @@ footer .footer_top .footer_part3 .reseaux ul {
   border-radius: 160px;
 }
 
-.collection_paintings_list_element
-  .collection_paintings_presentation_image.skeleton::before {
+.collection_paintings_list_element .collection_paintings_presentation_image.skeleton::before {
   width: 370px;
   height: 270px;
 }
@@ -1979,4 +1963,38 @@ footer .footer_top .footer_part3 .reseaux ul {
   flex-direction: column;
   align-items: center;
   justify-content: center;
+}
+
+.notfound .notfound__content {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 40px;
+}
+
+.notfound .notfound__container {
+  height: -webkit-fit-content;
+  height: -moz-fit-content;
+  height: fit-content;
+}
+
+.notfound .notfound__content img {
+  height: 200px;
+  width: 200px;
+}
+
+.notfound .notfound__content .notfound__text {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: flex-start;
+  gap: 20px;
+}
+
+.notfound .notfound__content .notfound__text h1 {
+  margin: 1px;
+}
+
+.notfound .notfound__content .notfound__text p {
+  max-width: 600px;
 }

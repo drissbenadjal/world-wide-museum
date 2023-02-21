@@ -17,16 +17,19 @@ export default function NotFound() {
         <link rel="icon" href="/favicon.ico" />
       </Head>
       <main className="notfound">
-        <div>
-          <h1>404</h1>
-          <h2>Sorry, there is nothing here</h2>
-          <Image src={logo} alt="logo" width={100} height={100} />
-          <p>
-            {" "}
-            The page you are looking for might have been removed had its name
-            changed or is temporarily unavailable.
-          </p>
-          <Link href="/">Go Back Home</Link>
+        <div className="notfound__container">
+          <div className="notfound__content">
+            <Image src={logo} alt="logo" width={500} height={500} />
+            <div className="notfound__text">
+              <h1>404</h1>
+              <h2>Désolé, il n’y a rien ici</h2>
+              <p>
+                {" "}
+                La page que vous recherchez a peut-être été supprimée, son nom a changé ou est temporairement indisponible..
+              </p>
+              <Link href="/" className="link">Retour à la page d’accueil</Link>
+            </div>
+          </div>
         </div>
       </main>
     </>
