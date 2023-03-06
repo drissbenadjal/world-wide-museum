@@ -82,29 +82,29 @@ export default function Home() {
         e.target.nextElementSibling.innerHTML = "";
       }
     });
-    date_hour.current.addEventListener("input", (e) => {
-      if (e.target.value == "") {
-        e.target.nextElementSibling.innerHTML =
-          "Veuillez sélectionner une heure";
-      } else {
-        e.target.nextElementSibling.innerHTML = "";
-      }
-      if (
-        e.target.value != "10:00:00" &&
-        e.target.value != "11:00:00" &&
-        e.target.value != "12:00:00" &&
-        e.target.value != "13:00:00" &&
-        e.target.value != "14:00:00" &&
-        e.target.value != "15:00:00" &&
-        e.target.value != "16:00:00" &&
-        e.target.value != "17:00:00"
-      ) {
-        e.target.nextElementSibling.innerHTML =
-          "Veuillez sélectionner une heure valide";
-      } else {
-        e.target.nextElementSibling.innerHTML = "";
-      }
-    });
+    // date_hour.current.addEventListener("input", (e) => {
+    //   if (e.target.value == "") {
+    //     e.target.nextElementSibling.innerHTML =
+    //       "Veuillez sélectionner une heure";
+    //   } else {
+    //     e.target.nextElementSibling.innerHTML = "";
+    //   }
+    //   if (
+    //     e.target.value != "10:00:00" &&
+    //     e.target.value != "11:00:00" &&
+    //     e.target.value != "12:00:00" &&
+    //     e.target.value != "13:00:00" &&
+    //     e.target.value != "14:00:00" &&
+    //     e.target.value != "15:00:00" &&
+    //     e.target.value != "16:00:00" &&
+    //     e.target.value != "17:00:00"
+    //   ) {
+    //     e.target.nextElementSibling.innerHTML =
+    //       "Veuillez sélectionner une heure valide";
+    //   } else {
+    //     e.target.nextElementSibling.innerHTML = "";
+    //   }
+    // });
   }, []);
 
   const [errorMessage, setErrorMessage] = useState(false);
