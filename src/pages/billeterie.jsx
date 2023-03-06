@@ -124,19 +124,19 @@ export default function Home() {
       return;
     }
 
-    if (
-      e.target.value != "10:00:00" &&
-      e.target.value != "11:00:00" &&
-      e.target.value != "12:00:00" &&
-      e.target.value != "13:00:00" &&
-      e.target.value != "14:00:00" &&
-      e.target.value != "15:00:00" &&
-      e.target.value != "16:00:00" &&
-      e.target.value != "17:00:00"
-    ) {
-      setErrorMessage("Veuillez sélectionner une heure valide");
-      return;
-    }
+    // if (
+    //   e.target.value != "10:00:00" &&
+    //   e.target.value != "11:00:00" &&
+    //   e.target.value != "12:00:00" &&
+    //   e.target.value != "13:00:00" &&
+    //   e.target.value != "14:00:00" &&
+    //   e.target.value != "15:00:00" &&
+    //   e.target.value != "16:00:00" &&
+    //   e.target.value != "17:00:00"
+    // ) {
+    //   setErrorMessage("Veuillez sélectionner une heure valide");
+    //   return;
+    // }
 
     const date_reservation =
       date_day.current.value + " " + date_hour.current.value;
