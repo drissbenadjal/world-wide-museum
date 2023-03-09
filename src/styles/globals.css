@@ -990,15 +990,15 @@ header button:hover .burgerIcon.active::after {
 
 .discover_app {
   padding: 30px var(--padding);
-  background-color: var(--beige);
+  background-color: var(--black-lighter);
   border-radius: 20px;
-  color: var(--background);
   display: flex;
   flex-direction: row;
   align-items: center;
   max-width: var(--max-width);
   margin: auto;
   margin-bottom: var(--margin-end);
+  color: var(--white);
 }
 
 .discover_app .discover_app_left {
@@ -1448,6 +1448,10 @@ header button:hover .burgerIcon.active::after {
   line-height: 21px;
 }
 
+.oeuvrepage_infos .oeuvrepage_infos_details_txt p {
+  line-height: 23px;
+}
+
 @media screen and (max-width: 1370px) {
   .oeuvrepage_ariane {
     padding: var(--responsive-padding);
@@ -1569,8 +1573,13 @@ header button:hover .burgerIcon.active::after {
 }
 
 .expo__date {
-  margin-top: 8px;
-  margin-bottom: 24px;
+  margin-top: 15px;
+}
+
+.expo__date p:nth-child(2) {
+  color: var(--grey);
+  margin-top: 5px;
+  margin-bottom: 35px;
 }
 
 .placeSelector {
@@ -1579,6 +1588,15 @@ header button:hover .burgerIcon.active::after {
   justify-content: space-between;
   gap: 32px;
   min-width: 210px;
+}
+
+
+.placeSelector button {
+  transition: transform 0.1s ease-in-out;
+}
+
+.placeSelector button:active {
+  transform: scale(0.95);
 }
 
 .billeterie__content form {
@@ -1778,7 +1796,7 @@ select:focus {
     margin-bottom: 0;
   }
 
-  form input[type="submit" i] {
+  form input[type="submit"i] {
     margin-top: 5vh;
   }
 }
@@ -1795,7 +1813,8 @@ footer {
   width: 100%;
   display: flex;
   flex-direction: column;
-  padding: 20px var(--padding);
+  gap: 10px;
+  padding: 20px var(--padding)
 }
 
 footer a {
@@ -1858,7 +1877,7 @@ footer .footer_top .footer_part3 .reseaux ul {
   width: 100%;
   display: flex;
   flex-direction: column;
-  align-items: center;
+  align-items: flex-start;
   gap: 7px;
   margin-top: 22px;
 }
@@ -1870,6 +1889,14 @@ footer .footer_top .footer_part3 .reseaux ul {
 
   .reseaux img {
     height: 43px;
+  }
+}
+
+
+
+@media screen and (max-width: 750px) {
+  .footer_bottom {
+    align-items: center;
   }
 }
 
