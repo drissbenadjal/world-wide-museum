@@ -5,6 +5,7 @@ import Link from "next/link";
 import Image from "next/image";
 import styles from "@/styles/Home.module.css";
 import Button from "../components/button";
+import { Popup } from "../components/Popup/Popup";
 
 // Import Images
 import nuitEtoile from "../images/tableaux/nuitEtoile.webp";
@@ -14,6 +15,9 @@ import plusBtn from "../images/icons/plus__button.svg";
 export default function Home() {
   const [place, setPlace] = useState(1);
   const [textPlace, setTextPlace] = useState();
+  const [popup, setPopup] = useState(false);
+  const [popupMessage, setPopupMessage] = useState();
+  const [popupDate, setPopupDate] = useState();
 
   const handlePlus = () => {
     if (place >= 10) {
@@ -82,32 +86,16 @@ export default function Home() {
         e.target.nextElementSibling.innerHTML = "";
       }
     });
-    // date_hour.current.addEventListener("input", (e) => {
-    //   if (e.target.value == "") {
-    //     e.target.nextElementSibling.innerHTML =
-    //       "Veuillez sélectionner une heure";
-    //   } else {
-    //     e.target.nextElementSibling.innerHTML = "";
-    //   }
-    //   if (
-    //     e.target.value != "10:00:00" &&
-    //     e.target.value != "11:00:00" &&
-    //     e.target.value != "12:00:00" &&
-    //     e.target.value != "13:00:00" &&
-    //     e.target.value != "14:00:00" &&
-    //     e.target.value != "15:00:00" &&
-    //     e.target.value != "16:00:00" &&
-    //     e.target.value != "17:00:00"
-    //   ) {
-    //     e.target.nextElementSibling.innerHTML =
-    //       "Veuillez sélectionner une heure valide";
-    //   } else {
-    //     e.target.nextElementSibling.innerHTML = "";
-    //   }
-    // });
   }, []);
 
-  const todayFormated = new Date().toISOString().split("T")[0];
+  const today = new Date();
+  const todayFormated = today.toISOString().split("T")[0];
+
+  const startDate = new Date(2023, 2, 11);
+  const startDateFormated = startDate.toISOString().split("T")[0];
+
+  const endDate = new Date(2023, 3, 11);
+  const endDateFormated = endDate.toISOString().split("T")[0];
 
   const [errorMessage, setErrorMessage] = useState(false);
 
@@ -125,20 +113,6 @@ export default function Home() {
       setErrorMessage("Veuillez remplir tous les champs");
       return;
     }
-
-    // if (
-    //   e.target.value != "10:00:00" &&
-    //   e.target.value != "11:00:00" &&
-    //   e.target.value != "12:00:00" &&
-    //   e.target.value != "13:00:00" &&
-    //   e.target.value != "14:00:00" &&
-    //   e.target.value != "15:00:00" &&
-    //   e.target.value != "16:00:00" &&
-    //   e.target.value != "17:00:00"
-    // ) {
-    //   setErrorMessage("Veuillez sélectionner une heure valide");
-    //   return;
-    // }
 
     const date_reservation =
       date_day.current.value + " " + date_hour.current.value;
@@ -158,17 +132,35 @@ export default function Home() {
     })
       .then((res) => res.json())
       .then((data) => {
-        console.log(data);
         if (data.status === "success") {
           prenom_reservation.current.value = "";
           nom_reservation.current.value = "";
           email_reservation.current.value = "";
-          console.log(data.message);
+          setPopupMessage("Votre réservation a bien été confirmé");
+
+          let hour = date_reservation.split(" ")[1];
+          hour = hour.split(":")[0] + "h" + hour.split(":")[1];
+          const optionsDate = {
+            year: "numeric",
+            month: "numeric",
+            day: "numeric",
+          };
+          let Date_reservation = new Date(date_reservation);
+          Date_reservation = Date_reservation.toLocaleDateString(
+            "fr-FR",
+            optionsDate
+          );
+          setPopupDate(Date_reservation + " à " + hour);
+          setPopup(true);
         } else {
           setErrorMessage(data.message);
         }
       })
       .catch((err) => console.log(err));
+  };
+
+  const closePopup = () => {
+    setPopup(false);
   };
 
   return (
@@ -180,6 +172,13 @@ export default function Home() {
         <link rel="icon" href="/favicon.ico" />
       </Head>
       <main className="billeterie">
+        {popup && (
+          <Popup
+            popupDate={popupDate}
+            message={popupMessage}
+            onClick={() => closePopup()}
+          />
+        )}
         <h1 className="display2 billeterie__head">
           Plus qu’une étape avant de rejoindre l’expérience...
         </h1>
@@ -278,7 +277,8 @@ export default function Home() {
                     id="date_day"
                     placeholder="Sélectionner une date"
                     ref={date_day}
-                    min={todayFormated}
+                    min={today > startDate ? todayFormated : startDateFormated}
+                    max={endDateFormated}
                   />
                   <small></small>
                 </div>

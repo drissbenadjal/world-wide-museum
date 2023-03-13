@@ -35,6 +35,7 @@
 /* Variables */
 :root {
   --background: #252829;
+  --background-medium: #2528297f;
   --white: white;
   --blue: #57bbd7;
   --green: #77bc82;
@@ -1813,6 +1814,35 @@ select:focus {
   .billeterie h1 {
     font-size: 1.8em !important;
   }
+}
+
+.popup-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  background-color: var(--background-medium);
+  width: 100vw;
+  height: 100vh;
+  z-index: 100;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.popup {
+  position: fixed;
+  z-index: 101;
+  background-color: var(--black-lighter);
+  padding: 32px;
+  border-radius: 4px;
+}
+
+.popup p {
+  margin: 8px 0 24px 0;
+}
+
+.popup button {
+  width: 100%;
 }
 
 /* Footer */
