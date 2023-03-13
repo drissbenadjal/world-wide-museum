@@ -214,7 +214,7 @@ export default function Home() {
                         height="200"
                       />
                       <div className="collection_paintings_presentation_txt">
-                        <p>{peinture.date_tableau}</p>
+                        <p>{peinture.date_tableau.split("-")[0]}</p>
                         <h3>
                           {peinture.nom_peintre}, {peinture.nom_tableau}
                         </h3>
