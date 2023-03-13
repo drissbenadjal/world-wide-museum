@@ -107,6 +107,8 @@ export default function Home() {
     // });
   }, []);
 
+  const todayFormated = new Date().toISOString().split("T")[0];
+
   const [errorMessage, setErrorMessage] = useState(false);
 
   const handleSubmit = (e) => {
@@ -276,6 +278,7 @@ export default function Home() {
                     id="date_day"
                     placeholder="Sélectionner une date"
                     ref={date_day}
+                    min={todayFormated}
                   />
                   <small></small>
                 </div>
