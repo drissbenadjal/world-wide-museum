@@ -66,19 +66,19 @@ export default function Home() {
             {loadingPeintre ? (
               <>
                 <div className="collection_artists_presentation">
-                  <div className="skeleton"></div>
+                  <div className="skeleton collection_artists_presentation_image"></div>
                   <h3 className="skeleton"></h3>
                 </div>
                 <div className="collection_artists_presentation">
-                  <div className="skeleton"></div>
+                  <div className="skeleton collection_artists_presentation_image"></div>
                   <h3 className="skeleton"></h3>
                 </div>
                 <div className="collection_artists_presentation">
-                  <div className="skeleton"></div>
+                  <div className="skeleton collection_artists_presentation_image"></div>
                   <h3 className="skeleton"></h3>
                 </div>
                 <div className="collection_artists_presentation">
-                  <div className="skeleton"></div>
+                  <div className="skeleton collection_artists_presentation_image"></div>
                   <h3 className="skeleton"></h3>
                 </div>
               </>
@@ -95,6 +95,7 @@ export default function Home() {
                       alt=""
                       width="200"
                       height="400"
+                      className="collection_artists_presentation_image"
                     />
                     <h3>{peintre.nom_peintre}</h3>
                   </div>

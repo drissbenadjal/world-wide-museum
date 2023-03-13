@@ -1,7 +1,7 @@
-import '@/styles/globals.css'
-import NavBar from '../components/navbar/navbar'
-import Footer from '../components/footer'
-import { SwitchTransition, CSSTransition } from 'react-transition-group'
+import "@/styles/globals.css";
+import NavBar from "../components/navbar/navbar";
+import Footer from "../components/footer";
+import { SwitchTransition, CSSTransition } from "react-transition-group";
 
 export default function App({ Component, pageProps }) {
   return (
@@ -14,5 +14,5 @@ export default function App({ Component, pageProps }) {
       </SwitchTransition>
       <Footer />
     </>
-  )
+  );
 }
