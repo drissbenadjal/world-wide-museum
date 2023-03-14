@@ -5,7 +5,7 @@ export const Popup = ({ popupDate, message, onClick }) => {
         <h3>{message}</h3>
         <p>{popupDate}</p>
         <button className="btn" onClick={onClick}>
-          D'accord
+          D’accord
         </button>
       </div>
     </div>
