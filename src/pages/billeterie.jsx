@@ -18,6 +18,7 @@ export default function Home() {
   const [popup, setPopup] = useState(false);
   const [popupMessage, setPopupMessage] = useState();
   const [popupDate, setPopupDate] = useState();
+  const [sendLoad, setSendLoad] = useState(false);
 
   const handlePlus = () => {
     if (place >= 10) {
@@ -117,6 +118,7 @@ export default function Home() {
     const date_reservation =
       date_day.current.value + " " + date_hour.current.value;
 
+    setSendLoad(true);
     fetch("https://benadjal.butmmi.o2switch.site/api_resa_expo/reservations", {
       method: "POST",
       headers: {
@@ -155,6 +157,7 @@ export default function Home() {
         } else {
           setErrorMessage(data.message);
         }
+        setSendLoad(false);
       })
       .catch((err) => console.log(err));
   };
@@ -179,6 +182,7 @@ export default function Home() {
             onClick={() => closePopup()}
           />
         )}
+        {sendLoad && <Popup type="load" />}
         <h1 className="display2 billeterie__head">
           Plus qu’une étape avant de rejoindre l’expérience...
         </h1>
