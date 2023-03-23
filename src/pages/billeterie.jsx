@@ -186,6 +186,11 @@ export default function Home() {
           />
         )}
         {sendLoad && <Popup type="load" />}
+        <div className="ariane">
+          <Link href="/">Accueil</Link>
+          <span> / </span>
+          <Link href="/billeterie">Billeterie</Link>
+        </div>
         <h1 className="display2 billeterie__head">
           Plus qu’une étape avant de rejoindre l’expérience...
         </h1>

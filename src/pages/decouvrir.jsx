@@ -26,6 +26,11 @@ export default function Home() {
       </Head>
       <main>
         <BannerTop name="Une Journée Impressionnante" image={nuitEtoile} />
+        <div className="ariane">
+          <Link href="/">Accueil</Link>
+          <span> / </span>
+          <Link href="/collection">Collection</Link>
+        </div>
         <section className="discover_infos">
           <div className="discover_infos_left">
             <h2>Présentation du Projet</h2>

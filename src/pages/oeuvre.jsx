@@ -46,7 +46,7 @@ export default function Home() {
         <link rel="manifest" href="/site.webmanifest"/>
       </Head>
       <main className="oeuvrepage">
-        <div className="oeuvrepage_ariane">
+        <div className="ariane">
           <Link href="/">Accueil</Link>
           <span> / </span>
           <Link href="/collection">Collection</Link>

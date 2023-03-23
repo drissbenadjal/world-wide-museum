@@ -63,6 +63,11 @@ export default function Home() {
       </Head>
       <main>
         <BannerTop name="Découvrez notre collection" image={soleilLevant} />
+        <div className="ariane">
+          <Link href="/">Accueil</Link>
+          <span> / </span>
+          <Link href="/collection">Collection</Link>
+        </div>
         <section className="collection_artists">
           <h2>Le choix des artistes</h2>
           <div className="collection_artists_list">

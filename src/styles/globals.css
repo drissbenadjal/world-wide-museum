@@ -1399,16 +1399,17 @@ header button:hover .burgerIcon.active::after {
   margin-top: 145px;
 }
 
-.oeuvrepage_ariane {
+.ariane {
   display: flex;
   flex-direction: row;
   gap: 10px;
   max-width: var(--max-width);
   margin: auto;
   margin-bottom: 50px;
+  font-size: 1.2em;
 }
 
-.oeuvrepage_ariane a {
+.ariane a {
   text-decoration: none;
   color: var(--white);
 }
