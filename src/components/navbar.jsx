@@ -23,7 +23,7 @@ export default function NavBar() {
         <>
             <header>
                 <Link href="/">
-                    <Image src="/logo.png" alt="logo" width={100} height={100} />
+                    <Image src="/logo.png" alt="accueil" width={100} height={100} />
                 </Link>
                 <nav>
                     <ul>

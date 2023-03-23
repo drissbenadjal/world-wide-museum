@@ -27,7 +27,7 @@ export const Desktopnavbar = () => {
         <>
             <header>
                 <Link href="/">
-                    <Image src={logo} alt="logo" width={40} height={40} />
+                    <Image src={logo} alt="accueil" width={44} height={44} />
                 </Link>
                 <nav>
                     <ul>

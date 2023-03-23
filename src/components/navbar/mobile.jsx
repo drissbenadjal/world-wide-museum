@@ -24,7 +24,7 @@ export const Mobilenavbar = () => {
       <header className="burger" ref={burger}>
         <div className="top-header">
           <Link href="/">
-            <Image src={logo} alt="logo" width={40} height={40} />
+            <Image src={logo} alt="accueil" width={44} height={44} />
           </Link>
           <button onClick={handleBurger}>
             <div className="burgerIcon" ref={burgerIcon}></div>

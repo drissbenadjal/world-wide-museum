@@ -15,7 +15,7 @@ export default function Footer() {
                 <div className="footer_top">
                     <div className="footer_part1">
                         <Link href="/">
-                            <Image src={logo} alt="logo" width={100} height={100} />
+                            <Image src={logo} alt="accueil" width={100} height={100} />
                         </Link>
                     </div>
                     <div className="footer_part2">
@@ -37,18 +37,18 @@ export default function Footer() {
                         <div className="reseaux">
                             <ul>
                                 <li>
-                                    <Link href="/">
-                                        <Image src={twitterLogo} alt="logo" width={100} height={100} />
+                                    <Link href="https://twitter.com/worldwidemuseum?s=11&t=Yu-v5yMFavxVFCb-5VbH-w">
+                                        <Image src={twitterLogo} alt="Twitter" width={100} height={100} />
                                     </Link>
                                 </li>
                                 <li>
-                                    <Link href="/">
-                                        <Image src={instagramLogo} alt="logo" width={100} height={100} />
+                                    <Link href="https://instagram.com/worldwide.museum?igshid=YmMyMTA2M2Y=">
+                                        <Image src={instagramLogo} alt="Instagram" width={100} height={100} />
                                     </Link>
                                 </li>
                                 <li>
-                                    <Link href="/">
-                                        <Image src={tiktokLogo} alt="logo" width={100} height={100} />
+                                    <Link href="https://www.tiktok.com/@worldwidemuseum?is_from_webapp=1&sender_device=pc">
+                                        <Image src={tiktokLogo} alt="TikTok" width={100} height={100} />
                                     </Link>
                                 </li>
                             </ul>

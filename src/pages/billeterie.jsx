@@ -196,8 +196,8 @@ export default function Home() {
               width="250"
               height="250"
             />
-            <div>
-              <h3>Une Journée Impressionnante</h3>
+            <div className="billeterie__left_informations">
+              <h2>Une Journée Impressionnante</h2>
               <div className="expo__date">
                 <p>Du 10 mars au 10 avril 2023</p>
                 <p className="expo__date_grey">Retrouvez nous de 10h à 18h</p>
@@ -207,7 +207,7 @@ export default function Home() {
                   <Image
                     draggable="false"
                     src={minusBtn}
-                    alt=""
+                    alt="retirer une place"
                     width="33"
                     height="33"
                   />
@@ -219,7 +219,7 @@ export default function Home() {
                   <Image
                     draggable="false"
                     src={plusBtn}
-                    alt=""
+                    alt="ajouter une place"
                     width="33"
                     height="33"
                   />
@@ -239,6 +239,7 @@ export default function Home() {
                     name="prenom_reservation"
                     id="prenom_reservation"
                     placeholder="Saisissez votre prénom"
+                    aria-required="true"
                     ref={prenom_reservation}
                   />
                   <small></small>
@@ -252,6 +253,7 @@ export default function Home() {
                     name="nom_reservation"
                     id="nom_reservation"
                     placeholder="Saisissez votre nom"
+                    aria-required="true"
                     ref={nom_reservation}
                   />
                   <small></small>
@@ -265,6 +267,7 @@ export default function Home() {
                     name="email_reservation"
                     id="email_reservation"
                     placeholder="exemple@gmail.com"
+                    aria-required="true"
                     ref={email_reservation}
                   />
                   <small></small>
@@ -280,6 +283,7 @@ export default function Home() {
                     name="date_day"
                     id="date_day"
                     placeholder="Sélectionner une date"
+                    aria-required="true"
                     ref={date_day}
                     min={today > startDate ? todayFormated : startDateFormated}
                     max={endDateFormated}
@@ -309,6 +313,7 @@ export default function Home() {
                   ref={place_reservation}
                   name="place_reservation"
                   id="place_reservation"
+                  aria-required="true"
                   value={place}
                 />
                 {errorMessage ? <p className="error">{errorMessage}</p> : ""}

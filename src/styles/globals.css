@@ -1459,7 +1459,7 @@ header button:hover .burgerIcon.active::after {
 }
 
 .oeuvrepage_infos .oeuvrepage_infos_details_txt p {
-  line-height: 23px;
+  line-height: 25px;
 }
 
 @media screen and (max-width: 1370px) {
@@ -1576,6 +1576,13 @@ header button:hover .burgerIcon.active::after {
 .billeterie__left img {
   -o-object-fit: cover;
   object-fit: cover;
+}
+
+.billeterie__left_informations h2 {
+  font-family: var(--main-font), serif;
+  font-size: var(--h3);
+  margin: 0;
+  font-weight: 400;
 }
 
 .billeterie__left .place {
