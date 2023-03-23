@@ -1460,6 +1460,7 @@ header button:hover .burgerIcon.active::after {
 
 .oeuvrepage_infos .oeuvrepage_infos_details_txt p {
   line-height: 25px;
+  white-space: pre-wrap;
 }
 
 @media screen and (max-width: 1370px) {
