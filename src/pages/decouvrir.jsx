@@ -9,6 +9,8 @@ import BannerTop from '../components/banner_top'
 
 // import Images
 import nuitEtoile from '../images/tableaux/nuitEtoile.webp'
+import pontNeuf from "../images/tableaux/pontNeuf.webp";
+import coucherDeSoleilEragny from "../images/tableaux/coucherDeSoleilEragny.webp";
 import appVR from '../images/app.webp'
 
 
@@ -31,11 +33,10 @@ export default function Home() {
           <span> / </span>
           <Link href="/collection">Collection</Link>
         </div>
+
         <section className="discover_infos">
           <div className="discover_infos_left">
-            <h2>Présentation du Projet</h2>
-          </div>
-          <div className="discover_infos_right">
+            <h2>Présentation de notre Projet</h2>
             <p>
             Bienvenue chez World Wide Museum ! Nous sommes une agence web composée de 6 professionnels passionnés par la création d’expositions interactives. Avec une équipe équilibrée de 3 développeurs et 3 créatifs, nous sommes prêts à vous offrir une expérience inoubliable pour vos expositions sur un thème donné. <br /> <br />
             </p>
@@ -43,25 +44,14 @@ export default function Home() {
             Notre objectif est de fournir des solutions innovantes aux professionnels du monde des musées et des expositions qui souhaitent intégrer les nouvelles technologies à leur travail. Nous croyons que les expositions interactives sont la prochaine étape de l’industrie des musées, et nous sommes prêts à vous aider à en faire une réalité.
             </p>
             <p>
-              Une Journée Impressionnante est une de nos expositions et se déroule du 10 Mars au 10 Avril.<br /> 
-              Cette exposition est sur le thème de l’impressionnisme et propose à ses visiteurs une expérience unique et immersive tout au long d’une journée à travers les différents tableaux.
+            Une Journée Impressionnante est une de nos expositions et se déroule du 10 Mars au 10 Avril.<br /> 
+            Cette exposition est sur le thème de l’impressionnisme et propose à ses visiteurs une expérience unique et immersive tout au long d’une journée à travers les différents tableaux.
             </p>
+            <Link href="https://wordpress.nathaliedouang.fr/" className="link" target={'_blank'}>Découvrez notre agence →</Link>
           </div>
-        </section>
-
-        <section className="discover_univers">
-          <h2>Notre univers</h2>
-          <div className="discover_univers_contenu">
-            <div className="discover_univers_contenu_left">
-              <h3>La naissance de l’idée</h3>
-              <p>Lorem ipsum dolor sit amet. Est rerum vero qui sequi nobis sed fugiat ratione. Et quia repellat aut mollitia neque aut accusamus ullam sit voluptas.</p>
-              <p>Lorem ipsum dolor sit amet. Est rerum vero qui sequi nobis sed fugiat ratione. Et quia repellat aut mollitia neque aut accusamus ullam sit voluptas.</p>
-            </div>
-            <div className="discovers_univers_contenu_right">
-              <h3>Notre univers</h3>
-              <p>Lorem ipsum dolor sit amet. Est rerum vero qui sequi nobis sed fugiat ratione. Et quia repellat aut mollitia neque aut accusamus ullam sit voluptas.</p>
-              <p>Lorem ipsum dolor sit amet. Est rerum vero qui sequi nobis sed fugiat ratione. Et quia repellat aut mollitia neque aut accusamus ullam sit voluptas.</p>
-            </div>
+          <div className="discover_infos_right">
+            <Image draggable="false" src={pontNeuf} alt="" width="auto" height="auto" />
+            <Image draggable="false" src={coucherDeSoleilEragny} alt="" width="auto" height="auto" />
           </div>
         </section>
 
@@ -73,7 +63,7 @@ export default function Home() {
             <h2>Application</h2>
             <p>Lorem ipsum dolor sit amet. Est rerum vero qui sequi nobis sed fugiat ratione. Et quia repellat aut mollitia neque aut accusamus ullam sit voluptas.</p>
             <p>Lorem ipsum dolor sit amet. Est rerum vero qui sequi nobis sed fugiat ratione. t quia repellat aut mollitia neque aut accusamus ullam sit voluptas.</p>
-            <Button linkBtn="/">DECOUVRIR</Button>
+            <Button linkBtn="https://expo-interactive.vercel.app/">DECOUVRIR</Button>
           </div>
         </section>
       </main>

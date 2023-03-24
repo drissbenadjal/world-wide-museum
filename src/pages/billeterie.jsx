@@ -216,8 +216,8 @@ export default function Home() {
                     draggable="false"
                     src={minusBtn}
                     alt="retirer une place"
-                    width="33"
-                    height="33"
+                    width="44"
+                    height="44"
                   />
                 </button>
                 <div className="place">
@@ -228,111 +228,127 @@ export default function Home() {
                     draggable="false"
                     src={plusBtn}
                     alt="ajouter une place"
-                    width="33"
-                    height="33"
+                    width="44"
+                    height="44"
                   />
                 </button>
               </div>
             </div>
           </div>
-          <form onSubmit={(e) => handleSubmit(e)} ref={form}>
-            <div className="form_parts">
-              <div className="form_part1">
-                <div className="field">
-                  <label className="display3" htmlFor="prenom_reservation">
-                    Prénom <span>*</span>
-                  </label>
-                  <input
-                    type="text"
-                    name="prenom_reservation"
-                    id="prenom_reservation"
-                    placeholder="Saisissez votre prénom"
-                    aria-required="true"
-                    ref={prenom_reservation}
-                  />
-                  <small></small>
+          <div className="billeterie__right">
+            <form onSubmit={(e) => handleSubmit(e)} ref={form}>
+              <div className="form_parts">
+                <div className="form_part1">
+                  <div className="field">
+                    <label className="display3" htmlFor="prenom_reservation">
+                      Prénom <span>*</span>
+                    </label>
+                    <input
+                      type="text"
+                      name="prenom_reservation"
+                      id="prenom_reservation"
+                      placeholder="Saisissez votre prénom"
+                      aria-required="true"
+                      ref={prenom_reservation}
+                    />
+                    <small></small>
+                  </div>
+                  <div className="field">
+                    <label className="display3" htmlFor="nom_reservation">
+                      Nom <span>*</span>
+                    </label>
+                    <input
+                      type="text"
+                      name="nom_reservation"
+                      id="nom_reservation"
+                      placeholder="Saisissez votre nom"
+                      aria-required="true"
+                      ref={nom_reservation}
+                    />
+                    <small></small>
+                  </div>
+                  <div className="field">
+                    <label className="display3" htmlFor="email_reservation">
+                      Email <span>*</span>
+                    </label>
+                    <input
+                      type="email"
+                      name="email_reservation"
+                      id="email_reservation"
+                      placeholder="exemple@gmail.com"
+                      aria-required="true"
+                      ref={email_reservation}
+                    />
+                    <small></small>
+                  </div>
                 </div>
-                <div className="field">
-                  <label className="display3" htmlFor="nom_reservation">
-                    Nom <span>*</span>
-                  </label>
+                <div className="form_part2">
+                  <div className="field">
+                    <label className="display3" htmlFor="date_day">
+                      Date <span>*</span>
+                    </label>
+                    <input
+                      type="date"
+                      name="date_day"
+                      id="date_day"
+                      placeholder="Sélectionner une date"
+                      aria-required="true"
+                      ref={date_day}
+                      min={today > startDate ? todayFormated : startDateFormated}
+                      max={endDateFormated}
+                    />
+                    <small></small>
+                  </div>
+                  <div className="field">
+                    <label className="display3" htmlFor="date_hour">
+                      Horaire <span>*</span>
+                    </label>
+                    {/* <input type="date" name="date" id="date" placeholder="Sélectionner une date" /> */}
+                    <select name="date_hour" id="date_hour" ref={date_hour}>
+                      <option value="">Sélectionner un créneau</option>
+                      <option value="10:00:00">10:00 - 11:00</option>
+                      <option value="11:00:00">11:00 - 12:00</option>
+                      <option value="12:00:00">12:00 - 13:00</option>
+                      <option value="13:00:00">13:00 - 14:00</option>
+                      <option value="14:00:00">14:00 - 15:00</option>
+                      <option value="15:00:00">15:00 - 16:00</option>
+                      <option value="16:00:00">16:00 - 17:00</option>
+                      <option value="17:00:00">17:00 - 18:00</option>
+                    </select>
+                    <small></small>
+                  </div>
                   <input
-                    type="text"
-                    name="nom_reservation"
-                    id="nom_reservation"
-                    placeholder="Saisissez votre nom"
+                    type="hidden"
+                    ref={place_reservation}
+                    name="place_reservation"
+                    id="place_reservation"
                     aria-required="true"
-                    ref={nom_reservation}
+                    value={place}
                   />
-                  <small></small>
-                </div>
-                <div className="field">
-                  <label className="display3" htmlFor="email_reservation">
-                    Email <span>*</span>
-                  </label>
-                  <input
-                    type="email"
-                    name="email_reservation"
-                    id="email_reservation"
-                    placeholder="exemple@gmail.com"
-                    aria-required="true"
-                    ref={email_reservation}
-                  />
-                  <small></small>
+                  {errorMessage ? <p className="error">{errorMessage}</p> : ""}
                 </div>
               </div>
-              <div className="form_part2">
-                <div className="field">
-                  <label className="display3" htmlFor="date_day">
-                    Date <span>*</span>
-                  </label>
-                  <input
-                    type="date"
-                    name="date_day"
-                    id="date_day"
-                    placeholder="Sélectionner une date"
-                    aria-required="true"
-                    ref={date_day}
-                    min={today > startDate ? todayFormated : startDateFormated}
-                    max={endDateFormated}
-                  />
-                  <small></small>
+              <div className="price">
+                <div className="price_places">
+                    <h3>Place(s)</h3>
+                    <h3>0,00€</h3>
                 </div>
-                <div className="field">
-                  <label className="display3" htmlFor="date_hour">
-                    Horaire <span>*</span>
-                  </label>
-                  {/* <input type="date" name="date" id="date" placeholder="Sélectionner une date" /> */}
-                  <select name="date_hour" id="date_hour" ref={date_hour}>
-                    <option value="">Sélectionner un créneau</option>
-                    <option value="10:00:00">10:00 - 11:00</option>
-                    <option value="11:00:00">11:00 - 12:00</option>
-                    <option value="12:00:00">12:00 - 13:00</option>
-                    <option value="13:00:00">13:00 - 14:00</option>
-                    <option value="14:00:00">14:00 - 15:00</option>
-                    <option value="15:00:00">15:00 - 16:00</option>
-                    <option value="16:00:00">16:00 - 17:00</option>
-                    <option value="17:00:00">17:00 - 18:00</option>
-                  </select>
-                  <small></small>
+                <div className="price_taxes">
+                    <h3>Taxes</h3>
+                    <h3>--</h3>
                 </div>
-                <input
-                  type="hidden"
-                  ref={place_reservation}
-                  name="place_reservation"
-                  id="place_reservation"
-                  aria-required="true"
-                  value={place}
-                />
-                {errorMessage ? <p className="error">{errorMessage}</p> : ""}
-              </div>
-            </div>
-            <input
-              type="submit"
-              value="Confirmer la réservation"
-              className="btn"
-            />
-          </form>
+                <div className="price_total">
+                    <h3>Total</h3>
+                    <h3>0,00€</h3>
+                </div>
+              </div> 
+              <input
+                type="submit"
+                value="Confirmer la réservation"
+                className="btn"
+              />
+            </form>
+          </div>
         </div>
       </main>
     </>

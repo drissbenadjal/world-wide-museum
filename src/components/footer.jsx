@@ -28,7 +28,7 @@ export default function Footer() {
                                 <Link href="/billeterie" className="link">Billeterie</Link>
                             </li>
                             <li>
-                                <Link href="https://wordpress.nathaliedouang.fr/index.php/contact/" className="link" target={'_blank'}>Contactez-nous</Link>
+                                <Link href="https://wordpress.nathaliedouang.fr/" className="link" target={'_blank'}>Contactez-nous</Link>
                             </li>
                         </ul>
                     </div>
