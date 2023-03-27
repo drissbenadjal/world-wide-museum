@@ -87,7 +87,7 @@ export default function Home() {
                 />
               </div>
               <div className="oeuvrepage_infos_details_txt">
-                <p>{oeuvre.description_tableau.replaceAll('.', '\n')}</p>
+                <p>{oeuvre.description_tableau.replaceAll('.', '. \n')}</p>
               </div>
             </div>
           </section>
