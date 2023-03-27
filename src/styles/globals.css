@@ -1170,6 +1170,16 @@ header button:hover .burgerIcon.active::after {
   }
 }
 
+@media screen and (max-width: 670px) {
+  .discover_infos .discover_infos_right {
+    display: none;
+  }
+
+  .discover_infos .discover_infos_left p {
+    width: 80%;
+  }
+}
+
 @media screen and (max-width: 600px) {
   .banner__top h1 {
     width: 97vw;
@@ -1205,6 +1215,10 @@ header button:hover .burgerIcon.active::after {
 @media screen and (max-width: 500px) {
   .discover_app {
     padding: 30px;
+  }
+
+  .discover_infos .discover_infos_left p {
+    width: 100%;
   }
 }
 
