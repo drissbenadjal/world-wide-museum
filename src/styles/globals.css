@@ -1048,7 +1048,8 @@ header button:hover .burgerIcon.active::after {
 }
 
 @media screen and (max-width: 1400px) {
-  .discover_app, .discover_infos {
+  .discover_app,
+  .discover_infos {
     margin: var(--responsive-margin);
   }
 }
@@ -1062,7 +1063,8 @@ header button:hover .burgerIcon.active::after {
     width: 55%;
   }
 
-  .discover_infos .discover_infos_left p, .discover_infos_left a {
+  .discover_infos .discover_infos_left p,
+  .discover_infos_left a {
     margin-left: 0;
   }
 }
@@ -1551,8 +1553,11 @@ header button:hover .burgerIcon.active::after {
 }
 
 .oeuvrepage_infos .oeuvrepage_infos_details_txt p {
-  line-height: 25px;
-  white-space: pre-wrap;
+  margin-top: 24px;
+}
+
+.oeuvrepage_infos .oeuvrepage_infos_details_txt p:first-child {
+  margin-top: 0;
 }
 
 @media screen and (max-width: 1370px) {
@@ -1697,12 +1702,15 @@ header button:hover .burgerIcon.active::after {
   margin: 15px 0;
 }
 
-.price_places, .price_taxes, .price_total {
+.price_places,
+.price_taxes,
+.price_total {
   display: flex;
   justify-content: space-between;
 }
 
-.price_places h3:nth-child(1), .price_taxes h3:nth-child(1) {
+.price_places h3:nth-child(1),
+.price_taxes h3:nth-child(1) {
   color: var(--grey);
 }
 
@@ -2071,10 +2079,10 @@ footer .footer_top .footer_part3 .reseaux ul {
   padding: 0;
   gap: 15px;
   list-style: none;
+  align-items: center;
 }
 
 .reseaux img {
-  height: 50px;
   width: auto;
 }
 

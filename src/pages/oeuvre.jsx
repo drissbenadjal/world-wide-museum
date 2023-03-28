@@ -101,7 +101,14 @@ export default function Home() {
                 />
               </div>
               <div className="oeuvrepage_infos_details_txt">
-                <p>{oeuvre.description_tableau.replaceAll(".", ". \n")}</p>
+                {oeuvre.description_tableau.split(".").map((item, index) => {
+                  if (
+                    index ===
+                    oeuvre.description_tableau.split(".").length - 1
+                  )
+                    return <p key={index}>{item}</p>;
+                  else return <p key={index}>{item}.</p>;
+                })}
               </div>
             </div>
           </section>

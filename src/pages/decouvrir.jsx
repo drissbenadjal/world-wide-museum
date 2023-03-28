@@ -24,20 +24,20 @@ export default function Home() {
           rel="icon"
           type="image/png"
           sizes="16x16"
-          href="../images/favicon/favicon.ico"
+          href="./images/favicon/favicon.ico"
         />
         <link
           rel="apple-touch-icon"
           sizes="180x180"
-          href="../images/favicon/apple-touch-icon.png"
+          href="./images/favicon/apple-touch-icon.png"
         />
         <link
           rel="icon"
           type="image/png"
           sizes="32x32"
-          href="../images/favicon/favicon-32x32.png"
+          href="./images/favicon/favicon-32x32.png"
         />
-        <link rel="manifest" href="/site.webmanifest" />
+        <link rel="manifest" href="./images/favicon/site.webmanifest" />
       </Head>
       <main>
         <BannerTop name="Une Journée Impressionnante" image={nuitEtoile} />
@@ -122,7 +122,10 @@ export default function Home() {
               fugiat ratione. t quia repellat aut mollitia neque aut accusamus
               ullam sit voluptas.
             </p>
-            <Button linkBtn="https://expo-interactive.vercel.app/">
+            <Button
+              linkBtn="https://expo-interactive.vercel.app/"
+              target="_blank"
+            >
               DECOUVRIR
             </Button>
           </div>

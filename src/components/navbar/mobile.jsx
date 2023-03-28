@@ -56,6 +56,16 @@ export const Mobilenavbar = () => {
               </Link>
             </li>
             <li>
+              <Link
+                href="https://expo-interactive.vercel.app/"
+                className={"link"}
+                onClick={handleBurger}
+                target="_blank"
+              >
+                Expo Interactive
+              </Link>
+            </li>
+            <li>
               <Button linkBtn="/billeterie" onClick={handleBurger}>
                 Billeterie
               </Button>

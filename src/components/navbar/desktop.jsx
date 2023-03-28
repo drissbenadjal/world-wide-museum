@@ -54,6 +54,7 @@ export const Desktopnavbar = () => {
               <Link
                 href="https://expo-interactive.vercel.app/"
                 className={"link"}
+                target="_blank"
               >
                 Expo Interactive
               </Link>
