@@ -44,7 +44,7 @@ export default function Home() {
         <div className="ariane">
           <Link href="/">Accueil</Link>
           <span> / </span>
-          <Link href="/decouvrir">Découvrir</Link>
+          <Link href="/decouvrez">Découvrez</Link>
         </div>
 
         <section className="discover_infos">
@@ -56,7 +56,7 @@ export default function Home() {
               d’expositions interactives. Avec une équipe équilibrée de 3
               développeurs et 3 créatifs, nous sommes prêts à vous offrir une
               expérience inoubliable pour vos expositions sur un thème donné.{" "}
-              <br /> <br />
+              <br />
             </p>
             <p>
               Notre objectif est de fournir des solutions innovantes aux
@@ -68,14 +68,14 @@ export default function Home() {
             </p>
             <p>
               Une Journée Impressionnante est une de nos expositions et se
-              déroule du 10 Mars au 10 Avril.
+              déroule du 31 Mars au 30 Avril.
               <br />
               Cette exposition est sur le thème de l’impressionnisme et propose
               à ses visiteurs une expérience unique et immersive tout au long
               d’une journée à travers les différents tableaux.
             </p>
             <Link
-              href="https://wordpress.nathaliedouang.fr/"
+              href="https://worldwidemuseum.fr"
               className="link"
               target={"_blank"}
             >
@@ -113,14 +113,10 @@ export default function Home() {
           <div className="discover_app_right">
             <h2>Application</h2>
             <p>
-              Lorem ipsum dolor sit amet. Est rerum vero qui sequi nobis sed
-              fugiat ratione. Et quia repellat aut mollitia neque aut accusamus
-              ullam sit voluptas.
+              Nous proposons à nos visiteurs de pénétrer notre exposition à travers un casque de réalité virtuel ou à via leurs ordinateurs.
             </p>
             <p>
-              Lorem ipsum dolor sit amet. Est rerum vero qui sequi nobis sed
-              fugiat ratione. t quia repellat aut mollitia neque aut accusamus
-              ullam sit voluptas.
+              Découvrez Une Journée Impressionnante de chez vous, et profitez d’une expérience inédite sans vous déplacer.
             </p>
             <Button
               linkBtn="https://expo-interactive.vercel.app/"

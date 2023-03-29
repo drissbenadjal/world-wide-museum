@@ -192,7 +192,7 @@ export default function Home() {
             <div className="home_points_element_circle circle_one"></div>
             <h3>Une exposition éphémère</h3>
             <p>
-              Seulement disponible du 10 Mars au 10 Avril, réservez vos billets
+              Seulement disponible du 31 Mars au 30 Avril, réservez vos billets
               rapidement et rendez-vous le temps d’un mois au coeur d’une
               expérience inoubliable.
             </p>
@@ -201,16 +201,14 @@ export default function Home() {
             <div className="home_points_element_circle circle_two"></div>
             <h3>Au coeur de Champs-sur-marne</h3>
             <p>
-              Sit quaerat sunt sit quod fugit eos neque accusamus At voluptatem
-              dolorum a alias optio eum distinctio sint eum unde veritatis.{" "}
+              Retrouver notre exposition Une Journée Impressionnante en exclusivité au 2 rue Albert Einstein dans la ville de Champs-sur-Marne.{" "}
             </p>
           </div>
           <div className="home_points_element">
             <div className="home_points_element_circle circle_three"></div>
-            <h3>Troisième information</h3>
+            <h3>Une expérience tout public</h3>
             <p>
-              Sit quaerat sunt sit quod fugit eos neque accusamus At voluptatem
-              dolorum a alias optio eum distinctio sint eum unde veritatis.{" "}
+              Notre exposition est accessible à tous, les plus grands comme les petits sont les bienvenus.{" "}
             </p>
           </div>
         </section>

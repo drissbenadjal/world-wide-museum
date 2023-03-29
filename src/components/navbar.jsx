@@ -28,7 +28,7 @@ export default function NavBar() {
                 <nav>
                     <ul>
                         <li>
-                            <Link href="/decouvrir" className={router.pathname == "/decouvrir" ? "nav-active link" : "link"}>Découvrir</Link>
+                            <Link href="/decouvrez" className={router.pathname == "/decouvrez" ? "nav-active link" : "link"}>Découvrez</Link>
                         </li>
                         <li>
                             <Link href="/collection" className={router.pathname == "/collection" ? "nav-active link" : "link"}>Collection</Link>

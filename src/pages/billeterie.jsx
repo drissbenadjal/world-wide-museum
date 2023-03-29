@@ -210,43 +210,52 @@ export default function Home() {
         </h1>
         <div className="billeterie__content">
           <div className="billeterie__left">
-            <Image
-              draggable="false"
-              src={nuitEtoile}
-              className="billeterie_img"
-              alt=""
-              width="250"
-              height="250"
-            />
-            <div className="billeterie__left_informations">
-              <h2>Une Journée Impressionnante</h2>
-              <div className="expo__date">
-                <p>Du 10 mars au 10 avril 2023</p>
-                <p className="expo__date_grey">Retrouvez nous de 10h à 18h</p>
-              </div>
-              <div className="placeSelector">
-                <button onClick={() => handleMinus()} id="minusBtn">
-                  <Image
-                    draggable="false"
-                    src={minusBtn}
-                    alt="retirer une place"
-                    width="44"
-                    height="44"
-                  />
-                </button>
-                <div className="place">
-                  <span>{textPlace}</span>
+            <div className="billeterie__left-first">
+              <Image
+                draggable="false"
+                src={nuitEtoile}
+                className="billeterie_img"
+                alt=""
+                width="250"
+                height="250"
+              />
+              <div className="billeterie__left_informations">
+                <h2>Une Journée Impressionnante</h2>
+                <div className="expo__date">
+                  <p>Du 31 mars au 30 avril 2023</p>
+                  <p className="expo__date_grey">Retrouvez nous de 10h à 18h</p>
                 </div>
-                <button onClick={() => handlePlus()} id="plusBtn">
-                  <Image
-                    draggable="false"
-                    src={plusBtn}
-                    alt="ajouter une place"
-                    width="44"
-                    height="44"
-                  />
-                </button>
+                <div className="placeSelector">
+                  <button onClick={() => handleMinus()} id="minusBtn">
+                    <Image
+                      draggable="false"
+                      src={minusBtn}
+                      alt="retirer une place"
+                      width="44"
+                      height="44"
+                    />
+                  </button>
+                  <div className="place">
+                    <span>{textPlace}</span>
+                  </div>
+                  <button onClick={() => handlePlus()} id="plusBtn">
+                    <Image
+                      draggable="false"
+                      src={plusBtn}
+                      alt="ajouter une place"
+                      width="44"
+                      height="44"
+                    />
+                  </button>
               </div>
+            </div>
+            </div>
+            <div className="billeterie__left-second">
+              <ul>
+                <li>Adresse : 2 Rue Albert Einstein, 77420 Champs-sur-Marne</li>
+                <li>Possibilité de réserver jusqu’à 10 places</li>
+                <li>Temps de visite estimé : 30 minutes</li>
+              </ul>
             </div>
           </div>
           <div className="billeterie__right">

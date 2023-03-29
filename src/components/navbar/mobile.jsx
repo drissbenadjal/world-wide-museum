@@ -35,13 +35,13 @@ export const Mobilenavbar = () => {
           <ul>
             <li>
               <Link
-                href="/decouvrir"
+                href="/decouvrez"
                 onClick={handleBurger}
                 className={
-                  router.pathname == "/decouvrir" ? "nav-active link" : "link"
+                  router.pathname == "/decouvrez" ? "nav-active link" : "link"
                 }
               >
-                Découvrir
+                Découvrez
               </Link>
             </li>
             <li>

@@ -22,6 +22,11 @@ export default function Footer() {
             <h3>L’EXPOSITION</h3>
             <ul>
               <li>
+                <Link href="/decouvrez" className="link">
+                  Découvrez
+                </Link>
+              </li>
+              <li>
                 <Link href="/collection" className="link">
                   Collection
                 </Link>
@@ -42,7 +47,7 @@ export default function Footer() {
               </li>
               <li>
                 <Link
-                  href="https://wordpress.nathaliedouang.fr/"
+                  href="https://worldwidemuseum.fr/"
                   className="link"
                   target={"_blank"}
                 >

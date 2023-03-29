@@ -32,12 +32,12 @@ export const Desktopnavbar = () => {
           <ul>
             <li>
               <Link
-                href="/decouvrir"
+                href="/decouvrez"
                 className={
-                  router.pathname == "/decouvrir" ? "nav-active link" : "link"
+                  router.pathname == "/decouvrez" ? "nav-active link" : "link"
                 }
               >
-                Découvrir
+                Découvrez
               </Link>
             </li>
             <li>
