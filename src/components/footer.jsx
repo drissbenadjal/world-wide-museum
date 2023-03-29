@@ -38,9 +38,10 @@ export default function Footer() {
               </li>
               <li>
                 <Link
-                  href="https://expo-interactive.vercel.app/"
+                  href="https://expo.dayofimpressions.fr/"
                   className={"link"}
                   target="_blank"
+                  rel="noreferrer noopener"
                 >
                   Expo Interactive
                 </Link>
@@ -50,6 +51,7 @@ export default function Footer() {
                   href="https://worldwidemuseum.fr/"
                   className="link"
                   target={"_blank"}
+                  rel="noreferrer noopener"
                 >
                   Contactez-nous
                 </Link>

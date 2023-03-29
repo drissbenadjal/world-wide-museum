@@ -57,10 +57,11 @@ export const Mobilenavbar = () => {
             </li>
             <li>
               <Link
-                href="https://expo-interactive.vercel.app/"
+                href="https://expo.dayofimpressions.fr/"
                 className={"link"}
                 onClick={handleBurger}
                 target="_blank"
+                rel="noreferrer noopener"
               >
                 Expo Interactive
               </Link>
