@@ -368,11 +368,13 @@ export default function Home() {
                   <h3>0,00€</h3>
                 </div>
               </div>
-              <input
-                type="submit"
-                value="Confirmer la réservation"
-                className="btn"
-              />
+              <div className="submit_reserv">
+                <input
+                  type="submit"
+                  value="Confirmer la réservation"
+                  className="btn"
+                />
+              </div>
             </form>
           </div>
         </div>

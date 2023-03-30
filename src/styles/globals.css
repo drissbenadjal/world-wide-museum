@@ -1960,6 +1960,23 @@ select:focus {
   .billeterie {
     padding: 0 20px;
   }
+
+  .billeterie__left-first {
+    flex-direction: column;
+  }
+
+  .submit_reserv {
+    background-color: var(--background);
+    position: sticky;
+    z-index: 10;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 20px;
+  }
 }
 
 @media screen and (max-width: 640px) {
@@ -1969,10 +1986,6 @@ select:focus {
 
   .form_part2 .field {
     margin-bottom: 0;
-  }
-
-  form input[type="submit"i] {
-    margin-top: 5vh;
   }
 }
 
