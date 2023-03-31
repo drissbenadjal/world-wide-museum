@@ -92,10 +92,10 @@ export default function Home() {
   const today = new Date();
   const todayFormated = today.toISOString().split("T")[0];
 
-  const startDate = new Date(2023, 2, 11);
+  const startDate = new Date(2023, 2, 31);
   const startDateFormated = startDate.toISOString().split("T")[0];
 
-  const endDate = new Date(2023, 3, 11);
+  const endDate = new Date(2023, 3, 31);
   const endDateFormated = endDate.toISOString().split("T")[0];
 
   const [errorMessage, setErrorMessage] = useState(false);
@@ -170,8 +170,14 @@ export default function Home() {
     <>
       <Head>
         <title>Billeterie • Une Journée Impressionnante</title>
-        <meta name="description" content="Réservez vite vos places pour l'exposition Une Journée Impressionnante, l'occasion de découvrir en famille, seul ou entre amis l'art impressionniste de manière originale et inédite à l'aide d'un casque VR ! Nous vous promettons des souvenirs inoubliables et mémorables. A bientôt chez Une Journée Impressionnante !" />
-        <meta name="keywords" content="impressionnisme, impressionniste, expositions, expositions interractives, musées, musée, réalité virtuelle, casque VR, casque de réalité virtuelle, 3D, exposition 3D, exposition immersive, billeterie, places, réservation, réservation exposition, réservation musée, exposition gratuite" />
+        <meta
+          name="description"
+          content="Réservez vite vos places pour l'exposition Une Journée Impressionnante, l'occasion de découvrir en famille, seul ou entre amis l'art impressionniste de manière originale et inédite à l'aide d'un casque VR ! Nous vous promettons des souvenirs inoubliables et mémorables. A bientôt chez Une Journée Impressionnante !"
+        />
+        <meta
+          name="keywords"
+          content="impressionnisme, impressionniste, expositions, expositions interractives, musées, musée, réalité virtuelle, casque VR, casque de réalité virtuelle, 3D, exposition 3D, exposition immersive, billeterie, places, réservation, réservation exposition, réservation musée, exposition gratuite"
+        />
         <meta name="viewport" content="width=device-width, initial-scale=1" />
         <link
           rel="icon"
@@ -248,8 +254,8 @@ export default function Home() {
                       height="44"
                     />
                   </button>
+                </div>
               </div>
-            </div>
             </div>
             <div className="billeterie__left-second">
               <ul>
